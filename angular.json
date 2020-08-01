@@ -122,8 +122,8 @@
     }
   },
   "defaultProject": "DoMusicNG",
+  
   "cli": {
-
     "analytics": "1aff8630-8c4e-480d-af8c-0198f448b6ca"
   }
 }
