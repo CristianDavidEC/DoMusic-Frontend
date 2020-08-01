@@ -1,1 +1,86 @@
-<p>crear-perfil works!</p>
+<div class="signup-form">
+    <form action="/examples/actions/confirmation.php" method="post">
+		<h2 class="text-center">Regístrate en <i class="fas fa-compact-disc"></i>DoMusic</h2>
+		<p class="text-center">Por favor llene el formulario para crear su cuenta</p>
+		<hr>
+        <div class="form-group">
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">
+						<span class="fa fa-user"></span>
+					</span>                    
+				</div>
+				<input type="text" class="form-control" name="username" placeholder=" Su Nombre" required="required">
+			</div>
+        </div>
+        <div class="form-group">
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">
+						<i class="fas fa-envelope"></i>
+					</span>                    
+				</div>
+				<input type="email" class="form-control" name="email" placeholder="Correo Electrónico" required="required">
+			</div>
+        </div>
+
+        <div class="form-group">
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">
+						<i class="fas fa-envelope"></i>
+					</span>                    
+				</div>
+				<input type="email" class="form-control" name="email" placeholder="Correo Electrónico" required="required">
+			</div>
+        </div>
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+            </div>
+            <select class="custom-select" style="max-width: 120px;">
+                <option selected="">+57</option>
+                <option value="1">+972</option>
+                <option value="2">+198</option>
+                <option value="3">+701</option>
+            </select>
+            <input name="" class="form-control" placeholder="Número de Teléfono" type="text">
+        </div> <!-- form-group// -->
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fas fa-users"></i> </span>
+            </div>
+            <select class="form-control">
+                <option selected="">Tipo de Perfil</option>
+                <option>Aficionado</option>
+                <option>Músico Profesional</option>
+                <option>Banda</option>
+            </select>
+        </div>
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+            </div>
+            <select class="form-control">
+                <option selected="">Pais</option>
+                <option>Colombia</option>
+                <option>Estados Unidos</option>
+                <option>China</option>
+                <option>Rusia</option>
+                <option>Mexico</option>
+                <option>Perú</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+			<label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+		</div>
+		<div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg">Registrarse</button>
+        </div>
+    </form>
+	<div class="text-center">¿Ya tienes una cuenta?<a routerLink="/seguridad/login" class="text-primary">Ingresa Aquí</a></div>
+</div>

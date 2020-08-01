@@ -1,1 +1,41 @@
-<p>login works!</p>
+<div class="container login-container">
+    <div class="row">
+      <div class="col-md-6 ">
+        <img src="https://openai.com/content/images/2020/04/2x-no-mark-1.jpg" class="img-fluid rounded tamaño" alt="Eniun">
+      </div>
+      <div class="col-md-6 login-form">
+        <div class="profile-img">
+          <h2><i class="fas fa-compact-disc"></i>DoMusic</h2>
+        </div>
+        <h3>Inicia Sesión</h3>
+        <form>
+          <div class="form-group">
+            <!-- <p><i class="fas fa-user-alt d-inline"></i></p> -->
+            <input type="text" class="form-control" name="Nombre De Usuario" placeholder="Nombre De Usuario">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" name="Contraseña" placeholder="Contraseña">
+          </div>
+          <div class="form-group">
+            <button type="button" class="btn btn-primary btn-lg btn-block">Ingresar</button>
+          </div>
+
+          <ul class="dropdown align-bottom">
+            <a class="dropdown-toggle align-bottom" href="#" id="Dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Perfil De Usuario
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Aficionado</a>
+              <a class="dropdown-item" href="#">Músico Porfesinal</a>
+              <a class="dropdown-item" href="#">Banda</a>
+              <a class="dropdown-item" href="#">Administrador</a>
+            </div>
+          </ul>
+
+          <div class="form-group forget-password align-bottom">
+              <a routerLink="/seguridad/restaurarContrasena">¿Olvidó Su contraseña?</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
