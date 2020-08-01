@@ -13,10 +13,7 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo: '/home'
   },
-  {
-    path: '**',
-    redirectTo: '/home'
-  },
+  
   {
     path: 'seguridad',
     loadChildren: () => import ('./modulos/seguridad/seguridad.module').then(m => m.SeguridadModule)
@@ -24,7 +21,11 @@ const routes: Routes = [
   {
     path: 'perfiles',
     loadChildren: () => import ('./modulos/perfiles/perfiles.module').then(m => m.PerfilesModule)
-  }
+  },
+  {
+    path: '**',
+    redirectTo: '/home'
+  },
 ];
 
 @NgModule({
