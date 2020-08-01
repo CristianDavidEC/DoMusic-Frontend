@@ -7,12 +7,16 @@ import { ModificarPerfilComponent } from './modificar-perfil/modificar-perfil.co
 import { EliminarPerfilComponent } from './eliminar-perfil/eliminar-perfil.component';
 import { MostrarPerfilComponent } from './mostrar-perfil/mostrar-perfil.component';
 
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 @NgModule({
   declarations: [CrearPerfilComponent, ModificarPerfilComponent, EliminarPerfilComponent, MostrarPerfilComponent],
   imports: [
     CommonModule,
-    PerfilesRoutingModule
+    PerfilesRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PerfilesModule { }
