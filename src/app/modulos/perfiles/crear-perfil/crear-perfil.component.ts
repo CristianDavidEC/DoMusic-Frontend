@@ -25,14 +25,20 @@ export class CrearPerfilComponent implements OnInit {
       nombre: ['', [Validators.required, Validators.minLength(2)]],
       correo: ['', [Validators.required, Validators.email]],
       fecha: ['', [Validators.required]],
-      codigoPais: [],
-      telefono: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(14)]],
+      codigoPais: ['', Validators.required, Validators.minLength(2), Validators.maxLength(4)],
+      telefono: ['', [Validators.required, Validators.minLength(8)]],
       tipoPerfil: [],
       pais: []
     });
   }
 
-  crearperfil(){
-    
+  crearPerfil(){
+    console.log(this.fgValidator)
+
+    if(this.fgValidator.invalid){
+      alert('Formulario inválido');
+    }else{
+      alert('Has sido Registrado');
+    }
   }
 }
