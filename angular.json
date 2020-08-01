@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "DoMusicNG"
+    }
+  },
+  "defaultProject": "DoMusicNG",
+  "cli": {
+    "analytics": "4d049429-4c16-40ab-b30e-b5f51dfc5d5e"
+  }
 }
