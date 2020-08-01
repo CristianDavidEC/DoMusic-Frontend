@@ -1,7 +1,29 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {LoginComponent} from './login/login.component';
+import {LogoutComponent} from './logout/logout.component';
+import {RestaurarContrasenaComponent} from './restaurar-contrasena/restaurar-contrasena.component';
+import {CambiarContrasenaComponent} from './cambiar-contrasena/cambiar-contrasena.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent
+  },
+  {
+    path: 'restaurarContrasena',
+    component: RestaurarContrasenaComponent
+  },
+  {
+    path: 'cambiarContrasena',
+    component: CambiarContrasenaComponent
+  }
+
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
