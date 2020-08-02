@@ -2,10 +2,15 @@ export class PerfilModel {
     
     idMusicoProfesional?: String;
     nombre: String;
+    apellido: String;
+    tipo: String;
+    generoMusica: String;
+    celular: String;
     correo: String;
-    fecha: Date;
-    codigoPais: String;
-    telefono: String;
-    tipoPerfil: String;
-    pais: String;
+    fechaNacimiento: String;
+    ciudad: String;
+    genero: string;
+    fotoPerfil?: String;
+    seguidores?: String [];
+    seguidos?: String [];
 }

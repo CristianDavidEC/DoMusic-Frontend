@@ -8,7 +8,7 @@
         <div class="col-md-8">
             <form [formGroup]="fgValidator" action="/examples/actions/confirmation.php" method="post">
                 <h2 class="text-center">Regístrate en <i class="fas fa-compact-disc"></i> <strong>DoMusic</strong> </h2>
-                <p class="text-center">Por favor llene el formulario para crear su cuenta</p>
+                <p class="text-center">Por favor llena el formulario para crear tu cuenta</p>
                 <hr>
                 <div class="form-group">
                     <div class="input-group">
@@ -18,9 +18,61 @@
                             </span>
                         </div>
                         <input formControlName="nombre" type="text" class="form-control" name="nombre"
-                            placeholder="Su Nombre" required="required">
+                            placeholder="Nombre" required="required">
                     </div>
                 </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <span class="fa fa-user"></span>
+                            </span>
+                        </div>
+                        <input formControlName="apellido" type="text" class="form-control" name="apellido"
+                            placeholder="Apellido" required="required">
+                    </div>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-globe-americas"></i></span>
+                    </div>
+                    <select formControlName="tipo" class="form-control">
+                        <option selected="true" disabled="disabled">Tipo de músico</option>
+                        <option>Guitarriste</option>
+                        <option>Baterista</option>
+                        <option>Cantante</option>
+                        <option>Saxofonista</option>
+                        <option>Bajista</option>
+                        <option>Trompetista</option>
+                    </select>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-globe-americas"></i></span>
+                    </div>
+                    <select formControlName="generoMusica" class="form-control">
+                        <option selected>Género musical</option>
+                        <option>Salsa</option>
+                        <option>Vallenato</option>
+                        <option>Electrónica</option>
+                        <option>Pop</option>
+                        <option>Clásica</option>
+                        <option>Rock</option>
+                    </select>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                    </div>
+                    <select formControlName="codigoPais" class="custom-select" style="max-width: 120px;">
+                        <option selected="">+57</option>
+                        <option value="1">+34</option>
+                        <option value="2">+54</option>
+                        <option value="3">+41</option>
+                    </select>
+                    <input formControlName="celular" name="" class="form-control" placeholder="Número de Teléfono"
+                        type="text">
+                </div> 
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -32,7 +84,6 @@
                             placeholder="Correo Electrónico" required="required">
                     </div>
                 </div>
-
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -40,31 +91,16 @@
                                 <i class="fas fa-calendar-day"></i>
                             </span>
                         </div>
-                        <input formControlName="fecha" type="date" class="form-control" name="fecha" placeholder="Fecha"
+                        <input formControlName="fechaNacimiento" type="date" class="form-control" name="fecha" placeholder="Fecha"
                             required="required">
                     </div>
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-                    </div>
-                    <select formControlName="codigoPais" class="custom-select" style="max-width: 120px;">
-                        <option selected="">+57</option>
-                        <option value="1">+972</option>
-                        <option value="2">+198</option>
-                        <option value="3">+701</option>
-                    </select>
-                    <input formControlName="telefono" name="" class="form-control" placeholder="Número de Teléfono"
-                        type="text">
-                </div> <!-- form-group// -->
-
+                </div>           
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-globe-americas"></i></span>
                     </div>
-                    <select formControlName="pais" class="form-control">
-                        <option selected>Pais</option>
+                    <select formControlName="ciudad" class="form-control">
+                        <option selected>País</option>
                         <option>Colombia</option>
                         <option>Estados Unidos</option>
                         <option>China</option>
@@ -73,168 +109,16 @@
                         <option>Perú</option>
                     </select>
                 </div>
-
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-globe-americas"></i></span>
                     </div>
-                    <select formControlName="pais" class="form-control " aria-placeholder="Genero">
+                    <select formControlName="genero" class="form-control " aria-placeholder="Género">
                         <option selected>Masculino</option>
                         <option>Femenino</option>
                     </select>
                 </div>
 
-                <!-- <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-users"></i> </span>
-                    </div>
-                    <select formControlName="tipoPerfil" class="form-control">
-                        <option selected="">Tipo de Perfil</option>
-                        <option>Aficionado</option>
-                        <option>Músico Profesional</option>
-                        <option>Banda</option>
-                    </select>
-                </div> -->
-
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Tipo de Perfil
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <div>
-                            <a class="dropdown-item" data-toggle="collapse" href="#musicoProfesional" role="button"
-                                aria-expanded="false" aria-controls="collapseExample">
-                                Músico Profesional
-                            </a>
-
-                            <a class="dropdown-item" data-toggle="collapse" href="#aficionado" role="button"
-                                aria-expanded="false" aria-controls="collapseExample">
-                                Aficionado
-                            </a>
-                            
-                            <a class="dropdown-item" data-toggle="collapse" href="#banda" role="button"
-                                aria-expanded="false" aria-controls="collapseExample">
-                                Banda
-                            </a>
-                            <a class="dropdown-item" data-toggle="collapse" href="#administrador" role="button"
-                                aria-expanded="false" aria-controls="collapseExample">
-                                Administrador
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="collapse" id="musicoProfesional">
-                    <div class="card card-body">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-id-badge"></i>
-                                    </span>
-                                </div>
-                                <input formControlName="musicoPerfil" type="text" class="form-control" name="misicoPerfil"
-                                    value="Musico Profesional" placeholder="Muisco Profesional" disabled>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-id-badge"></i>
-                                    </span>
-                                </div>
-                                <input formControlName="generoMusical" type="text" class="form-control" name="generoMusical"
-                                placeholder="Genero Musical Favorito">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-id-badge"></i>
-                                    </span>
-                                </div>
-                                <input formControlName="tipoMusico" type="text" class="form-control" name="tipoMusico"
-                                placeholder="Tipo de Musico">
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="collapse" id="aficionado">
-                    <div class="card card-body">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-id-badge"></i>
-                                    </span>
-                                </div>
-                                <input formControlName="correo" type="email" class="form-control" name="email"
-                                    value="Aficionado" placeholder="Aficionado" disabled>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-id-badge"></i>
-                                    </span>
-                                </div>
-                                <input formControlName="interesMusical" type="text" class="form-control" name="interesMusical"
-                                placeholder="Intereses Musicales">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="collapse" id="banda">
-                    <div class="card card-body">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-id-badge"></i>
-                                    </span>
-                                </div>
-                                <input formControlName="correo" type="email" class="form-control" name="email"
-                                    value="Banda" placeholder="Banda" disabled>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-id-badge"></i>
-                                    </span>
-                                </div>
-                                <input formControlName="integrantes" type="text" class="form-control" name="integrantes"
-                                placeholder="Integrantes de la Banda">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-id-badge"></i>
-                                    </span>
-                                </div>
-                                <input formControlName="generoBanda" type="text" class="form-control" name="generoBanda"
-                                placeholder="Genero MUsical de la Banda">
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
 
                 <div class="form-group">
                     <button type="button" (click)="crearPerfil()" class="btn btn-primary btn-lg">Registrarse</button>

@@ -26,12 +26,17 @@ export class CrearPerfilComponent implements OnInit {
   FormBuilding(){ 
     this.fgValidator = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(2)]],
+      apellido: ['', [Validators.required, Validators.minLength(2)]],
+      tipo: [Validators.required],
+      generoMusica: [Validators.required],
+      celular: ['', [Validators.required, Validators.minLength(8)]],
       correo: ['', [Validators.required, Validators.email]],
-      fecha: ['', [Validators.required]],
+      fechaNacimiento: ['', [Validators.required]],
+      ciudad: [Validators.required],
+      genero: [Validators.required],
       codigoPais: ['', Validators.required, Validators.minLength(2), Validators.maxLength(4)],
-      telefono: ['', [Validators.required, Validators.minLength(8)]],
       tipoPerfil: [Validators.required],
-      pais: [Validators.required]
+      
     });
   }
 
@@ -53,11 +58,18 @@ export class CrearPerfilComponent implements OnInit {
   getPerfilDatos(): PerfilModel{
     let model = new PerfilModel();
     model.nombre = this.fgv.nombre.value;
+    model.apellido = this.fgv.apellido.value;
+    model.tipo = this.fgv.tipo.value;
+    model.generoMusica = this.fgv.generoMusica.value;
+    model.celular = `${this.fgv.codigoPais.value} ${this.fgv.celular.value}`
     model.correo = this.fgv.correo.value;
-    model.fecha = this.fgv.fecha.value;
-    model.telefono = `${this.fgv.codigoPais.value} ${this.fgv.telefono.value}`;
-    model.tipoPerfil = this.fgv.tipoPerfil.value;
-    model.pais = this.fgv.pais.value;
+    model.fechaNacimiento = this.fgv.fechaNacimiento.value;
+    model.ciudad = this.fgv.ciudad.value;
+    model.genero = this.fgv.genero.value;
+    model.fotoPerfil = this.fgv.fotoPerfil.value;
+    model.seguidores = this.fgv.seguidores.value;
+    model.seguidos = this.fgv.seguidos.value;
+
 
     return model;
   }
