@@ -49,6 +49,7 @@
 	border-color: #1B252E;
 	border: none;
 	min-width: 140px;
+	margin-top: 3%;
 }
 
 .signup-form .btn:hover, .signup-form .btn:focus {
