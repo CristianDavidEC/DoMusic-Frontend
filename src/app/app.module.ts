@@ -21,7 +21,8 @@ import { CrearGrupoComponent } from './modulos/grupos/crear-grupo/crear-grupo.co
     HeroComponent,
     FooterComponent,
     CrearComentariosComponent,
-    CrearGrupoComponent
+    CrearGrupoComponent,
+    
   ],
   imports: [
     BrowserModule,

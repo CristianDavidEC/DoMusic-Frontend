@@ -8,10 +8,11 @@ import { EliminarPerfilComponent } from './eliminar-perfil/eliminar-perfil.compo
 import { MostrarPerfilComponent } from './mostrar-perfil/mostrar-perfil.component';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { TipoPerfilComponent } from './tipo-perfil/tipo-perfil.component';
 
 
 @NgModule({
-  declarations: [CrearPerfilComponent, ModificarPerfilComponent, EliminarPerfilComponent, MostrarPerfilComponent],
+  declarations: [CrearPerfilComponent, ModificarPerfilComponent, EliminarPerfilComponent, MostrarPerfilComponent, TipoPerfilComponent],
   imports: [
     CommonModule,
     PerfilesRoutingModule,

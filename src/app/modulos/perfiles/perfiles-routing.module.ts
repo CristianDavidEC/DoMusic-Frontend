@@ -1,12 +1,12 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CrearPerfilComponent} from './crear-perfil/crear-perfil.component'
+import { TipoPerfilComponent} from './tipo-perfil/tipo-perfil.component'
 
 
 const routes: Routes = [
   {
-    path: 'crear-perfil',
-    component: CrearPerfilComponent
+    path: 'tipo-perfil',
+    component: TipoPerfilComponent
   }
 ];
 
