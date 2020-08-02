@@ -1,6 +1,12 @@
-<div class="signup-form">
+<div class="container signup-form">
+    <div class="row">
+        <div class="col-md-4 ">
+            <img src="https://i.pinimg.com/564x/5d/5d/5e/5d5d5ec6ab5784b8d84d990bddab9536.jpg" class="img-fluid rounded tamaño" alt="Eniun">
+        </div>
+
+    <div class="col-md-8">
     <form [formGroup] = "fgValidator"  action="/examples/actions/confirmation.php" method="post">
-		<h2 class="text-center">Regístrate en <i class="fas fa-compact-disc"></i>DoMusic</h2>
+		<h2 class="text-center">Regístrate en <i class="fas fa-compact-disc"></i> <strong>DoMusic</strong> </h2>
 		<p class="text-center">Por favor llene el formulario para crear su cuenta</p>
 		<hr>
         <div class="form-group">
@@ -79,5 +85,8 @@
             <button  type="button" (click)="crearPerfil()" class="btn btn-primary btn-lg">Registrarse</button>
         </div>
     </form>
-	<div class="text-center">¿Ya tienes una cuenta?<a routerLink="/seguridad/login" class="text-primary">Ingresa Aquí</a></div>
+    <div class="text-center">¿Ya tienes una cuenta?<a routerLink="/seguridad/login" class="text-primary color-txt">Ingresa Aquí</a></div>
+</div>
+    
+</div>
 </div>
