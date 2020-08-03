@@ -7,12 +7,23 @@ import { ModificarPerfilComponent } from './modificar-perfil/modificar-perfil.co
 import { EliminarPerfilComponent } from './eliminar-perfil/eliminar-perfil.component';
 import { MostrarPerfilComponent } from './mostrar-perfil/mostrar-perfil.component';
 
+import { CrearAficionadoComponent } from './perfil-aficionado/crear-aficionado/crear-aficionado.component'
+
+import { CrearBandaComponent } from './perfil-banda/crear-banda/crear-banda.component'
+
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TipoPerfilComponent } from './tipo-perfil/tipo-perfil.component';
 
 
 @NgModule({
-  declarations: [CrearPerfilComponent, ModificarPerfilComponent, EliminarPerfilComponent, MostrarPerfilComponent, TipoPerfilComponent],
+  declarations: [
+    CrearPerfilComponent,
+    ModificarPerfilComponent,
+    EliminarPerfilComponent,
+    MostrarPerfilComponent,
+    TipoPerfilComponent,
+    CrearAficionadoComponent,
+    CrearBandaComponent],
   imports: [
     CommonModule,
     PerfilesRoutingModule,

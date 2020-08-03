@@ -13,10 +13,8 @@ export class CrearAficionadoComponent implements OnInit {
   fgValidator:FormGroup;
 
   constructor(
-
     private fb: FormBuilder,
     //private servicio: PerfilService
-  
   ) { }
 
   ngOnInit(): void {
