@@ -8,6 +8,8 @@ const routes: Routes = [
     path: 'tipo-perfil',
     component: TipoPerfilComponent
   }
+
+  
 ];
 
 @NgModule({
