@@ -1,7 +1,6 @@
 import{UsuarioModel} from '../modelos/usuario.model'
 
 export class PerfilModel {
-    
     idMusicoProfesional?: String;
     nombre: String;
     apellido: String;
@@ -15,5 +14,5 @@ export class PerfilModel {
     fotoPerfil?: String;
     seguidores?: String [];
     seguidos?: String [];
-    usuario?: UsuarioModel
+    // usuario?: UsuarioModel
 }
