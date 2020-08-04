@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AficionadoModel} from '../../../../modelos/aficionado.model'
+import { PerfilService} from '../../../../servicios/perfil.service'
 
 
 @Component({
@@ -14,7 +15,7 @@ export class CrearAficionadoComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    //private servicio: PerfilService
+    private servicio: PerfilService
   ) { }
 
   ngOnInit(): void {
@@ -47,7 +48,7 @@ export class CrearAficionadoComponent implements OnInit {
       alert('Formulario inválido');
     }else{
         let model=this.getPerfilDatos();
-        // this.servicio.CrearPerfil(model);
+        //this.servicio.CrearPerfil(model);
       
     }
   }

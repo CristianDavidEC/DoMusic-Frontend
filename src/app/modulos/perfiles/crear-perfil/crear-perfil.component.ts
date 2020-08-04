@@ -46,7 +46,16 @@ export class CrearPerfilComponent implements OnInit {
       alert('Formulario inválido');
     }else{
         let model=this.getPerfilDatos();
-        // this.servicio.CrearPerfil(model);
+        this.servicio.CrearPerfil(model).subscribe(data => {
+          console.log(data);
+          if(data){
+            alert('Registro exitoso, consulta tu contraseña en tu correo');
+          }
+          else{
+            alert('Error!');
+          }
+        });
+
       
     }
   }
@@ -65,9 +74,9 @@ export class CrearPerfilComponent implements OnInit {
     model.fechaNacimiento = this.fgv.fechaNacimiento.value;
     model.ciudad = this.fgv.ciudad.value;
     model.genero = this.fgv.genero.value;
-    model.fotoPerfil = this.fgv.fotoPerfil.value;
+    /*model.fotoPerfil = this.fgv.fotoPerfil.value;
     model.seguidores = this.fgv.seguidores.value;
-    model.seguidos = this.fgv.seguidos.value;
+    model.seguidos = this.fgv.seguidos.value; */
 
 
     return model;

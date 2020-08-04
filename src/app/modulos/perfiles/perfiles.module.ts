@@ -13,6 +13,7 @@ import { CrearBandaComponent } from './perfil-banda/crear-banda/crear-banda.comp
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TipoPerfilComponent } from './tipo-perfil/tipo-perfil.component';
+import { HttpHeaders, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { TipoPerfilComponent } from './tipo-perfil/tipo-perfil.component';
     PerfilesRoutingModule,
     FormsModule,
     ReactiveFormsModule
+    
   ]
 })
 export class PerfilesModule { }
