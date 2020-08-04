@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import{PerfilService} from '../../../servicios/perfil.service'
-import{PerfilModel} from '../../../modelos/perfil.model'
+import {PerfilService} from '../../../servicios/perfil.service'
+import {PerfilModel} from '../../../modelos/perfil.model'
 
 @Component({
   selector: 'app-crear-perfil',
