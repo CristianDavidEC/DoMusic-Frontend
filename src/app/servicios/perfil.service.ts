@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import{PerfilModel} from '../modelos/perfil.model';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient, HttpHeaders} from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +8,16 @@ import {HttpClient} from '@angular/common/http'
 export class PerfilService {
 
   constructor(
-    // private http: HttpClient
+    private http: HttpClient
   ) { }
 
-  /* CrearPerfil(model: PerfilModel){
-    this.http.post('http://localhost:3000/musico-profesionals', )
+   CrearPerfil(model: PerfilModel){
+    return this.http.post('http://localhost:3000/musico-profesionals', model, {
+      headers: new HttpHeaders({
 
-  } */
+      })
+    })
+
+  } 
 
 }
