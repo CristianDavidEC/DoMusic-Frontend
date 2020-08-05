@@ -8,7 +8,7 @@
         <div class="col-md-8">
             <form [formGroup]="fgValidator" action="/examples/actions/confirmation.php" method="post">
                 <h2 class="text-center">Regístrate en <i class="fas fa-compact-disc"></i> <strong>DoMusic</strong> </h2>
-                <p class="text-center">Por favor llena el formulario para crear tu cuenta</p>
+                <p class="text-center">Por favor llena el formulario para crear tu cuenta de Musico Profesional</p>
                 <hr>
                 <div class="form-group">
                     <div class="input-group">
@@ -38,12 +38,13 @@
                     </div>
                     <select formControlName="tipo" class="form-control">
                         <option disabled="disabled">Tipo de músico</option>
-                        <option>Guitarriste</option>
-                        <option>Baterista</option>
-                        <option>Cantante</option>
-                        <option>Saxofonista</option>
-                        <option>Bajista</option>
-                        <option>Trompetista</option>
+                        <option value="Pianista">Pianista</option>
+                        <option value="Guitarrista">Guitarrista</option>
+                        <option value="Baterista">Baterista</option>
+                        <option value="Cantante">Cantante</option>
+                        <option value="Saxofonista">Saxofonista</option>
+                        <option value="Bajista">Bajista</option>
+                        <option value="Trompetista">Trompetista</option>
                     </select>
                 </div>
                 <div class="form-group input-group">
@@ -52,12 +53,12 @@
                     </div>
                     <select formControlName="generoMusica" class="form-control">
                         <option disabled="disabled">Género musical</option>
-                        <option>Salsa</option>
-                        <option>Vallenato</option>
-                        <option>Electrónica</option>
-                        <option>Pop</option>
-                        <option>Clásica</option>
-                        <option>Rock</option>
+                        <option value="Salsa">Salsa</option>
+                        <option value="Vallenato">Vallenato</option>
+                        <option value="Electrónica">Electrónica</option>
+                        <option value="Pop">Pop</option>
+                        <option value="Clásica">Clásica</option>
+                        <option value="Rock">Rock</option>
                     </select>
                 </div>
                 <div class="form-group input-group">
@@ -66,10 +67,10 @@
                     </div>
                     <select formControlName="codigoPais" class="custom-select" style="max-width: 120px;">
                         <option disabled="disabled">Codiogo Pais</option>
-                        <option selected="">+57</option>
-                        <option value="1">+34</option>
-                        <option value="2">+54</option>
-                        <option value="3">+41</option>
+                        <option selected="" value="+57">+57</option>
+                        <option value="+34">+34</option>
+                        <option value="+54">+54</option>
+                        <option value="+41">+41</option>
                     </select>
                     <input formControlName="celular" name="" class="form-control" placeholder="Número de Teléfono"
                         type="text">
@@ -102,12 +103,12 @@
                     </div>
                     <select formControlName="ciudad" class="form-control">
                         <option disabled>País</option>
-                        <option>Colombia</option>
-                        <option>Estados Unidos</option>
-                        <option>China</option>
-                        <option>Rusia</option>
-                        <option>Mexico</option>
-                        <option>Perú</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Estados Unidos">Estados Unidos</option>
+                        <option value="China">China</option>
+                        <option value="Rusia">Rusia</option>
+                        <option value="Mexico">Mexico</option>
+                        <option value="Perú">Perú</option>
                     </select>
                 </div>
                 <div class="form-group input-group">
@@ -116,11 +117,10 @@
                     </div>
                     <select formControlName="genero" class="form-control " aria-placeholder="Género">
                         <option disabled="disabled">Genero</option>
-                        <option >Masculino</option>
-                        <option>Femenino</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
                     </select>
                 </div>
-
 
                 <div class="form-group">
                     <button type="button" (click)="crearPerfil()" class="btn btn-primary btn-lg">Registrarse</button>

@@ -1,8 +1,8 @@
 import{UsuarioModel} from '../modelos/usuario.model'
+import { Data } from '@angular/router';
 
 export class PerfilModel {
-    
-    idMusicoProfesional?: String;
+    //idMusicoProfesional?: String;
     nombre: String;
     apellido: String;
     tipo: String;
@@ -13,7 +13,8 @@ export class PerfilModel {
     ciudad: String;
     genero: string;
     fotoPerfil?: String;
-    seguidores?: String [];
+    seguidores?: String[];
     seguidos?: String [];
-    usuario?: UsuarioModel
+    grupoXMusicoPId?:String;
+    //usuario?: UsuarioModel;
 }

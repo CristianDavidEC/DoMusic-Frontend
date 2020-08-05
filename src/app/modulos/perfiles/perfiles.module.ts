@@ -30,7 +30,6 @@ import { HttpHeaders, HttpClientModule } from '@angular/common/http';
     PerfilesRoutingModule,
     FormsModule,
     ReactiveFormsModule
-    
   ]
 })
 export class PerfilesModule { }

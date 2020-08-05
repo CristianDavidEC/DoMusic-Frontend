@@ -1,6 +1,5 @@
 export class BandaModel {
-    
-    idBanda?: String;
+    //idBanda?: String;
     nombre: String;
     listaIntegrantes: string[];
     generoMusical: string;
@@ -11,5 +10,4 @@ export class BandaModel {
     ciudad: string;
     seguidores?: string[];
     seguidos?: string[];
-
 }

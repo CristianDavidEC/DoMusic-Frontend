@@ -20,28 +20,24 @@ export class CrearPerfilComponent implements OnInit {
 
   ngOnInit(): void {
     this.FormBuilding();
-
   }
 
   FormBuilding(){ 
     this.fgValidator = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(2)]],
       apellido: ['', [Validators.required, Validators.minLength(2)]],
+      celular: ['', [Validators.required, Validators.minLength(8)]],
       tipo: [Validators.required],
       generoMusica: [Validators.required],
-      celular: ['', [Validators.required, Validators.minLength(8)]],
+      codigoPais: [Validators.required],
       correo: ['', [Validators.required, Validators.email]],
       fechaNacimiento: ['', [Validators.required]],
       ciudad: [Validators.required],
-      genero: [Validators.required],
-      codigoPais: ['', Validators.required, Validators.minLength(2), Validators.maxLength(4)],
-      
+      genero: [Validators.required]
     });
   }
 
   crearPerfil(){
-    console.log(this.fgValidator)
-
     if(this.fgValidator.invalid){
       alert('Formulario inválido');
     }else{
@@ -49,16 +45,15 @@ export class CrearPerfilComponent implements OnInit {
         this.servicio.CrearPerfil(model).subscribe(data => {
           console.log(data);
           if(data){
-            alert('Registro exitoso, consulta tu contraseña en tu correo');
+            alert('Registro exitoso, consulta tu contraseña en un mensaje de Texto a tu celular');
           }
           else{
             alert('Error!');
           }
-        });
-
-      
+        });      
     }
   }
+
   get fgv(){
     return this.fgValidator.controls;
   }
@@ -69,15 +64,15 @@ export class CrearPerfilComponent implements OnInit {
     model.apellido = this.fgv.apellido.value;
     model.tipo = this.fgv.tipo.value;
     model.generoMusica = this.fgv.generoMusica.value;
-    model.celular = `${this.fgv.codigoPais.value} ${this.fgv.celular.value}`
+    model.celular = `${this.fgv.codigoPais.value}${this.fgv.celular.value}`;
     model.correo = this.fgv.correo.value;
-    model.fechaNacimiento = this.fgv.fechaNacimiento.value;
+    model.fechaNacimiento = (this.fgv.fechaNacimiento.value);
     model.ciudad = this.fgv.ciudad.value;
     model.genero = this.fgv.genero.value;
-    /*model.fotoPerfil = this.fgv.fotoPerfil.value;
-    model.seguidores = this.fgv.seguidores.value;
-    model.seguidos = this.fgv.seguidos.value; */
-
+    model.fotoPerfil = "";
+    model.seguidores = [""];
+    model.seguidos = [""];
+    model.grupoXMusicoPId ="";
 
     return model;
   }
