@@ -8,7 +8,7 @@
         <div class="col-md-8">
             <form [formGroup]="fgValidator" action="/examples/actions/confirmation.php" method="post">
                 <h2 class="text-center">Regístrate en <i class="fas fa-compact-disc"></i> <strong>DoMusic</strong> </h2>
-                <p class="text-center">Por favor llena el formulario para crear tu cuenta</p>
+                <p class="text-center">Por favor llena el formulario para crear tu cuenta de aficionado</p>
                 <hr>
                 <div class="form-group">
                     <div class="input-group">
@@ -93,7 +93,7 @@
 
 
                 <!-- Default unchecked -->
-                <div class="form-group input-group">
+                <!-- <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-globe-americas"></i></span>
                     </div>
@@ -114,7 +114,53 @@
                         <label class="custom-control-label" for="defaultUnchecked">Pop</label>
                     </div>
 
+                </div> -->
+
+                <!-- <form>
+
+                    Selecciona tus temas de interes:
+                    
+                    <br />
+                    
+                    <input name="ti1" type="checkbox" />  Pop
+                    
+                    <br />
+                    
+                    <input name="ti2" type="checkbox" />  Clasica
+                    
+                    <br />
+                    
+                    <input name="ti3" type="checkbox" />  Electronica
+                    <br />
+                    
+                    <input name="ti4" type="checkbox" />  Salsa
+                    
+                    <br />
+                    
+                    <input name="ti5" type="checkbox" />  Vallenato
+                    
+                    <br />
+                    
+                    <input name="ti6" type="checkbox" />  Boleros
+                    
+                </form> -->
+
+                <div class="wrap">
+                    
+                    <form action="" class="formulario">
+                                            
+                        <div class="checkbox">
+                            <p>Selecciona tus temas de interes:</p>
+
+                            <input type="checkbox" name="checkbox" id="checkbox1">
+                            <label for="checkbox1">  Checkboxin 1  </label>
+                    
+                            <input type="checkbox" name="checkbox" id="checkbox2">
+                            <label for="checkbox2">  Checkboxin 2  </label>
+                        </div>
+                    </form>
                 </div>
+
                 <div class="form-group">
                     <button type="button" (click)="crearPerfil()" class="btn btn-primary btn-lg">Registrarse</button>
                 </div>
