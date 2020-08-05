@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import{PerfilService} from '../../../../servicios/perfil.service';
 import{BandaModel} from '../../../../modelos/banda.model';
 
+declare const ShowNotificationMessage:any;
+
 @Component({
   selector: 'app-crear-banda',
   templateUrl: './crear-banda.component.html',
@@ -36,7 +38,7 @@ export class CrearBandaComponent implements OnInit {
 
   crearBanda(){
     if(this.fgValidator.invalid){
-      alert('Formulario inválido');
+      ShowNotificationMessage('Formulario Invalido')
     }else{
         let model=this.getPerfilDatos();
         this.servicio.CrearBanda(model).subscribe(data => {
