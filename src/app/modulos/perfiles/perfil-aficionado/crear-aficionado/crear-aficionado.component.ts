@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AficionadoModel} from '../../../../modelos/aficionado.model'
 import { PerfilService} from '../../../../servicios/perfil.service'
 
-
 @Component({
   selector: 'app-crear-aficionado',
   templateUrl: './crear-aficionado.component.html',
@@ -32,26 +31,28 @@ export class CrearAficionadoComponent implements OnInit {
       ciudad: [Validators.required],   
       fechaNacimiento: ['', [Validators.required]],
       genero: [Validators.required],
-      //codigoPais: ['', Validators.required, Validators.minLength(2), Validators.maxLength(4)],
-      temasInteres: [Validators.required],
-      fotoPerfil: [],
-      seguidores: [],
-      seguidos: []
-         
+      codigoPais: [Validators.required],
+      temasInteres: [Validators.required],   
     });
   }
 
-  crearPerfil(){
-    console.log(this.fgValidator)
-
+  crearAficionado(){
     if(this.fgValidator.invalid){
       alert('Formulario inválido');
     }else{
         let model=this.getPerfilDatos();
-        //this.servicio.CrearPerfil(model);
-      
+        this.servicio.CrearAficionado(model).subscribe(data => {
+          console.log(data);
+          if(data){
+            alert('Registro exitoso, consulta tu contraseña en un mensaje de Texto a tu celular');
+          }
+          else{
+            alert('Error!');
+          }
+        });      
     }
   }
+
   get fgv(){
     return this.fgValidator.controls;
   }
@@ -66,10 +67,10 @@ export class CrearAficionadoComponent implements OnInit {
     model.fechaNacimiento = this.fgv.fechaNacimiento.value;    
     model.genero = this.fgv.genero.value;
     model.temasInteres = this.fgv.temasInteres.value;
-    model.fotoPerfil = this.fgv.fotoPerfil.value;
-    model.seguidores = this.fgv.seguidores.value;
-    model.seguidos = this.fgv.seguidos.value;
-
+    model.fotoPerfil = "";
+    model.seguidores = [""];
+    model.seguidos = [""];
+    model.grupoXAficionadoId = "";
 
     return model;
   }

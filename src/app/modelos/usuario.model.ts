@@ -4,6 +4,6 @@ export class UsuarioModel {
     contrasena: String;
     rol?: String;
     musicoProfesionalId?: String
-    aficionadoId?: String
-    bandaId?: String
+    /* aficionadoId?: String
+    bandaId?: String */
 }

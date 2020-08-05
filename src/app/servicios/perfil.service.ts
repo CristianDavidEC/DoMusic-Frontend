@@ -11,32 +11,29 @@ import { ServiceConfig} from '../config/service.config'
 })
 
 export class PerfilService {
-
-  entity: String = 'perfil'
   constructor(
     private http: HttpClient
   ) { }
 
-  CrearPerfil(model: PerfilModel):Observable<PerfilModel>{
-    console.log("Servicio del perfil")
-    return this.http.post<PerfilModel>(`${ServiceConfig.BASE_URL} ${this.entity}`, model, {
+  CrearPerfil(model: PerfilModel):Observable<PerfilModel> {
+    return this.http.post<PerfilModel>(`${ServiceConfig.BASE_URL_MUSICO}`, model, {
       headers: new HttpHeaders({
       })
     })
-  };
+  }
   
    CrearAficionado(model:AficionadoModel):Observable<AficionadoModel>{
-    return this.http.post<AficionadoModel>(`${ServiceConfig.BASE_URL} ${this.entity}`, model, {
+    return this.http.post<AficionadoModel>(`${ServiceConfig.BASE_URL_AFICIONADO}`, model, {
       headers: new HttpHeaders({
       })
     })
-  };
+  }
 
   CrearBanda(model: BandaModel):Observable<BandaModel>{
-    return this.http.post<BandaModel>(`${ServiceConfig.BASE_URL} ${this.entity}`, model, {
+    return this.http.post<BandaModel>(`${ServiceConfig.BASE_URL_BANDA}`, model, {
       headers: new HttpHeaders({
       })
     })
-  };
+  }
 }
 

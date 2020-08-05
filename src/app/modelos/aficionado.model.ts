@@ -1,6 +1,6 @@
 export class AficionadoModel {
     
-    idAficionado?: String;
+    //idAficionado?: String;
     nombre: String;
     apellido: String;
     celular: String;
@@ -12,5 +12,5 @@ export class AficionadoModel {
     fotoPerfil?: String;
     seguidores?: String [];
     seguidos?: String [];
-         
+    grupoXAficionadoId?:String;
 }

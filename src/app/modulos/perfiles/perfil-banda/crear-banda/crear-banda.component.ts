@@ -26,20 +26,15 @@ export class CrearBandaComponent implements OnInit {
       nombre: ['', [Validators.required, Validators.minLength(2)]],
       listaIntegrantes: [Validators.required],
       generoMusical: [Validators.required],
-      codigoPais: ['', Validators.required, Validators.minLength(2), Validators.maxLength(4)],
+      codigoPais: ['', Validators.required],
       celular: ['', [Validators.required, Validators.minLength(8)]],
       correo: ['', [Validators.required, Validators.email]],
-      // fotoPerfil: [],
       fechaCreacion: ['', [Validators.required]],
       ciudad: [Validators.required]
-      // seguidores: [],
-      // seguidos: []
     });
   }
 
   crearBanda(){
-    console.log(this.fgValidator)
-
     if(this.fgValidator.invalid){
       alert('Formulario inválido');
     }else{
@@ -47,7 +42,7 @@ export class CrearBandaComponent implements OnInit {
         this.servicio.CrearBanda(model).subscribe(data => {
           console.log(data);
           if(data){
-            alert('Registro exitoso, consulta tu contraseña en tu correo');
+            alert('Registro exitoso, consulta tu contraseña en el mesaje de texto');
           }
           else{
             alert('Error!');
@@ -55,7 +50,6 @@ export class CrearBandaComponent implements OnInit {
         });      
     }
   }
-  
   get fgv(){
     return this.fgValidator.controls;
   }
@@ -63,15 +57,15 @@ export class CrearBandaComponent implements OnInit {
   getPerfilDatos(): BandaModel{
     let model = new BandaModel();
     model.nombre = this.fgv.nombre.value;
-    model.listaIntegrantes = this.fgv.listaIntegrantes.value;
+    model.listaIntegrantes = [this.fgv.listaIntegrantes.value];
     model.generoMusical = this.fgv.generoMusical.value;
-    model.celular = `${this.fgv.codigoPais.value} ${this.fgv.celular.value}`
+    model.celular = `${this.fgv.codigoPais.value} ${this.fgv.celular.value}`;
     model.correo = this.fgv.correo.value;
-    model.fotoPerfil = "//";
     model.fechaCreacion = this.fgv.fechaCreacion.value;
     model.ciudad = this.fgv.ciudad.value;
-    model.seguidores = ["//"];
-    model.seguidos = ["//"];
+    model.fotoPerfil = "";
+    model.seguidores = [""];
+    model.seguidos = [""];
 
     return model;
   }

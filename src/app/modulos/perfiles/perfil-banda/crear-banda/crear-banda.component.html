@@ -21,6 +21,7 @@
                             placeholder="Nombre" required="required">
                     </div>
                 </div>
+
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -28,10 +29,11 @@
                                 <span class="fa fa-user"></span>
                             </span>
                         </div>
-                        <input formControlName="listaIntegrantes" type="text" class="form-control" name="listaIntegrantes"
-                            placeholder="Lista Integrantes" required="required">
+                        <input formControlName="listaIntegrantes"  type= "text" class="form-control" name="listaIntegrantes"
+                            placeholder="Integrantes" required="required">
                     </div>
                 </div>
+               
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-globe-americas"></i></span>
@@ -52,10 +54,10 @@
                     </div>
                     <select formControlName="codigoPais" class="custom-select" style="max-width: 120px;">
                         <option disabled="disabled">Codiogo Pais</option>
-                        <option selected="">+57</option>
-                        <option value="1">+34</option>
-                        <option value="2">+54</option>
-                        <option value="3">+41</option>
+                        <option value="+57">+57</option>
+                        <option value="+34">+34</option>
+                        <option value="+54">+54</option>
+                        <option value="+41">+41</option>
                     </select>
                     <input formControlName="celular" name="" class="form-control" placeholder="Número de Teléfono"
                         type="text">
@@ -98,7 +100,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="button" (click)="crearBanda" class="btn btn-primary btn-lg">Registrarse</button>
+                    <button type="button" (click)="crearBanda()" class="btn btn-primary btn-lg">Registrarse</button>
                 </div>
             </form>
             <div class="text-center">¿Ya tienes una cuenta?<a routerLink="/seguridad/login"
