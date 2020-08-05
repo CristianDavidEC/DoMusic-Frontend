@@ -19,6 +19,14 @@
                         </div>
                         <input formControlName="nombre" type="text" class="form-control" name="nombre"
                             placeholder="Nombre" required="required">
+                        <div class="warning-validator container" *ngIf="fgv.nombre.errors && (fgv.nombre.dirty || fgv.nombre.touched)">
+                            <strong *ngIf= "fgv.nombre.errors.required">
+                                Este campo es requerido! 
+                            </strong>
+                            <strong *ngIf= "fgv.nombre.errors.minlength">
+                                Este campo debe tener al menos 2 caracteres.
+                            </strong>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -30,6 +38,14 @@
                         </div>
                         <input formControlName="apellido" type="text" class="form-control" name="apellido"
                             placeholder="Apellido" required="required">
+                        <div class="warning-validator container" *ngIf="fgv.apellido.errors && (fgv.apellido.dirty || fgv.apellido.touched)">
+                            <strong *ngIf= "fgv.apellido.errors.required">
+                                Este campo es requerido! 
+                            </strong>
+                            <strong *ngIf= "fgv.apellido.errors.minlength">
+                                Este campo debe tener al menos 2 caracteres. 
+                            </strong>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group input-group">
@@ -46,6 +62,11 @@
                         <option value="Bajista">Bajista</option>
                         <option value="Trompetista">Trompetista</option>
                     </select>
+                    <div class="warning-validator container" *ngIf="fgv.tipo.errors && (fgv.tipo.dirty || fgv.tipo.touched)">
+                        <strong *ngIf= "fgv.tipo.errors.required">
+                            Este campo es requerido! 
+                        </strong>
+                    </div>
                 </div>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
@@ -60,6 +81,11 @@
                         <option value="Clásica">Clásica</option>
                         <option value="Rock">Rock</option>
                     </select>
+                    <div class="warning-validator container" *ngIf="fgv.generoMusica.errors && (fgv.generoMusica.dirty || fgv.generoMusica.touched)">
+                        <strong *ngIf= "fgv.generoMusica.errors.required">
+                            Este campo es requerido! 
+                        </strong>
+                    </div>
                 </div>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
@@ -67,13 +93,26 @@
                     </div>
                     <select formControlName="codigoPais" class="custom-select" style="max-width: 120px;">
                         <option disabled="disabled">Codiogo Pais</option>
-                        <option selected="" value="+57">+57</option>
+                        <option value="+57">+57</option>
                         <option value="+34">+34</option>
                         <option value="+54">+54</option>
                         <option value="+41">+41</option>
                     </select>
+                    <div class="warning-validator container" *ngIf="fgv.codigoPais.errors && (fgv.codigoPais.dirty || fgv.codigoPais.touched)">
+                        <strong *ngIf= "fgv.codigoPais.errors.required">
+                            Este campo es requerido! 
+                        </strong>
+                    </div>
                     <input formControlName="celular" name="" class="form-control" placeholder="Número de Teléfono"
                         type="text">
+                    <div class="warning-validator container" *ngIf="fgv.celular.errors && (fgv.celular.dirty || fgv.celular.touched)">
+                        <strong *ngIf= "fgv.celular.errors.required">
+                            Este campo es requerido! 
+                        </strong>
+                        <strong *ngIf= "fgv.celular.errors.minlength">
+                            Este campo debe tener al menos 8 caracteres. 
+                        </strong>
+                    </div>
                 </div> 
                 <div class="form-group">
                     <div class="input-group">
@@ -84,6 +123,14 @@
                         </div>
                         <input formControlName="correo" type="email" class="form-control" name="email"
                             placeholder="Correo Electrónico" required="required">
+                        <div class="warning-validator container" *ngIf="fgv.correo.errors && (fgv.correo.dirty || fgv.correo.touched)">
+                            <strong *ngIf= "fgv.correo.errors.required">
+                                Este campo es requerido! 
+                            </strong>
+                            <strong *ngIf= "fgv.correo.errors.email">
+                                Correo inválido. 
+                            </strong>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -95,6 +142,11 @@
                         </div>
                         <input formControlName="fechaNacimiento" type="date" class="form-control" name="fecha" placeholder="Fecha"
                             required="required">
+                        <div class="warning-validator container" *ngIf="fgv.fechaNacimiento.errors && (fgv.fechaNacimiento.dirty || fgv.fechaNacimiento.touched)">
+                            <strong *ngIf= "fgv.fechaNacimiento.errors.required">
+                                Este campo es requerido! 
+                            </strong>
+                        </div>
                     </div>
                 </div>           
                 <div class="form-group input-group">
@@ -110,6 +162,11 @@
                         <option value="Mexico">Mexico</option>
                         <option value="Perú">Perú</option>
                     </select>
+                    <div class="warning-validator container" *ngIf="fgv.ciudad.errors && (fgv.ciudad.dirty || fgv.ciudad.touched)">
+                        <strong *ngIf= "fgv.ciudad.errors.required">
+                            Este campo es requerido! 
+                        </strong>
+                    </div>
                 </div>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
@@ -120,6 +177,11 @@
                         <option value="Masculino">Masculino</option>
                         <option value="Femenino">Femenino</option>
                     </select>
+                    <div class="warning-validator container" *ngIf="fgv.genero.errors && (fgv.genero.dirty || fgv.genero.touched)">
+                        <strong *ngIf= "fgv.genero.errors.required">
+                            Este campo es requerido! 
+                        </strong>
+                    </div>
                 </div>
 
                 <div class="form-group">
