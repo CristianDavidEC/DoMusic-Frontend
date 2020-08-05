@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators,FormControl, FormArray} from '@angular/forms';
 import { AficionadoModel} from '../../../../modelos/aficionado.model'
 import { PerfilService} from '../../../../servicios/perfil.service'
+
 
 @Component({
   selector: 'app-crear-aficionado',
@@ -11,17 +12,28 @@ import { PerfilService} from '../../../../servicios/perfil.service'
 export class CrearAficionadoComponent implements OnInit {
 
   fgValidator:FormGroup;
-
+  formIntereses: FormGroup;
+  
   constructor(
     private fb: FormBuilder,
-    private servicio: PerfilService
-  ) { }
+    private servicio: PerfilService,
+    
+  ) {
+   }
 
   ngOnInit(): void {
     this.FormBuilding();
-
   }
 
+  Intereses: Array<any> = [
+    { name: 'Salsa', value: 'Salsa' },
+    { name: 'Vallenato', value: 'Vallenato' },
+    { name: 'Electronica', value: 'Electronica' },
+    { name: 'Pop', value: 'Pop' },
+    { name: 'Clasica', value: 'Clasica' },
+    { name: 'Rock', value: 'Rock' }
+  ];
+  
   FormBuilding(){ 
     this.fgValidator = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(2)]],
@@ -32,11 +44,12 @@ export class CrearAficionadoComponent implements OnInit {
       fechaNacimiento: ['', [Validators.required]],
       genero: [Validators.required],
       codigoPais: [Validators.required],
-      temasInteres: [Validators.required],   
+      temasInteres: [Validators.required]   
     });
   }
 
   crearAficionado(){
+    console.log(this.fgv.temasInteres.value);
     if(this.fgValidator.invalid){
       alert('Formulario inválido');
     }else{

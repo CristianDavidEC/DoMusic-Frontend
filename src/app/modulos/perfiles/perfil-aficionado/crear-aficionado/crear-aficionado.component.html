@@ -44,7 +44,7 @@
                     </select>
                     <input formControlName="celular" name="" class="form-control" placeholder="Número de Teléfono"
                         type="text">
-                </div> 
+                </div>
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -63,10 +63,10 @@
                                 <i class="fas fa-calendar-day"></i>
                             </span>
                         </div>
-                        <input formControlName="fechaNacimiento" type="date" class="form-control" name="fecha" placeholder="Fecha"
-                            required="required">
+                        <input formControlName="fechaNacimiento" type="date" class="form-control" name="fecha"
+                            placeholder="Fecha" required="required">
                     </div>
-                </div>           
+                </div>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-globe-americas"></i></span>
@@ -91,38 +91,54 @@
                     </select>
                 </div>
 
+                <div class="wrap">
+                    <form action="" class="formulario">
+                        <div class="checkbox">
+                            <p>Selecciona tus temas de interes:</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input formControlName="Interes1" class="checkColor" type="checkbox" value="Salsa" id="Salsa">
+                                    <label for="Salsa">Salsa</label> <br>
 
-                <!-- Default unchecked -->
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-globe-americas"></i></span>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input formControlName="temasInteres" type="checkbox" class="custom-control-input" id="tema1">
-                        <label class="custom-control-label" for="defaultUnchecked">Salsa</label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input formControlName="temasInteres" type="checkbox" class="custom-control-input" id="tema2">
-                        <label class="custom-control-label" for="defaultUnchecked">Vallenato</label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input formControlName="temasInteres" type="checkbox" class="custom-control-input" id="tema3">
-                        <label class="custom-control-label" for="defaultUnchecked">Electrónica</label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input formControlName="temasInteres" type="checkbox" class="custom-control-input" id="tema4">
-                        <label class="custom-control-label" for="defaultUnchecked">Pop</label>
+                                    <input formControlName="Interes2" class="checkColor" type="checkbox" value="Vallenato" id="Vallenato">
+                                    <label for="Vallenato">Vallenato</label> <br>
+
+                                    <input formControlName="Interes3" class="checkColor" type="checkbox"  value="Electrónica" id="Electrónica">
+                                    <label for="Electrónica">Electrónica</label> <br>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <input formControlName="Interes4" class="checkColor" type="checkbox" value="Pop" id="Pop">
+                                    <label for="Pop">Pop</label><br>
+
+                                    <input formControlName="Interes5" class="checkColor" type="checkbox" value="Clásica" id="Clásica">
+                                    <label for="Clásica">Clásica</label><br>
+
+                                    <input formControlName="Interes5" class="checkColor" type="checkbox" value="Rock" id="Rock">
+                                    <label for="Rock">Rock</label><br>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div> 
+
+                    <div *ngFor="let data of Intereses; let i=index">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck{{i}}" (change)="onCheckboxChange($event)" [value]="data.value" formControlName = "temasInteres">
+                            <label class="custom-control-label" for="customCheck{{i}}">{{data.name}}</label>
+                        </div>
                     </div>
 
-                </div>
                 <div class="form-group">
-                    <button type="button" (click)="crearAficionado()" class="btn btn-primary btn-lg">Registrarse</button>
+                    <button type="button" (click)="crearAficionado()"
+                        class="btn btn-primary btn-lg">Registrarse</button>
                 </div>
                 <!-- ------------------------------------------------------------------------------------------------------------ -->
 
             </form>
             <div class="text-center">¿Ya tienes una cuenta?<a routerLink="/seguridad/login"
-                    class="text-primary color-txt">Ingresa aquí</a></div>
+                    class="text-primary color-txt">Ingresa aquí</a>
+            </div>
         </div>
 
     </div>
