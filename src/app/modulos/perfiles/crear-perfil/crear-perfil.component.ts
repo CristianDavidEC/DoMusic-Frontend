@@ -3,11 +3,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {PerfilService} from '../../../servicios/perfil.service'
 import {PerfilModel} from '../../../modelos/perfil.model'
 
+declare const ShowNotificationMessage:any;
+
 @Component({
   selector: 'app-crear-perfil',
   templateUrl: './crear-perfil.component.html',
   styleUrls: ['./crear-perfil.component.css']
 })
+
 export class CrearPerfilComponent implements OnInit {
 
   fgValidator:FormGroup;
@@ -39,7 +42,7 @@ export class CrearPerfilComponent implements OnInit {
 
   crearPerfil(){
     if(this.fgValidator.invalid){
-      alert('Formulario inválido');
+      
     }else{
         let model=this.getPerfilDatos();
         this.servicio.CrearPerfil(model).subscribe(data => {
