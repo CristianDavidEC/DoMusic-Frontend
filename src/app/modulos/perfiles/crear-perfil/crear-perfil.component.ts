@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {PerfilService} from '../../../servicios/perfil.service'
 import {PerfilModel} from '../../../modelos/perfil.model'
+import { ActivatedRoute, Router } from '@angular/router';
 
 declare const ShowNotificationMessage:any;
 
@@ -17,7 +18,9 @@ export class CrearPerfilComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private servicio: PerfilService
+    private servicio: PerfilService,
+    private route: ActivatedRoute,
+    private router: Router
 
   ) { }
 
@@ -42,16 +45,17 @@ export class CrearPerfilComponent implements OnInit {
 
   crearPerfil(){
     if(this.fgValidator.invalid){
-      
+      ShowNotificationMessage('Formulario inválido')
     }else{
         let model=this.getPerfilDatos();
         this.servicio.CrearPerfil(model).subscribe(data => {
           console.log(data);
           if(data){
-            alert('Registro exitoso, consulta tu contraseña en un mensaje de Texto a tu celular');
+            ShowNotificationMessage('Registro exitoso, consulta tu contraseña en un mensaje de texto a tu celular');
+            this.router.navigate(['/seguridad/login']);
           }
           else{
-            alert('Error!');
+            ShowNotificationMessage('Error!');
           }
         });      
     }
