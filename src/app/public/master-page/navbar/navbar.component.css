@@ -6,3 +6,20 @@
     background-color: #324454 !important;
     color:white
 }
+
+.foto-perfil{
+    width: 50px !Important;
+    left: 32px !Important;
+    border-radius: 50%;
+  }
+
+  .text-mayus{
+      text-transform: capitalize;
+  }
+
+  .text-mayus a{
+    text-transform: capitalize;
+    margin-top: 1%;
+}
+
+

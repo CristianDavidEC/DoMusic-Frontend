@@ -1,51 +1,36 @@
 <div id="wrapper">
 
-  <!-- Sidebar -->
   <div id="sidebar-wrapper" class="colorDoMusic1">
-    <!--         <ul class="sidebar-nav">
- -->
+
     <li class="side-item " *ngIf="estaLogueado">
-      <a class="side-link h4" routerLink="#">Home</a>
+      <a class="side-link h5 font-weight-light" routerLink="#"> <i class="fas fa-bell icon"></i>Notificaciones</a>
     </li>
     <li class="side-item" *ngIf="estaLogueado">
-      <a class="side-link" routerLink="#">Notificaciones</a>
+      <a class="side-link h5  font-weight-light" routerLink="#"><i class="fas fa-comment-dots icon"></i>Mensajes</a>
     </li>
-    <li class="side-item" *ngIf="estaLogueado">
-      <a class="side-link" routerLink="#">Mensajes</a>
-    </li>
-    <li class="side-item" *ngIf="estaLogueado">
-      <a class="side-link" routerLink="#">Publicaciones</a>
+    <li class="side-item " *ngIf="estaLogueado">
+      <a class="side-link h5  font-weight-light" routerLink="#"><i class="far fa-images icon"></i>Publicaciones</a>
     </li>
 
     <li class="side-item dropdown">
-
-      <a class="side-link dropdown-toggle" href="#" id="sideDropdown" role="button" data-toggle="dropdown"
+      <a class="side-link dropdown-toggle h5 font-weight-light" href="#" id="sideDropdown" role="button" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
-        <!-- <i class="fas fa-cogs"></i> -->
-        Configuraciones
+        <i class="fas fa-cogs icon"></i>Configuraciones 
       </a>
-      <div class="dropdown-menu" aria-labelledby="sideDropdown">
-        <a class="dropdown-item" href="#">Cambiar Contraseña</a>
-        <a class="dropdown-item" href="#">Modificar Perfil</a>
+      <div class="dropdown-menu colorDoMusic1 font-weight-light" aria-labelledby="sideDropdown">
+        <a class="dropdown-item colorDoMusic1 font-weight-light" href="#"><i class="fas fa-lock icon"></i> Cambiar Contraseña</a>
+        <a class="dropdown-item colorDoMusic1 font-weight-light" href="#"><i class="fas fa-user-edit icon"></i> Editar Perfil</a>
       </div>
     </li>
 
     <li class="side-item dropdown" *ngIf="estaLogueado">
-      <a class="nav-link" routerLink="/seguridad/logout">Salir</a>
+      <a class="side-link h5  font-weight-light " routerLink="/seguridad/logout"><i class="fas fa-sign-out-alt icon"></i>Salir</a>
     </li>
-
   </div>
   
-
-  <!-- Page Content -->
   <div id="page-content-wrapper">
     <div class="container-fluid">
-      <router-outlet>
-
-      </router-outlet>
     </div>
   </div>
-  <!-- /#page-content-wrapper -->
-
 
 </div>
