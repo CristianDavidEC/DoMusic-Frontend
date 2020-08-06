@@ -24,6 +24,18 @@ export class PublicacionesService {
     return this.http.get <PublicacionModel[]>(`${ServiceConfig.BESE_URL_PUBLICACION}`);
   }
 
+  getPublicacion(recordIdPublicacion:String):Observable<PublicacionModel>{
+    return this.http.get <PublicacionModel>(`${ServiceConfig.BESE_URL_PUBLICACION}/${recordIdPublicacion}`);
+  }
+
+  modificarRegistro(record:PublicacionModel):Observable<PublicacionModel>{
+    return this.http.put<PublicacionModel>(`${ServiceConfig.BESE_URL_PUBLICACION}/${record.idPublicacion}`, record,{
+      headers:new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    });
+  }
+
   guardarNuevoRegistro(record:PublicacionModel):Observable<PublicacionModel>{
     return this.http.post<PublicacionModel>(`${ServiceConfig.BESE_URL_PUBLICACION}`, record, {
       headers:new HttpHeaders({
