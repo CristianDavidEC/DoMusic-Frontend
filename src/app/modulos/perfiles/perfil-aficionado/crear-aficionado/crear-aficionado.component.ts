@@ -63,7 +63,6 @@ export class CrearAficionadoComponent implements OnInit {
   }
 
   crearAficionado(){
-    console.log(this.fgValidator)
     if(this.fgValidator.invalid){
       alert('Formulario inválido');
     }else{
@@ -85,7 +84,6 @@ export class CrearAficionadoComponent implements OnInit {
   }
 
   getPerfilDatos(): AficionadoModel{
-    console.log(this.intereses);
     let model = new AficionadoModel();
     model.nombre = this.fgv.nombre.value;
     model.apellido = this.fgv.apellido.value;
