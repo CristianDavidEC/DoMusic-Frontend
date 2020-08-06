@@ -15,7 +15,18 @@ export class SeguridadService {
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+    this.verificarSesionActiva();
+   }
+
+  verificarSesionActiva(){
+    let sesionActual = this.getSession();
+    console.log(sesionActual);
+    if(sesionActual){
+      let userData = JSON.parse(sesionActual);
+      this.setUserData(userData);
+    }
+  }
 
   setUserData(value: UsuarioModel){
     this.userData.next(value);
@@ -58,6 +69,12 @@ export class SeguridadService {
     let currentSession = localStorage.getItem('session');
     console.log(currentSession)
     return currentSession
+  }
+
+  Logout(){
+    localStorage.removeItem('session');
+    this.setUserData(new UsuarioModel());
+
   }
 
 }

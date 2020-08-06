@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscription= this.service.getUserData().subscribe(data =>{
+      console.log(data.estaLogueado)
       this.estaLogueado = data.estaLogueado;
     });
   }

@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
     private servicio: SeguridadService,
     private route: ActivatedRoute,
     private router: Router
-
   ) { }
 
   ngOnInit(): void {
@@ -52,6 +51,7 @@ export class LoginComponent implements OnInit {
           data => {
             ShowNotificationMessage('Bienvenido');
             let res = this.servicio.saveSession(data)
+            this.router.navigate(["/home"]);
           },
           err => {
             ShowNotificationMessage('El usuario o la contraseña ingresada son inválidos');
@@ -72,6 +72,5 @@ export class LoginComponent implements OnInit {
 
     return model;
   }
-  
 
 }
