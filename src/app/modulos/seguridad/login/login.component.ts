@@ -48,9 +48,15 @@ export class LoginComponent implements OnInit {
       ShowNotificationMessage('Formulario inválido')
     }else{
         let model=this.getPerfilDatos();
-        this.servicio.LoginUsuario(model).subscribe(data => {
-          console.log(data);
-        });      
+        this.servicio.LoginUsuario(model).subscribe(
+          data => {
+            ShowNotificationMessage('Bienvenido');
+            let res = this.servicio.saveSession(data)
+          },
+          err => {
+            ShowNotificationMessage('El usuario o la contraseña ingresada son inválidos');
+          }
+        );      
     }
   }
 

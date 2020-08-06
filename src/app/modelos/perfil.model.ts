@@ -16,5 +16,5 @@ export class PerfilModel {
     seguidores?: String[];
     seguidos?: String [];
     grupoXMusicoPId?:String;
-    //usuario?: UsuarioModel;
+    usuario?: UsuarioModel;
 }
