@@ -19,9 +19,10 @@ import {MostrarNotificacionComponent} from './notificaciones/mostrar-notificacio
 import {CrearPublicacionComponent} from './publicaciones/crear-publicacion/crear-publicacion.component';
 import {EliminarPublicacionComponent} from './publicaciones/eliminar-publicacion/eliminar-publicacion.component';
 import {ModificarPublicacionComponent} from './publicaciones/modificar-publicacion/modificar-publicacion.component';
-import {MostrarPublicacionComponent} from './publicaciones/mostrar-publicacion/mostrar-publicacion.component';
+import { MostrarPublicacionComponent } from './publicaciones/mostrar-publicacion/mostrar-publicacion.component';
 
 const routes: Routes = [
+  
   {
     path: 'publicaciones',
     component: MostrarPublicacionComponent
@@ -68,7 +69,7 @@ const routes: Routes = [
   component: CrearNotificacionComponent
 },
 {
-  path: 'notificaciones',
+  path: 'mostrar-notificaciones',
   component: MostrarNotificacionComponent
 },
 {
