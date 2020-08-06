@@ -95,7 +95,6 @@
   .color-txt:hover{
     color: #1B252E !important;
   }
-
   label, p{
     color:#212D38!important;
   }
@@ -103,5 +102,3 @@
   input:checked{
 	background-color: #506D87 !important;
   }
-
-  
