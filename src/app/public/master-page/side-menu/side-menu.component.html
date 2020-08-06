@@ -1,48 +1,51 @@
 <div id="wrapper">
 
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper" class="colorDoMusic1">
-<!--         <ul class="sidebar-nav">
- -->        <li class="side-item" *ngIf="estaLogueado">
-                <a class="side-link" routerLink="#">Home</a>
-            </li>
-            <li class="side-item" *ngIf="estaLogueado">
-                <a class="side-link" routerLink="#">Notificaciones</a>
-              </li>
-              <li class="side-item" *ngIf="estaLogueado">
-                <a class="side-link" routerLink="#">Mensajes</a>
-              </li>
-            <li class="side-item" *ngIf="estaLogueado">
-                <a class="side-link" routerLink="#">Publicaciones</a>
-              </li>
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper" class="colorDoMusic1">
+    <!--         <ul class="sidebar-nav">
+ -->
+    <li class="side-item " *ngIf="estaLogueado">
+      <a class="side-link h4" routerLink="#">Home</a>
+    </li>
+    <li class="side-item" *ngIf="estaLogueado">
+      <a class="side-link" routerLink="#">Notificaciones</a>
+    </li>
+    <li class="side-item" *ngIf="estaLogueado">
+      <a class="side-link" routerLink="#">Mensajes</a>
+    </li>
+    <li class="side-item" *ngIf="estaLogueado">
+      <a class="side-link" routerLink="#">Publicaciones</a>
+    </li>
 
-            <li class="side-item dropdown">
+    <li class="side-item dropdown">
 
-                <a class="side-link dropdown-toggle" href="#" id="sideDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <!-- <i class="fas fa-cogs"></i> -->
-                    Configuraciones
-                </a>
-                <div class="dropdown-menu" aria-labelledby="sideDropdown">
-                  <a class="dropdown-item" href="#">Cambiar Contraseña</a>
-                  <a class="dropdown-item" href="#">Modificar Perfil</a>
-                </div>
-              </li>
-            
-<!--         </ul>
- -->    </div>
-    <!-- /#sidebar-wrapper -->
+      <a class="side-link dropdown-toggle" href="#" id="sideDropdown" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        <!-- <i class="fas fa-cogs"></i> -->
+        Configuraciones
+      </a>
+      <div class="dropdown-menu" aria-labelledby="sideDropdown">
+        <a class="dropdown-item" href="#">Cambiar Contraseña</a>
+        <a class="dropdown-item" href="#">Modificar Perfil</a>
+      </div>
+    </li>
 
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-        <div class="container-fluid">
-            <router-outlet>
+    <li class="side-item dropdown" *ngIf="estaLogueado">
+      <a class="nav-link" routerLink="/seguridad/logout">Salir</a>
+    </li>
 
-            </router-outlet>
-        </div>
+  </div>
+  
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <router-outlet>
+
+      </router-outlet>
     </div>
-    <!-- /#page-content-wrapper -->
+  </div>
+  <!-- /#page-content-wrapper -->
 
-    <app-footer>
 
-    </app-footer>
 </div>
