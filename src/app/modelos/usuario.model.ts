@@ -1,5 +1,5 @@
 export class UsuarioModel {
-    usuarioId?: String;
+    idUsuario?: String;
     nombreUsuario: String;
     contrasena?: String;
     musicoProfesionalId?: String;

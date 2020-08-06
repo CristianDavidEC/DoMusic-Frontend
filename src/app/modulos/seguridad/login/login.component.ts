@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
     let model = new UsuarioModel();
     model.nombreUsuario = this.fgv.nombreUsuario.value;
     model.contrasena = MD5(this.fgv.contrasena.value).toString();
-    console.log(model)
+    // console.log(model)
 
     return model;
   }

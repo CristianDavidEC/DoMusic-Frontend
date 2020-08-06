@@ -2,7 +2,7 @@ import{UsuarioModel} from '../modelos/usuario.model'
 import { Data } from '@angular/router';
 
 export class PerfilModel {
-    //idMusicoProfesional?: String;
+    idMusicoProfesional?: String;
     nombre: String;
     apellido: String;
     tipo: String;
