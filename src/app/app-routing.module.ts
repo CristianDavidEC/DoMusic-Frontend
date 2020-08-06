@@ -27,6 +27,10 @@ const routes: Routes = [
     path: '**',
     redirectTo: '/home'
   },
+  {
+    path: 'parametros',
+    loadChildren: () => import ('./modulos/parametros/parametros.module').then(m => m.ParametrosModule)
+  },
 ];
 
 @NgModule({

@@ -7,24 +7,30 @@
                 <a class="side-link" routerLink="#">Home</a>
             </li>
             <li class="side-item" *ngIf="estaLogueado">
-                <a class="side-link" routerLink="#">Notificaciones</a>
+                <a class="side-link" routerLink="/parametros/notificaciones">Notificaciones</a>
               </li>
               <li class="side-item" *ngIf="estaLogueado">
                 <a class="side-link" routerLink="#">Mensajes</a>
               </li>
             <li class="side-item" *ngIf="estaLogueado">
-                <a class="side-link" routerLink="#">Publicaciones</a>
+                <a class="side-link" routerLink="/parametros/publicaciones">Publicaciones</a>
               </li>
 
-            <li class="side-item dropdown">
+              <!-- Verificacion de rol -->
+
+<!--               <li class="side-item" *ngIf="estaLogueado">
+                <a *ngIf="role == Musico Profesional" class="side-link" routerLink="#">Publicaciones</a>
+              </li>
+
+ -->            <li class="side-item dropdown">
 
                 <a class="side-link dropdown-toggle" href="#" id="sideDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <!-- <i class="fas fa-cogs"></i> -->
                     Configuraciones
                 </a>
                 <div class="dropdown-menu" aria-labelledby="sideDropdown">
-                  <a class="dropdown-item" href="#">Cambiar Contraseña</a>
-                  <a class="dropdown-item" href="#">Modificar Perfil</a>
+                  <a class="dropdown-item" routerLink="#">Cambiar Contraseña</a>
+                  <a class="dropdown-item" routerLink="#">Modificar Perfil</a>
                 </div>
               </li>
             
@@ -42,7 +48,5 @@
     </div>
     <!-- /#page-content-wrapper -->
 
-    <app-footer>
-
-    </app-footer>
+    
 </div>

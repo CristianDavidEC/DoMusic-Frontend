@@ -53,10 +53,12 @@ export class SeguridadService {
       sessionData.estaLogueado=true;
       
       let data:UsuarioModel={
+        
         idUsuario: sessionData.data.idUsuario,
         musicoProfesionalId: sessionData.data.musicoProfesionalId,
         nombreUsuario: sessionData.data.nombreUsuario,
         token: sessionData.token,
+        rol:sessionData.data.rol,
         estaLogueado: true
       }
       localStorage.setItem('session', JSON.stringify(data));
