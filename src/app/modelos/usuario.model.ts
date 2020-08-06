@@ -7,4 +7,5 @@ export class UsuarioModel {
     aficionadoId?: String;
     estaLogueado: Boolean = false;
     token?:String;
+    rol?:String;
 }

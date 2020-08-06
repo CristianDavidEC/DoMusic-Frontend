@@ -10,7 +10,7 @@ import { SeguridadService } from 'src/app/servicios/seguridad.service';
 export class NavbarComponent implements OnInit {
 
   estaLogueado: Boolean= false;
-
+  role: String = "";
   subscription: Subscription;
 
   constructor(private service: SeguridadService) { }
@@ -18,6 +18,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.subscription= this.service.getUserData().subscribe(data =>{
       this.estaLogueado = data.estaLogueado;
+      this.role = data.rol;
     });
   }
 

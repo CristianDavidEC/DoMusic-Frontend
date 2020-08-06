@@ -12,6 +12,7 @@ export class SideMenuComponent implements OnInit {
   estaLogueado: Boolean= false;
 
   subscription: Subscription;
+  role: String = "";
 
   constructor(private service: SeguridadService) { }
 
@@ -19,6 +20,7 @@ export class SideMenuComponent implements OnInit {
     this.subscription= this.service.getUserData().subscribe(data =>{
       console.log(data.estaLogueado)
       this.estaLogueado = data.estaLogueado;
+      this.role = data.rol;
     });
   }
 

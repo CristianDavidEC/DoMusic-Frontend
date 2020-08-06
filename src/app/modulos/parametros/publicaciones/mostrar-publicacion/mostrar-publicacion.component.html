@@ -1,1 +1,66 @@
-<p>mostrar-publicacion works!</p>
+<a class="btn btn-success" routerLink="/parametros/crear-publicaciones" role="button">Nueva Publicacion</a>
+<br />
+<br />
+<table class="table">
+    <thead class="table-dark"> 
+        <tr>
+            <td>
+                Título
+            </td>
+            <td>
+                Fecha
+            </td>
+            <td>
+                Contenido
+            </td>
+            <td>
+                Modificar
+            </td>
+            <td>
+                Eliminar
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let r of recordList">
+            <td>
+                {{r.titulo}}
+            </td>
+            <td>
+                {{r.fecha}}
+            </td>
+            <td>
+                {{r.contenido}}
+            </td>
+            <td>
+                <a class="btn btn-warning" routerLink= "/parametros/modificar-publicaciones/{{r.idPublicacion}}" role= "button">Modificar</a>
+            </td>
+            <td>
+                <button type="button" class = "btn btn-danger" (click) = "ConfirmarEliminacion(r.idPublicacion)">
+                    Eliminar
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="modal" id= "confirmarEliminacion" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmacion de Eliminacion</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Esta seguro de eliminar esta publicacion?
+        </div>
+        <div class="modal-footer">
+          <button (click)="EliminarPubli()" type="button" class="btn btn-success" >Confirmar</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
