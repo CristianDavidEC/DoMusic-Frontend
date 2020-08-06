@@ -1,1 +1,42 @@
-<p>mostrar-publicacion works!</p>
+<table class="table">
+    <thead class="table-dark"> 
+        <tr>
+            <td>
+                Título
+            </td>
+            <td>
+                Fecha
+            </td>
+            <td>
+                Contenido
+            </td>
+            <td>
+                Modificar
+            </td>
+            <td>
+                Eliminar
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let r of recordList">
+            <td>
+                {{r.titulo}}
+            </td>
+            <td>
+                {{r.fecha}}
+            </td>
+            <td>
+                {{r.contenido}}
+            </td>
+            <td>
+                <a class="btn btn-warning" routerLink= "/parametros/modificar-publicaciones/{{r.id}}" role= "button">Modificar</a>
+            </td>
+            <td>
+                <button type="button" class = "btn btn-warning" (click) = "ConfirmarEliminacion(r.id)">
+                    Eliminar
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
