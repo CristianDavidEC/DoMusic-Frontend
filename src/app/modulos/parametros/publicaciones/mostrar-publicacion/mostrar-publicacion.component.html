@@ -22,7 +22,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let r of recordList">
+        <tr *ngFor="let r of recordList | paginate: { itemsPerPage: publiPorPagina, currentPage: pagina}">
             <td>
                 {{r.titulo}}
             </td>
@@ -44,6 +44,8 @@
     </tbody>
 </table>
 
+<pagination-controls (pageChange)="pagina = $event" nextLabel="Siguiente" previousLabel="Anterior"></pagination-controls>
+<ngx-spinner></ngx-spinner>
 <div class="modal" id= "confirmarEliminacion" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
