@@ -22,10 +22,10 @@ import {ModificarPublicacionComponent} from './publicaciones/modificar-publicaci
 import {MostrarPublicacionComponent} from './publicaciones/mostrar-publicacion/mostrar-publicacion.component';
 
 const routes: Routes = [
-  {
-    path: 'publicaciones',
-    component: MostrarPublicacionComponent
-  },
+{
+  path: 'publicaciones',
+  component: MostrarPublicacionComponent
+},
 {
   path: 'crear-comentarios',
   component: CrearComentariosComponent
