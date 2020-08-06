@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { ServiceConfig} from '../config/service.config'
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,7 +23,7 @@ export class PerfilService {
     })
   }
   
-   CrearAficionado(model:AficionadoModel):Observable<AficionadoModel>{
+  CrearAficionado(model:AficionadoModel):Observable<AficionadoModel>{
     return this.http.post<AficionadoModel>(`${ServiceConfig.BASE_URL_AFICIONADO}`, model, {
       headers: new HttpHeaders({
       })
@@ -35,5 +36,7 @@ export class PerfilService {
       })
     })
   }
+  
+  
 }
 
