@@ -4,6 +4,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpHeaders} from '@angular/common/http'
 import { ServiceConfig} from '../config/service.config'
 import { PerfilModel } from '../modelos/perfil.model';
+import { restaurarContrasenaModel } from '../modelos/seguridad/restaura-contrana.model';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,14 @@ export class SeguridadService {
       headers: new HttpHeaders({
       })
     })
+  }
+
+  recuperearContrasena(model: restaurarContrasenaModel): Observable<Boolean>{
+    return this.http.post<Boolean>(`${ServiceConfig.BESE_URL_RECUPERACONTRASENA}`, model, {
+      headers: new HttpHeaders({
+      })
+    })
+
   }
 
   saveSession(sessionData: any): Boolean{

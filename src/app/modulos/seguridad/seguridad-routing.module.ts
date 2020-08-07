@@ -5,6 +5,7 @@ import {LogoutComponent} from './logout/logout.component';
 import {RestaurarContrasenaComponent} from './restaurar-contrasena/restaurar-contrasena.component';
 import {CambiarContrasenaComponent} from './cambiar-contrasena/cambiar-contrasena.component';
 import { DesautenticadoGuard} from '../../guardianes/desautenticado.guard'
+import{ AutUsuarioGuard } from '../../guardianes/aut-usuario.guard'
 
 const routes: Routes = [
   {
@@ -14,15 +15,18 @@ const routes: Routes = [
   },
   {
     path: 'logout',
-    component: LogoutComponent
+    component: LogoutComponent,
+    canActivate: [AutUsuarioGuard]
   },
   {
     path: 'restaurarContrasena',
-    component: RestaurarContrasenaComponent
+    component: RestaurarContrasenaComponent,
+    canActivate: [DesautenticadoGuard]
   },
   {
     path: 'cambiarContrasena',
-    component: CambiarContrasenaComponent
+    component: CambiarContrasenaComponent,
+    canActivate: [AutUsuarioGuard]
   }
 
 ];

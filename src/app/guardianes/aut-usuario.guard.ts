@@ -14,17 +14,15 @@ export class AutUsuarioGuard implements CanActivate {
     private router: Router
     ){}
   
-  
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.servicio.existeSesion() && (this.servicio.esUsuario(ServiceConfig.ROLMP) || this.servicio.esUsuario(ServiceConfig.ROLAFI) ||
-     this.servicio.esUsuario(ServiceConfig.ROLBANDA || this.servicio.esUsuario(ServiceConfig.ROLADMI)))){
-      return true;
+    canActivate(
+      next: ActivatedRouteSnapshot,
+      state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+      if (!this.servicio.existeSesion()){
+        this.router.navigate(["/home"]);
+        return false;
+      }
+      else{
+        return true;
+      }
     }
-    else{
-      this.router.navigate(["/seguridad/login"]);
-      return false;
-    }
-  }
 }

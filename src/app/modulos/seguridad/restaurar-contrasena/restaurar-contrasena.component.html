@@ -1,1 +1,42 @@
-<p>restaurar-contrasena works!</p>
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-6 ">
+            <img src="https://openai.com/content/images/2020/04/2x-no-mark-1.jpg" class="img-fluid rounded tamaño"
+                alt="Eniun">
+        </div>
+        <div class="col-md-6 login-form">
+            <div class="profile-img">
+                <h2><i class="fas fa-compact-disc"></i><strong>DoMusic</strong></h2>
+            </div>
+            <h3>Olvidadste Tu Contraseña</h3>
+            <form [formGroup]="fgValidator">
+                <div class="form-group">
+                    <input formControlName="nombreUsuario" type="text" class="form-control" id="nombreUsuario"
+                        name="Nombre De Usuario" placeholder="Nombre De Usuario">
+                </div>
+                <div class="warning-validator container"
+                    *ngIf="fgv.nombreUsuario.errors && (fgv.nombreUsuario.dirty || fgv.nombreUsuario.touched)">
+                    <strong *ngIf="fgv.nombreUsuario.errors.required">
+                        Usuario inválido.
+                    </strong>
+                    <strong *ngIf="fgv.nombreUsuario.errors.minlength">
+                        Este campo debe tener al menos {{longitudMinima}} caracteres.
+                    </strong>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipo">Metodo de Envio</label>
+                    <select formControlName="tipo" class="form-control" id="tipo">  
+                        <option value="1">Mensaje de Texto</option>
+                        <option value="2">Correo Electronico</option>
+                    </select>
+                </div>
+
+                <div class="form-group d-flex justify-content-center">
+                    <button type="button" (click)="restaurarContrasena()"
+                        class="btn btn-primary btn-lg btn-block w-75 align-middle ">Restaurar Contraseña</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
