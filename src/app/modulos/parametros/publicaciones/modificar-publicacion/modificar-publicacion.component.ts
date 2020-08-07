@@ -60,16 +60,16 @@ export class ModificarPublicacionComponent implements OnInit {
       ShowNotificationMessage('Formulario inválido')
     }else{
         let model=this.getPubliDatos();
-        this.servicio.modificarRegistro(model).subscribe(data => {
-          console.log(data);
-          if(data){
-            ShowNotificationMessage('Modificación exitosa');
+        this.servicio.modificarRegistro(model).subscribe(
+          data => {
+          
+            ShowNotificationMessage('Modificación exitosamente');
             this.router.navigate(['/parametros/publicaciones']);
-          }
-          else{
+          },
+          error => {
             ShowNotificationMessage('Error!');
           }
-        });      
+        );      
     }
   }
 
