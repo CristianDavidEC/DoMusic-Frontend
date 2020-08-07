@@ -43,13 +43,26 @@ export class CrearAficionadoComponent implements OnInit {
       ciudad: [Validators.required],   
       fechaNacimiento: ['', [Validators.required]],
       genero: [Validators.required],
-      codigoPais: [Validators.required],
-      temasInteres: [Validators.required]   
+      codigoPais: [Validators.required],   
     });
   }
 
+  intereses = [];
+  
+  check(event){
+    
+    if(event.target.checked){
+      this.intereses.push(event.target.value);
+    } else{
+      const index = this.intereses.indexOf(event.target.value);
+      if (index > -1) {
+      this.intereses.splice(index, 1);
+    }
+    }
+    
+  }
+
   crearAficionado(){
-    console.log(this.fgv.temasInteres.value);
     if(this.fgValidator.invalid){
       alert('Formulario inválido');
     }else{
@@ -79,7 +92,7 @@ export class CrearAficionadoComponent implements OnInit {
     model.ciudad = this.fgv.ciudad.value;
     model.fechaNacimiento = this.fgv.fechaNacimiento.value;    
     model.genero = this.fgv.genero.value;
-    model.temasInteres = this.fgv.temasInteres.value;
+    model.temasInteres = this.intereses;
     model.fotoPerfil = "";
     model.seguidores = [""];
     model.seguidos = [""];
