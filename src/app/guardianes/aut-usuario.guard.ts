@@ -19,7 +19,7 @@ export class AutUsuarioGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.servicio.existeSesion() && (this.servicio.esUsuario(ServiceConfig.ROLMP) || this.servicio.esUsuario(ServiceConfig.ROLAFI) ||
-     this.servicio.esUsuario(ServiceConfig.ROLBANDA))){
+     this.servicio.esUsuario(ServiceConfig.ROLBANDA || this.servicio.esUsuario(ServiceConfig.ROLADMI)))){
       return true;
     }
     else{
