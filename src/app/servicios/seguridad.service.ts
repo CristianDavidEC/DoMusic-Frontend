@@ -71,6 +71,16 @@ export class SeguridadService {
     return currentSession
   }
 
+  existeSesion():Boolean{
+    return (this.getSession()) ? true: false
+  }
+
+  esUsuario(rolId):Boolean{
+    let currentSession = this.getSession();
+    if (JSON.parse(currentSession).rol == rolId){
+      return true;
+    }
+  }
   
   getToken():String{
     let currentSession = this.getSession();
