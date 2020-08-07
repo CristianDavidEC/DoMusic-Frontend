@@ -17,7 +17,6 @@ import {CrearNotificacionComponent} from './notificaciones/crear-notificacion/cr
 import {MostrarNotificacionComponent} from './notificaciones/mostrar-notificacion/mostrar-notificacion.component';
 
 import {CrearPublicacionComponent} from './publicaciones/crear-publicacion/crear-publicacion.component';
-import {EliminarPublicacionComponent} from './publicaciones/eliminar-publicacion/eliminar-publicacion.component';
 import {ModificarPublicacionComponent} from './publicaciones/modificar-publicacion/modificar-publicacion.component';
 import { MostrarPublicacionComponent } from './publicaciones/mostrar-publicacion/mostrar-publicacion.component';
 
@@ -77,17 +76,9 @@ const routes: Routes = [
   component: CrearPublicacionComponent
 },
 {
-  path: 'eliminar-publicaciones',
-  component: EliminarPublicacionComponent
-},
-{
   path: 'modificar-publicaciones/:idPublicacion',
   component: ModificarPublicacionComponent
 },
-{
-  path: 'eliminar-publicaciones',
-  component: EliminarPublicacionComponent
-}
 ];
 
 @NgModule({

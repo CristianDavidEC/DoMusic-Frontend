@@ -36,6 +36,14 @@ export class PublicacionesService {
     });
   }
 
+  eliminarRegistro(recordId:String):Observable<any>{
+    return this.http.delete<any>(`${ServiceConfig.BESE_URL_PUBLICACION}/${recordId}`,{
+      headers:new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    });
+  }
+
   guardarNuevoRegistro(record:PublicacionModel):Observable<PublicacionModel>{
     return this.http.post<PublicacionModel>(`${ServiceConfig.BESE_URL_PUBLICACION}`, record, {
       headers:new HttpHeaders({

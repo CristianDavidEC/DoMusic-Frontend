@@ -5,9 +5,11 @@ import { FormsConfig } from 'src/app/config/forms-config';
 
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxSpinnerService } from "ngx-spinner";
+import { Router } from '@angular/router';
 
 declare const ShowNotificationMessage: any;
 declare const ShowRemoveConfimationPublic: any;
+declare const CloseModal: any;
 
 @Component({
   selector: 'app-mostrar-publicacion',
@@ -23,7 +25,7 @@ export class MostrarPublicacionComponent implements OnInit {
 
   constructor(
     private service: PublicacionesService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
   ) { }
 
   ngOnInit(): void {
@@ -52,7 +54,17 @@ export class MostrarPublicacionComponent implements OnInit {
   }
 
   EliminarPubli(){
-    console.log("Eliminando publicacion por id: " + this.eliminarPubliId);
+    this.service.eliminarRegistro(this.eliminarPubliId).subscribe(
+      data => {
+        CloseModal('confirmarEliminacion');
+        ShowNotificationMessage('Se ha eliminado exitosamente');
+
+        this.getRecordsList();
+      },
+      error => {
+        ShowNotificationMessage('Error!');
+      }
+    );
   }
 
 }

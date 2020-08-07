@@ -8,6 +8,4 @@ function toggleSideBar(){
 
 }
 
-function ShowRemoveConfimationPublic(){
-    $('#confirmarEliminacion').modal();
-}
+
