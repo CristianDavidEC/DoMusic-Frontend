@@ -9,12 +9,14 @@ import { CrearPublicacionComponent} from './publicaciones/crear-publicacion/crea
 
 import {NgxPaginationModule} from 'ngx-pagination';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { ModificarPublicacionComponent } from './publicaciones/modificar-publicacion/modificar-publicacion.component';
 
 @NgModule({
   declarations: [
     MostrarPublicacionComponent,
     MostrarNotificacionComponent,
-    CrearPublicacionComponent
+    CrearPublicacionComponent,
+    ModificarPublicacionComponent
     
   ],
   imports: [
