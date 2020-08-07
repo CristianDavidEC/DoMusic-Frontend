@@ -5,6 +5,7 @@ import { FormsConfig } from 'src/app/config/forms-config';
 
 
 declare const ShowNotificationMessage: any;
+declare const ShowRemoveConfimationPublic: any;
 
 @Component({
   selector: 'app-mostrar-publicacion',
@@ -14,6 +15,7 @@ declare const ShowNotificationMessage: any;
 export class MostrarPublicacionComponent implements OnInit {
 
   recordList : PublicacionModel[];
+  eliminarPubliId: String ='';
 
   constructor(
     private service: PublicacionesService
@@ -26,14 +28,17 @@ export class MostrarPublicacionComponent implements OnInit {
   getRecordsList(){
     this.service.getAllRecords().subscribe(records => {
       this.recordList = records;
-      console.log("recordList")
-      console.log(this.recordList)
     },
     error => {ShowNotificationMessage ("Hubo un problema con la comunicación en el Backend")})
   }
 
-  ConfirmarEliminacion(){
+  ConfirmarEliminacion(idPublicacion){
+    this.eliminarPubliId = idPublicacion;
+    ShowRemoveConfimationPublic();
+  }
 
+  EliminarPubli(){
+    console.log("Eliminando publicacion por id: " + this.eliminarPubliId);
   }
 
 }

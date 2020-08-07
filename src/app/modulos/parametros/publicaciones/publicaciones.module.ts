@@ -6,13 +6,14 @@ import { CrearPublicacionComponent } from './crear-publicacion/crear-publicacion
 import { ModificarPublicacionComponent } from './modificar-publicacion/modificar-publicacion.component';
 import { EliminarPublicacionComponent } from './eliminar-publicacion/eliminar-publicacion.component';
 import { MostrarPublicacionComponent } from './mostrar-publicacion/mostrar-publicacion.component';
-
+import {NotificacionesRoutingModule} from '../notificaciones/notificaciones-routing.module'
 
 @NgModule({
   declarations: [CrearPublicacionComponent, ModificarPublicacionComponent, EliminarPublicacionComponent, MostrarPublicacionComponent],
   imports: [
     CommonModule,
-    PublicacionesRoutingModule
+    PublicacionesRoutingModule,
+    NotificacionesRoutingModule
   ]
 })
 export class PublicacionesModule { }

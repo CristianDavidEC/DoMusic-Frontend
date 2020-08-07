@@ -7,3 +7,7 @@ function toggleSideBar(){
     $("#wrapper").toggleClass("toggled");
 
 }
+
+function ShowRemoveConfimationPublic(){
+    $('#confirmarEliminacion').modal();
+}

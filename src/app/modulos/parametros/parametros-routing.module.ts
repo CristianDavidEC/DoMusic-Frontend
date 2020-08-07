@@ -81,7 +81,7 @@ const routes: Routes = [
   component: EliminarPublicacionComponent
 },
 {
-  path: 'modificar-publicaciones',
+  path: 'modificar-publicaciones/:idPublicacion',
   component: ModificarPublicacionComponent
 },
 {
