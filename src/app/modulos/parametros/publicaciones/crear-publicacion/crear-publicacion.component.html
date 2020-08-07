@@ -1,1 +1,56 @@
-<p>crear-publicacion works!</p>
+<div class="container signup-form">
+    <div class="row">
+        <div class="col-md-4 ">
+            <img src="https://i.pinimg.com/564x/5d/5d/5e/5d5d5ec6ab5784b8d84d990bddab9536.jpg"
+                class="img-fluid rounded tamaño" alt="Eniun">
+        </div>
+
+        <div class="col-md-8">
+            <form [formGroup]="fgValidator" action="/examples/actions/confirmation.php" method="post">
+                <h2 class="text-center">Crear publicación en <i class="fas fa-compact-disc"></i> <strong>DoMusic</strong> </h2>
+                <hr>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input formControlName="titulo" type="text" class="form-control" name="titulo"
+                            placeholder="Título" required="required">
+                        <div class="warning-validator container" *ngIf="fgv.titulo.errors && (fgv.titulo.dirty || fgv.titulo.touched)">
+                            <strong *ngIf= "fgv.titulo.errors.required">
+                                Este campo es requerido! 
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input formControlName="contenido" type="text" class="form-control" name="contenido"
+                            placeholder="Contenido" required="required">
+                        <div class="warning-validator container" *ngIf="fgv.contenido.errors && (fgv.contenido.dirty || fgv.contenido.touched)">
+                            <strong *ngIf= "fgv.contenido.errors.required">
+                                Este campo es requerido! 
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input formControlName="fecha" type="date" class="form-control" name="fecha" placeholder="Fecha"
+                            required="required">
+                        <div class="warning-validator container" *ngIf="fgv.fecha.errors && (fgv.fecha.dirty || fgv.fecha.touched)">
+                            <strong *ngIf= "fgv.fecha.errors.required">
+                                Este campo es requerido! 
+                            </strong>
+                        </div>
+                    </div>
+                </div>           
+                
+                <div class="form-group">
+                    <button type="button" (click)="crearPublicacion()" class="btn btn-primary btn-lg">Publicar</button>
+                </div>
+                <!-- ------------------------------------------------------------------------------------------------------------ -->
+
+            </form>
+            
+        </div>
+
+    </div>
+</div>

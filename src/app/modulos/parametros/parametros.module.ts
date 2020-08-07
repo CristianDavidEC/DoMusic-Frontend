@@ -5,6 +5,7 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms'
 import { ParametrosRoutingModule } from './parametros-routing.module';
 import { MostrarPublicacionComponent } from './publicaciones/mostrar-publicacion/mostrar-publicacion.component';
 import { MostrarNotificacionComponent } from './notificaciones/mostrar-notificacion/mostrar-notificacion.component';
+import { CrearPublicacionComponent} from './publicaciones/crear-publicacion/crear-publicacion.component'
 
 import {NgxPaginationModule} from 'ngx-pagination';
 import { NgxSpinnerModule } from "ngx-spinner";
@@ -12,7 +13,9 @@ import { NgxSpinnerModule } from "ngx-spinner";
 @NgModule({
   declarations: [
     MostrarPublicacionComponent,
-    MostrarNotificacionComponent
+    MostrarNotificacionComponent,
+    CrearPublicacionComponent
+    
   ],
   imports: [
     CommonModule,
