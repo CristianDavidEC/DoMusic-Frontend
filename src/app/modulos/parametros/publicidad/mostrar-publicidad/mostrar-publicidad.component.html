@@ -1,4 +1,4 @@
-<a class="btn btn-success" routerLink="/parametros/crear-publicaciones" role="button">Nueva Publicacion</a>
+<a class="btn btn-success" routerLink="/parametros/crear-publicidad" role="button">Nueva Publicidad</a>
 <br />
 <br />
 <table class="table">
@@ -6,9 +6,6 @@
         <tr>
             <td>
                 Título
-            </td>
-            <td>
-                Fecha
             </td>
             <td>
                 Contenido
@@ -27,16 +24,13 @@
                 {{r.titulo}}
             </td>
             <td>
-                {{r.fecha}}
-            </td>
-            <td>
                 {{r.contenido}}
             </td>
             <td>
-                <a class="btn btn-warning" routerLink= "/parametros/modificar-publicaciones/{{r.idPublicacion}}" role= "button">Modificar</a>
+                <a class="btn btn-warning" routerLink= "/parametros/modificar-publicidad/{{r.idPublicidad}}" role= "button">Modificar</a>
             </td>
             <td>
-                <button type="button" class = "btn btn-danger" (click) = "ConfirmarEliminacion(r.idPublicacion)">
+                <button type="button" class = "btn btn-danger" (click) = "ConfirmarEliminacion(r.idPublicidad)">
                     Eliminar
                 </button>
             </td>
@@ -50,13 +44,13 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Confirmacion de Eliminacion</h5>
+          <h5 class="modal-title">Confirmación de Eliminación</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          ¿Estás seguro de eliminar esta publicacion?
+          ¿Estás seguro de eliminar esta publicidad?
         </div>
         <div class="modal-footer">
           <button (click)="EliminarPubli()" type="button" class="btn btn-success" >Confirmar</button>
@@ -66,3 +60,4 @@
       </div>
     </div>
   </div>
+

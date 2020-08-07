@@ -10,13 +10,19 @@ import { CrearPublicacionComponent} from './publicaciones/crear-publicacion/crea
 import {NgxPaginationModule} from 'ngx-pagination';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ModificarPublicacionComponent } from './publicaciones/modificar-publicacion/modificar-publicacion.component';
+import { CrearPublicidadComponent } from './publicidad/crear-publicidad/crear-publicidad.component';
+import { ModificarPublicidadComponent } from './publicidad/modificar-publicidad/modificar-publicidad.component';
+import { MostrarPublicidadComponent } from './publicidad/mostrar-publicidad/mostrar-publicidad.component';
 
 @NgModule({
   declarations: [
     MostrarPublicacionComponent,
     MostrarNotificacionComponent,
     CrearPublicacionComponent,
-    ModificarPublicacionComponent
+    ModificarPublicacionComponent,
+    CrearPublicidadComponent,
+    ModificarPublicidadComponent,
+    MostrarPublicidadComponent
     
   ],
   imports: [
