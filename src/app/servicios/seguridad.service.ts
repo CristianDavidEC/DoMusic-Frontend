@@ -83,6 +83,4 @@ export class SeguridadService {
     this.setUserData(new UsuarioModel());
 
   }
-
-
 }

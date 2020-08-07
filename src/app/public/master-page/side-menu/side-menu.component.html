@@ -1,5 +1,4 @@
 <div id="wrapper">
-  <!-- Sidebar -->
   <div id="sidebar-wrapper" class="colorDoMusic1">
     <li class="side-item" *ngIf="estaLogueado">
       <a class="side-link h5 font-weight-light" routerLink="/parametros/notificaciones"><i class="fas fa-bell icon"></i>
@@ -13,15 +12,7 @@
           class="far fa-images icon"></i>Publicaciones</a>
     </li>
 
-    <!-- Verificacion de rol -->
-
-    <!--               <li class="side-item" *ngIf="estaLogueado">
-                <a *ngIf="role == Musico Profesional" class="side-link" routerLink="#">Publicaciones</a>
-              </li>
-
-
- -->
-    <li class="side-item dropdown">
+    <li class="side-item dropdown" *ngIf="estaLogueado">
 
       <a class="side-link dropdown-toggle h5 font-weight-light" href="#" id="sideDropdown" role="button"
         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -39,9 +30,6 @@
           class="fas fa-sign-out-alt icon"></i>Salir</a>
     </li>
   </div>
-  <!--         </ul>
- -->
-  <!-- /#sidebar-wrapper -->
 
   <div id="page-content-wrapper">
     <div class="container-fluid">
