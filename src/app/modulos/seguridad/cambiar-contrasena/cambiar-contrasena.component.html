@@ -1,1 +1,63 @@
-<p>cambiar-contrasena works!</p>
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-6 ">
+            <img src="https://openai.com/content/images/2020/04/2x-no-mark-1.jpg" class="img-fluid rounded tamaño"
+                alt="Eniun">
+        </div>
+        <div class="col-md-6 login-form">
+            <div class="profile-img">
+                <h2><i class="fas fa-compact-disc"></i><strong>DoMusic</strong></h2>
+            </div>
+            <h3>Cambio de Contraseña</h3>
+            <form [formGroup]="fgValidator">
+                
+                <div class="form-group">
+                    <input formControlName="contrasenaActual" type="password" class="form-control" id="contrasenaActual"
+                        name="Contraseña Actual" placeholder="Contraseña Actual">
+                </div>
+                <div class="warning-validator container"
+                    *ngIf="fgv.contrasenaActual.errors && (fgv.contrasenaActual.dirty || fgv.contrasenaActual.touched)">
+                    <strong *ngIf="fgv.contrasenaActual.required">
+                        Contraseña Requerida
+                    </strong>
+                    <strong *ngIf="fgv.contrasenaActual.errors.minlength">
+                        Este campo debe tener al menos {{longitudContrasena}} caracteres.
+                    </strong>
+                </div>
+
+                <div class="form-group">
+                    <input formControlName="contrasenaNueva" type="password" class="form-control" id="contrasenaNueva"
+                        name="Contraseña Nueva" placeholder="Nueva Contraseña ">
+                </div>
+                <div class="warning-validator container"
+                    *ngIf="fgv.contrasenaNueva.errors && (fgv.contrasenaNueva.dirty || fgv.contrasenaNueva.touched)">
+                    <strong *ngIf="fgv.contrasenaNueva.required">
+                        Nueva Contraseña Requerida
+                    </strong>
+                    <strong *ngIf="fgv.contrasenaNueva.errors.minlength">
+                        Este campo debe tener al menos {{longitudContrasena}} caracteres.
+                    </strong>
+                </div>
+
+                <div class="form-group">
+                    <input formControlName="contrasenaNueva2" type="password" class="form-control" id="contrasenaNueva2"
+                        name="Contraseña Nueva" placeholder="Confirmación de la nueva Contraseña">
+                </div>
+                <div class="warning-validator container"
+                    *ngIf="fgv.contrasenaNueva2.errors && (fgv.contrasenaNueva2.dirty || fgv.contrasenaNueva2.touched)">
+                    <strong *ngIf="fgv.contrasenaNueva2.required">
+                        Confirmacion de Contraseña Requerida
+                    </strong>
+                    <strong *ngIf="fgv.contrasenaNueva2.errors.minlength">
+                        Este campo debe tener al menos {{longitudContrasena}} caracteres.
+                    </strong>
+                </div>
+
+                <div class="form-group d-flex justify-content-center">
+                    <button type="button" (click)="cambiarContrasena()"
+                        class="btn btn-primary btn-lg btn-block w-75 align-middle ">Restaurar Contraseña</button>
+                </div>
+            </form>
+        </div>  
+    </div>
+</div>

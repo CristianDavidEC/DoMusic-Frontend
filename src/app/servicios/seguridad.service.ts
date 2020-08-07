@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http'
 import { ServiceConfig} from '../config/service.config'
 import { PerfilModel } from '../modelos/perfil.model';
 import { restaurarContrasenaModel } from '../modelos/seguridad/restaura-contrana.model';
+import { CambiarContrasenaModel } from '../modelos/seguridad/cambiar.contrasena.model';
 
 @Injectable({
   providedIn: 'root'
@@ -48,7 +49,14 @@ export class SeguridadService {
       headers: new HttpHeaders({
       })
     })
+  }
 
+  CambiarContrasena(model: CambiarContrasenaModel): Observable<Boolean>{
+    return this.http.post<Boolean>(`${ServiceConfig.BESE_URL_CAMBIARCONTRASENA}`, model, {
+      headers: new HttpHeaders({
+        Autorizacion: `Bearer ${this.getToken()}`
+      })
+    })
   }
 
   saveSession(sessionData: any): Boolean{
@@ -94,7 +102,11 @@ export class SeguridadService {
   getToken():String{
     let currentSession = this.getSession();
     return JSON.parse(currentSession).token;
+  }
 
+  getUsuarioId():String{
+    let currentSession = this.getSession();
+    return JSON.parse(currentSession).idUsuario;
   }
 
   Logout(){
