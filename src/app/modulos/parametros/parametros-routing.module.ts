@@ -6,22 +6,40 @@ import { EliminarComentariosComponent} from './comentarios/eliminar-comentarios/
 import { ModificarComentariosComponent} from './comentarios/modificar-comentarios/modificar-comentarios.component';
 import { MostarComentariosComponent} from './comentarios/mostar-comentarios/mostar-comentarios.component';
 
-import {CrearDenunciaComponent} from './denuncias/crear-denuncia/crear-denuncia.component';
-import {EliminarDenunciaComponent} from './denuncias/eliminar-denuncia/eliminar-denuncia.component';
+import { CrearDenunciaComponent} from './denuncias/crear-denuncia/crear-denuncia.component';
+import { EliminarDenunciaComponent} from './denuncias/eliminar-denuncia/eliminar-denuncia.component';
 
-import {CrearMensajeComponent} from './mensajes/crear-mensaje/crear-mensaje.component';
-import {EliminarMensajeComponent} from './mensajes/eliminar-mensaje/eliminar-mensaje.component';
-import {MostrarMensajeComponent} from './mensajes/mostrar-mensaje/mostrar-mensaje.component';
+import { CrearMensajeComponent} from './mensajes/crear-mensaje/crear-mensaje.component';
+import { EliminarMensajeComponent} from './mensajes/eliminar-mensaje/eliminar-mensaje.component';
+import { MostrarMensajeComponent} from './mensajes/mostrar-mensaje/mostrar-mensaje.component';
 
-import {CrearNotificacionComponent} from './notificaciones/crear-notificacion/crear-notificacion.component';
-import {MostrarNotificacionComponent} from './notificaciones/mostrar-notificacion/mostrar-notificacion.component';
+import { CrearNotificacionComponent} from './notificaciones/crear-notificacion/crear-notificacion.component';
+import { MostrarNotificacionComponent} from './notificaciones/mostrar-notificacion/mostrar-notificacion.component';
 
-import {CrearPublicacionComponent} from './publicaciones/crear-publicacion/crear-publicacion.component';
-import {ModificarPublicacionComponent} from './publicaciones/modificar-publicacion/modificar-publicacion.component';
+import { CrearPublicacionComponent} from './publicaciones/crear-publicacion/crear-publicacion.component';
+import { ModificarPublicacionComponent} from './publicaciones/modificar-publicacion/modificar-publicacion.component';
 import { MostrarPublicacionComponent } from './publicaciones/mostrar-publicacion/mostrar-publicacion.component';
+
+import { CrearPublicidadComponent} from './publicidad/crear-publicidad/crear-publicidad.component';
+import { ModificarPublicidadComponent} from './publicidad/modificar-publicidad/modificar-publicidad.component';
+import { MostrarPublicidadComponent} from './publicidad/mostrar-publicidad/mostrar-publicidad.component';
+
+
 
 const routes: Routes = [
 
+{
+  path: 'publicidad',
+  component: MostrarPublicidadComponent
+},
+{
+  path: 'crear-publicidad',
+  component: CrearPublicidadComponent
+},
+{
+  path: 'modificar-publicidad',
+  component: ModificarPublicidadComponent
+},
 {
   path: 'publicaciones',
   component: MostrarPublicacionComponent

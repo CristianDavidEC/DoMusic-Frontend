@@ -4,8 +4,12 @@ export namespace ServiceConfig {
     export const BASE_URL_BANDA = 'http://localhost:3000/bandas';
     export const BASE_URL_LOGIN = 'http://localhost:3000/login';
     export const BESE_URL_PUBLICACION = 'http://localhost:3000/publicaciones';
+<<<<<<< HEAD
     export const BESE_URL_RECUPERACONTRASENA = 'http://localhost:3000/recuperar-contrasena';
     export const BESE_URL_CAMBIARCONTRASENA = 'http://localhost:3000/cambiar-contrasena';
+=======
+    export const BESE_URL_PUBLICIDAD = ' http://localhost:3000/publicidad';   
+>>>>>>> publicidad
     export const ROLMP = "Musico Profesional";
     export const ROLAFI =  "Aficionado";
     export const ROLBANDA = "Banda";
