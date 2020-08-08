@@ -46,13 +46,11 @@ export class MostrarPublicidadComponent implements OnInit {
   }
 
   ConfirmarEliminacion(idPublicidad){
-    console.log(idPublicidad);
     this.eliminarPubliId = idPublicidad;
     ShowRemoveConfimationPublic();
   }
 
   EliminarPubli(){
-    console.log(this.eliminarPubliId);
     this.service.eliminarRegistro(this.eliminarPubliId).subscribe(
       data => {
         CloseModal('confirmarEliminacion');
@@ -61,7 +59,8 @@ export class MostrarPublicidadComponent implements OnInit {
         this.getRecordsList();
       },
       error => {
-        ShowNotificationMessage('Error!');
+        CloseModal('confirmarEliminacion');
+        ShowNotificationMessage('Error! no se puede eliminar');
       }
     );
   }

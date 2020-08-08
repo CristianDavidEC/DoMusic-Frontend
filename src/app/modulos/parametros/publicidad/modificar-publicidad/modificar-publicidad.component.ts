@@ -33,7 +33,7 @@ export class ModificarPublicidadComponent implements OnInit {
   getPublicidad(){
     this.servicio.getPublicidad(this.recordIdPublicidad).subscribe(
       data =>{
-        console.log(data)
+        console.log("get publicidad" + data.idPublicidad)
         this.fgv.idPublicidad.setValue(data.idPublicidad);
         this.fgv.titulo.setValue(data.titulo);
         this.fgv.contenido.setValue(data.contenido);
@@ -47,7 +47,7 @@ export class ModificarPublicidadComponent implements OnInit {
 
   FormBuilding(){ 
     this.fgValidator = this.fb.group({
-      idPublicacion: ['', [Validators.required]],
+      idPublicidad: ['', [Validators.required]],
       titulo: ['', [Validators.required, Validators.minLength(2)]],
       contenido: ['', [Validators.required, Validators.minLength(2)]],
     });

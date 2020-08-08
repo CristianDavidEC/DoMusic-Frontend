@@ -37,7 +37,6 @@ export class PublicidadService {
   }
 
   eliminarRegistro(recordId:String):Observable<any>{
-    console.log(recordId)
     return this.http.delete<any>(`${ServiceConfig.BESE_URL_PUBLICIDAD}/${recordId}`,{
       headers:new HttpHeaders({
         Authorization: `Bearer ${this.token}`
@@ -46,7 +45,7 @@ export class PublicidadService {
   }
 
   guardarNuevoRegistro(record:PublicidadModel):Observable<PublicidadModel>{
-    return this.http.post<PublicidadModel>(`${ServiceConfig.BESE_URL_PUBLICIDAD}}`, record, {
+    return this.http.post<PublicidadModel>(`${ServiceConfig.BESE_URL_PUBLICIDAD}`, record, {
       headers:new HttpHeaders({
         Authorization: `Bearer ${this.token}`
       })

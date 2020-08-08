@@ -24,6 +24,8 @@ import { CrearPublicidadComponent} from './publicidad/crear-publicidad/crear-pub
 import { ModificarPublicidadComponent} from './publicidad/modificar-publicidad/modificar-publicidad.component';
 import { MostrarPublicidadComponent} from './publicidad/mostrar-publicidad/mostrar-publicidad.component';
 
+import { AutAdminGuard} from '../../guardianes/aut-admin.guard'
+
 
 
 const routes: Routes = [
@@ -34,11 +36,13 @@ const routes: Routes = [
 },
 {
   path: 'crear-publicidad',
-  component: CrearPublicidadComponent
+  component: CrearPublicidadComponent,
+  canActivate: [AutAdminGuard]
 },
 {
-  path: 'modificar-publicidad',
-  component: ModificarPublicidadComponent
+  path: 'modificar-publicidad/:idPublicidad',
+  component: ModificarPublicidadComponent,
+  canActivate: [AutAdminGuard]
 },
 {
   path: 'publicaciones',
