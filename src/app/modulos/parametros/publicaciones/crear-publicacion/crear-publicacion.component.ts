@@ -32,7 +32,7 @@ export class CrearPublicacionComponent implements OnInit {
     this.fgValidator = this.fb.group({
       titulo: ['', [Validators.required, Validators.minLength(2)]],
       contenido: ['', [Validators.required, Validators.minLength(2)]],
-      fecha: ['', [Validators.required]],
+      //fecha: ['', [Validators.required]],
     });
   }
 
@@ -62,8 +62,8 @@ export class CrearPublicacionComponent implements OnInit {
     let model = new PublicacionModel();
     model.titulo = this.fgv.titulo.value;
     model.contenido = this.fgv.contenido.value;
-    model.fecha = (this.fgv.fecha.value);
-    
+    let day = new Date;
+    model.fecha = (`Fecha:${day.getDate()}-${day.getMonth()+1}-${day.getFullYear()} Hora:${day.getHours()}:${day.getMinutes()}:${day.getSeconds()}`);
 
     return model;
   }
