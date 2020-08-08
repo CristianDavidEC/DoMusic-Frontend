@@ -1,4 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsConfig } from 'src/app/config/forms-config';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ComentarioModel} from '../../../../modelos/parametros/comentario.model'
+import { ComentariosService} from '../../../../servicios/parametros/comentarios.service'
+
+
+declare const ShowNotificationMessage: any;
+declare const ShowRemoveConfimationPublic: any;
+declare const CloseModal: any;
 
 @Component({
   selector: 'app-mostar-comentarios',
@@ -7,9 +16,54 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MostarComentariosComponent implements OnInit {
 
-  constructor() { }
+  pagina: number = 1;
+  recordList : ComentarioModel[];
+  eliminarComentarioId: String ='';
+  comentarioPorPagina: number = FormsConfig.ELEMENTOS_PAGINA;
+
+  constructor(
+    private service: ComentariosService,
+    private spinner: NgxSpinnerService,
+  ) { }
 
   ngOnInit(): void {
+
+    this.spinner.show();
+    
+
+    this.getRecordsList()
+
+
   }
+
+  getRecordsList(){
+    this.service.getAllRecords().subscribe(records => {
+      this.recordList = records;
+      setTimeout(() => {
+        this.spinner.hide();
+      },1000)
+    },
+    error => {ShowNotificationMessage ("Hubo un problema con la comunicación en el Backend")})
+  }
+
+  ConfirmarEliminacion(idComentario){
+    this.eliminarComentarioId = idComentario;
+    ShowRemoveConfimationPublic();
+  }
+
+  EliminarComentario(){
+    this.service.eliminarRegistro(this.eliminarComentarioId).subscribe(
+      data => {
+        CloseModal('confirmarEliminacion');
+        ShowNotificationMessage('Se ha eliminado exitosamente');
+
+        this.getRecordsList();
+      },
+      error => {
+        ShowNotificationMessage('Error!');
+      }
+    );
+  }
+
 
 }
