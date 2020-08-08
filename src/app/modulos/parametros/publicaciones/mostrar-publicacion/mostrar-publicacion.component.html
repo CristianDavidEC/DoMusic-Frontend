@@ -19,6 +19,9 @@
             <td>
                 Eliminar
             </td>
+            <td>
+                comentarios
+            </td>
         </tr>
     </thead>
     <tbody>
@@ -39,6 +42,12 @@
                 <button type="button" class = "btn btn-danger" (click) = "ConfirmarEliminacion(r.idPublicacion)">
                     Eliminar
                 </button>
+            </td>
+            <td>
+                <a class="btn btn-warning" routerLink= "/parametros/comentarios/{{r.idPublicacion}}" role= "button">Comentarios</a>
+            </td>
+            <td>
+                <a class="btn btn-warning" routerLink= "/parametros/crear-comentarios/{{r.idPublicacion}}" role= "button">Comentar</a>
             </td>
         </tr>
     </tbody>

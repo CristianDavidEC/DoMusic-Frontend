@@ -64,7 +64,7 @@ export class CrearPublicacionComponent implements OnInit {
     model.contenido = this.fgv.contenido.value;
     let day = new Date;
     model.fecha = (`Fecha:${day.getDate()}-${day.getMonth()+1}-${day.getFullYear()} Hora:${day.getHours()}:${day.getMinutes()}:${day.getSeconds()}`);
-
+    
     return model;
   }
 

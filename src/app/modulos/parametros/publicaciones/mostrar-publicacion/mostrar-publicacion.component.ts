@@ -32,9 +32,7 @@ export class MostrarPublicacionComponent implements OnInit {
 
     this.spinner.show();
     
-
     this.getRecordsList()
-
 
   }
 

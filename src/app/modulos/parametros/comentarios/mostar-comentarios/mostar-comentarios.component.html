@@ -1,4 +1,3 @@
-<a class="btn btn-success" routerLink="/parametros/crear-comentarios" role="button">Nuevo comentario</a>
 <br />
 <br />
 <table class="table">
@@ -12,6 +11,9 @@
             </td>
             <td>
                 Eliminar
+            </td>
+            <td>
+                Comentar
             </td>
         </tr>
     </thead>
@@ -28,9 +30,15 @@
                     Eliminar
                 </button>
             </td>
+            <td>
+                <button type="button" class="btn btn-danger" (click)="ComentarComentario(r.idComentario)">
+                    Comentar
+                </button>
+            </td>
         </tr>
     </tbody>
 </table>
+<!-- <a class="btn btn-success" routerLink="/parametros/crear-comentarios/{{r.idPublicacion}}" role="button">Nuevo comentario</a> -->
 
 <div class="modal" id="confirmarEliminacion" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">

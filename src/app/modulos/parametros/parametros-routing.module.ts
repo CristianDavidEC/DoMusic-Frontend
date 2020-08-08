@@ -49,11 +49,11 @@ const routes: Routes = [
   component: MostrarPublicacionComponent
 },
 {
-  path: 'crear-comentarios',
+  path: 'crear-comentarios/:idPublicacion',
   component: CrearComentariosComponent
 },
 {
-  path: 'comentarios',
+  path: 'comentarios/:idPublicacion',
   component: MostarComentariosComponent
 },
 {

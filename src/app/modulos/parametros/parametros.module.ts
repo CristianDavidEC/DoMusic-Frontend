@@ -15,6 +15,7 @@ import { ModificarPublicidadComponent } from './publicidad/modificar-publicidad/
 import { MostrarPublicidadComponent } from './publicidad/mostrar-publicidad/mostrar-publicidad.component';
 
 import { MostarComentariosComponent } from './comentarios/mostar-comentarios/mostar-comentarios.component'
+import { CrearComentariosComponent } from './comentarios/crear-comentarios/crear-comentarios.component'
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MostarComentariosComponent } from './comentarios/mostar-comentarios/mos
     CrearPublicidadComponent,
     ModificarPublicidadComponent,
     MostrarPublicidadComponent,
-    MostarComentariosComponent
+    MostarComentariosComponent,
+    CrearComentariosComponent
     
   ],
   imports: [
