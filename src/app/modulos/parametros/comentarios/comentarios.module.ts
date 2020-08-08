@@ -8,17 +8,26 @@ import { EliminarComentariosComponent } from './eliminar-comentarios/eliminar-co
 import { MostarComentariosComponent } from './mostar-comentarios/mostar-comentarios.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { NgxSpinnerService } from 'ngx-spinner';
-import { NgxPaginationModule} from 'ngx-pagination'
+import { NgxPaginationModule} from 'ngx-pagination';
+import { BrowserModule } from '@angular/platform-browser';
+
+
 
 @NgModule({
-  declarations: [CrearComentariosComponent, ModificarComentariosComponent, EliminarComentariosComponent, MostarComentariosComponent],
+  declarations: [
+    CrearComentariosComponent,
+    ModificarComentariosComponent, 
+    EliminarComentariosComponent, 
+    MostarComentariosComponent
+  ],
   imports: [
     CommonModule,
     ComentariosRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     NgxSpinnerService,
-    NgxPaginationModule
+    NgxPaginationModule,
+    BrowserModule
   ]
 })
 export class ComentariosModule { }

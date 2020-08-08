@@ -27,13 +27,8 @@ export class MostarComentariosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
     this.spinner.show();
-    
-
     this.getRecordsList()
-
-
   }
 
   getRecordsList(){

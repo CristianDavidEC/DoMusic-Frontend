@@ -8,7 +8,11 @@ import { MostrarPublicacionComponent } from './mostrar-publicacion/mostrar-publi
 import {NotificacionesRoutingModule} from '../notificaciones/notificaciones-routing.module'
 
 @NgModule({
-  declarations: [CrearPublicacionComponent, ModificarPublicacionComponent, MostrarPublicacionComponent],
+  declarations: [
+  CrearPublicacionComponent, 
+  ModificarPublicacionComponent, 
+  MostrarPublicacionComponent
+],
   imports: [
     CommonModule,
     PublicacionesRoutingModule,
