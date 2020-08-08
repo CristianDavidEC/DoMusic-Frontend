@@ -20,6 +20,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let r of recordList | paginate: { itemsPerPage: comentarioPorPagina, currentPage: pagina}">
+        <!-- <tr> -->
             <td>
                 {{r.contenido}}
             </td>
@@ -38,12 +39,14 @@
     </tbody>
 </table>
 
-<pagination-controls (pageChange)="pagina = $event" nextLabel="Siguiente" previousLabel="Anterior"></pagination-controls>
-<ngx-spinner></ngx-spinner>
+
+<!-- <pagination-controls (pageChange)="pagina = $event" nextLabel="Siguiente" previousLabel="Anterior"></pagination-controls>
+<ngx-spinner></ngx-spinner> -->
 <div class="modal" id= "confirmarEliminacion" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
+
           <h5 class="modal-title">Confirmacion de Eliminacion</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
