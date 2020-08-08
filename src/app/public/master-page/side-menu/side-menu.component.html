@@ -15,6 +15,10 @@
       <a class="side-link h5  font-weight-light" routerLink="/parametros/publicidad"><i
           class="far fa-images icon"></i>Publicidades</a>
     </li>
+    <li class="side-item" *ngIf="estaLogueado">
+      <a class="side-link h5  font-weight-light" routerLink="/parametros/comentarios"><i
+          class="far fa-images icon"></i>Comentarios</a>
+    </li>
 
     <li class="side-item dropdown" *ngIf="estaLogueado">
 

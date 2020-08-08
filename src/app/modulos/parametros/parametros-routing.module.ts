@@ -53,8 +53,8 @@ const routes: Routes = [
   component: CrearComentariosComponent
 },
 {
-  path: 'eliminar-comentarios',
-  component: EliminarComentariosComponent
+  path: 'comentarios',
+  component: MostarComentariosComponent
 },
 {
   path: 'modificar-comentarios',
@@ -90,7 +90,7 @@ const routes: Routes = [
   component: CrearNotificacionComponent
 },
 {
-  path: 'mostrar-notificaciones',
+  path: 'notificaciones',
   component: MostrarNotificacionComponent
 },
 {
