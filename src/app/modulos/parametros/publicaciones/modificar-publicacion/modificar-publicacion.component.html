@@ -32,17 +32,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <input formControlName="fecha" type="date" class="form-control" name="fecha" placeholder="Fecha"
-                            required="required">
-                        <div class="warning-validator container" *ngIf="fgv.fecha.errors && (fgv.fecha.dirty || fgv.fecha.touched)">
-                            <strong *ngIf= "fgv.fecha.errors.required">
-                                Este campo es requerido! 
-                            </strong>
-                        </div>
-                    </div>
-                </div>           
+           
                 <div class="form-group">
                     <button type="button" (click)="modificarPublicacion()"
                         class="btn btn-primary justify-content-end btn-lg d-inline">Modificar</button>

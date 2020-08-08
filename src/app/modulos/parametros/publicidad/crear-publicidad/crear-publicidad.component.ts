@@ -63,7 +63,6 @@ export class CrearPublicidadComponent implements OnInit {
     model.titulo = this.fgv.titulo.value;
     model.contenido = this.fgv.contenido.value;
     
-
     return model;
   }
 

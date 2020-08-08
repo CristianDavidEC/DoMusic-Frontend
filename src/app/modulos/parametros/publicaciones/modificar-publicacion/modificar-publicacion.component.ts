@@ -51,7 +51,6 @@ export class ModificarPublicacionComponent implements OnInit {
       idPublicacion: ['', [Validators.required]],
       titulo: ['', [Validators.required, Validators.minLength(2)]],
       contenido: ['', [Validators.required, Validators.minLength(2)]],
-      fecha: ['', [Validators.required]],
     });
   }
 
@@ -82,7 +81,8 @@ export class ModificarPublicacionComponent implements OnInit {
     model.idPublicacion = this.fgv.idPublicacion.value;
     model.titulo = this.fgv.titulo.value;
     model.contenido = this.fgv.contenido.value;
-    model.fecha = (this.fgv.fecha.value);
+    let day = new Date;
+    model.fecha = (`Fecha:${day.getDate()}-${day.getMonth()+1}-${day.getFullYear()} Hora:${day.getHours()}:${day.getMinutes()}:${day.getSeconds()}`);
     return model;
   }
 
