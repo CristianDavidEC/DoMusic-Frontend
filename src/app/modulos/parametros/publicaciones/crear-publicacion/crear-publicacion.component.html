@@ -19,7 +19,7 @@
                 </div>
             </form>
             <form [formGroup]="fgValidator" action="/examples/actions/confirmation.php" method="post">
-                <input type="text" formControlName="image">
+                <input type="hidden" formControlName="image">
                 <h2 class="text-center">Crear publicación en <i class="fas fa-compact-disc"></i>
                     <strong>DoMusic</strong> </h2>
                 <hr>
