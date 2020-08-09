@@ -6,14 +6,13 @@ import { FormsConfig } from 'src/app/config/forms-config';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxSpinnerService } from "ngx-spinner";
 import { Router, ActivatedRoute } from '@angular/router';
-<<<<<<< HEAD
-=======
+
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
->>>>>>> 3d17436d3c4c992a1004493f91e377bb388d0070
 
 declare const ShowNotificationMessage: any;
 declare const ShowRemoveConfimationPublic: any;
 declare const CloseModal: any;
+
 
 @Component({
   selector: 'app-mostrar-publicacion',
@@ -28,6 +27,7 @@ export class MostrarPublicacionComponent implements OnInit {
   publiPorPagina: number = FormsConfig.ELEMENTOS_PAGINA;
   recordIdPublicacion: string = '';
   idUsuarioPubli: String = "";
+  
 
 
   private sub: any;
@@ -40,6 +40,7 @@ export class MostrarPublicacionComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private router: Router,
     private route: ActivatedRoute,
+    private publicacion;
   ) {
     this.recordIdPublicacion = this.route.snapshot.params['idPublicacion']
    }
@@ -67,17 +68,17 @@ export class MostrarPublicacionComponent implements OnInit {
     ShowRemoveConfimationPublic();
   }
 
-  VerIdUseIdPubli():Boolean{
-    let publicacion = this.service.getPublicacion(this.recordIdPublicacion).subscribe(
+  VerIdUseIdPubli(){
+    this.publicacion = this.service.getPublicacion(this.recordIdPublicacion).subscribe(
       data => {
-        this.idUsuarioPubli = data.fecha;
+        this.idUsuarioPubli = data.idUsuario;
       }
     )
-    
-    return true
+    console.log("usuario publicacion" + this.idUsuarioPubli)
   }
 
   EliminarPubli(){
+    this.VerIdUseIdPubli()
     this.service.eliminarRegistro(this.eliminarPubliId).subscribe(
       data => {
         CloseModal('confirmarEliminacion');
