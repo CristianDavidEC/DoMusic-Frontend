@@ -8,7 +8,8 @@
             <form [formGroup]="cargarArchivoForm" action="">
                 <div class="form-group input-group">
                     <div class="input-group">
-                        <input type="text" formControlName="archivo">
+                        <input type="text
+                        " formControlName="archivo">
                         <input type="file" formControlName="archivo" (change)="onFileSelect($event)" class="form-control" name="archivo">
                         <input type="button" (click) = "cargarArchivo()" value="Cargar">
                         <div class="warning-validator container" *ngIf="fgv.contenido.errors && (fgv.contenido.dirty || fgv.contenido.touched)">
