@@ -26,12 +26,12 @@
   }
   
   .login-form {
-    padding: 15px;
+    padding-top:7%;
   }
   
   .login-form h3 {
     text-align: center;
-    padding-top: 15px;
+    padding-top: 10px;
     padding-bottom: 15px;
   }
   
@@ -47,8 +47,9 @@
   
   .tamaño{
     margin-top: 5%;
-    width: 90% !Important;
+    width: 95% !Important;
     left: 80% !Important;
+    margin-bottom:5% ;
   }
 
   .btn-primary{

@@ -1,28 +1,23 @@
 <div class="container signup-form">
     <div class="row">
         <div class="col-md-4 ">
-            <img src="https://i.pinimg.com/564x/5d/5d/5e/5d5d5ec6ab5784b8d84d990bddab9536.jpg"
+            <img src="https://cellularnews.com/wp-content/uploads/2020/03/music-graffiti-collage-325x485.jpg"
                 class="img-fluid rounded tamaño" alt="Eniun">
         </div>
         <div class="col-md-8">
+            <h2 class="text-center">Crear publicación en <i class="fas fa-compact-disc"></i>
+                <strong>DoMusic</strong> </h2>
+            <hr>
             <form [formGroup]="cargarArchivoForm" >
                 <div class="form-group input-group">
-                    <input formControlName="file" (change)="onFileSelect($event)" name="image" class="form-control"
+                    <input formControlName="file" (change)="onFileSelect($event)" name="image" class="form-control-file d-inline"
                     type="file">
-                    <input type="button"  value="Cargar" (click)="cargarArchivo()">
-                    <!-- <div class="warning-validator container"
-                        *ngIf="fgv.archivo.errors && (fgv.archivo.dirty || fgv.archivo.touched)">
-                        <strong *ngIf="fgv.archivo.errors.required">
-                            Este campo es requerido!
-                        </strong>
-                    </div> -->
+                    <button type="button"  class="btn btn-primary justify-content-end btn-lg d-inline "  value="Cargar" (click)="cargarArchivo()">
+                        <i class="fas fa-angle-double-up "></i> Subir</button>
                 </div>
             </form>
             <form [formGroup]="fgValidator" action="/examples/actions/confirmation.php" method="post">
                 <input type="hidden" formControlName="image">
-                <h2 class="text-center">Crear publicación en <i class="fas fa-compact-disc"></i>
-                    <strong>DoMusic</strong> </h2>
-                <hr>
                 <div class="form-group">
                     <div class="input-group">
                         <input formControlName="titulo" type="text" class="form-control" name="titulo"
@@ -49,10 +44,10 @@
                 </div>
                 <div class="form-group">
                     <button type="button" (click)="crearPublicacion()"
-                        class="btn btn-primary justify-content-end btn-lg d-inline">Publicar</button>
+                        class="btn btn-primary justify-content-end btn-lg d-inline"><i class="far fa-arrow-alt-circle-up"></i> Publicar</button>
 
                     <a type="button" class="btn btn-danger justify-content-end btn-lg d-inline"
-                        routerLink="/parametros/publicaciones">Cancelar</a>
+                        routerLink="/parametros/publicaciones"><i class="far fa-times-circle"></i> Cancelar</a>
                 </div>
                 <!-- ------------------------------------------------------------------------------------------------------------ -->
 

@@ -26,7 +26,7 @@
   }
   
   .login-form {
-    padding: 15px;
+    padding-top:8%;
   }
   
   .login-form h3 {
@@ -47,8 +47,9 @@
   
   .tamaño{
     margin-top: 5%;
-    width: 90% !Important;
+    width: 95% !Important;
     left: 80% !Important;
+    margin-bottom: 5%;
   }
 
   .btn-primary{

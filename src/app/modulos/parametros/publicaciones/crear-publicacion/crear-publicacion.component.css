@@ -1,3 +1,17 @@
 .btn-primary{
     margin-right: 3%;
 }
+
+.container{
+    max-width: 70%;
+}
+
+.btn-primary{
+    background-color:  #32485a;
+    border-color: #2A3A47;
+    height: 3%;
+}
+.btn-primary:hover{
+    background-color:#1B252E;
+}
+

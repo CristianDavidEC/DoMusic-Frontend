@@ -1,4 +1,32 @@
 .colorDoMusic1{
-        background-color: #1B252E !important;
-        color: white;
+ background-color: #1B252E !important;
+ color: white;
+}
+
+.container-fluid{
+ max-width:85% ;
+}
+
+redes{
+ margin: 0 0 0 0;
+}
+
+.redes i{
+ margin-right: 5%;
+ font-size: inherit;
+ font-size: 30px;
+ color:wheat ;
+}
+
+.redes i:hover{
+ color:#668CAD;
+ font-size: 32px;
+}
+.info a{
+ color:white;
+ margin-left: 40%;
+}
+.info a:hover{
+ color:#839db4;
+ text-decoration: none;
 }
