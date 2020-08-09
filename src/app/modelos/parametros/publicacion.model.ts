@@ -5,4 +5,5 @@ export class PublicacionModel{
     reacciones?: number;
     contenido: string;
     archivo?: string;
+    idUsuario:string;
 }

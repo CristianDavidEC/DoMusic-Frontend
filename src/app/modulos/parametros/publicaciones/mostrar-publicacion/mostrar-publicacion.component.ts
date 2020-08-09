@@ -6,6 +6,10 @@ import { FormsConfig } from 'src/app/config/forms-config';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxSpinnerService } from "ngx-spinner";
 import { Router, ActivatedRoute } from '@angular/router';
+<<<<<<< HEAD
+=======
+import { SeguridadService } from 'src/app/servicios/seguridad.service';
+>>>>>>> 3d17436d3c4c992a1004493f91e377bb388d0070
 
 declare const ShowNotificationMessage: any;
 declare const ShowRemoveConfimationPublic: any;
@@ -26,7 +30,12 @@ export class MostrarPublicacionComponent implements OnInit {
   idUsuarioPubli: String = "";
 
 
+  private sub: any;
+  
+  private idPublicacion: any;
+
   constructor(
+    private SeguridadService: SeguridadService,
     private service: PublicacionesService,
     private spinner: NgxSpinnerService,
     private router: Router,

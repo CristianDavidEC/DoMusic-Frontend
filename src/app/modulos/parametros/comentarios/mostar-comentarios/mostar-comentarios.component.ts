@@ -3,6 +3,7 @@ import { FormsConfig } from 'src/app/config/forms-config';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ComentarioModel} from '../../../../modelos/parametros/comentario.model'
 import { ComentariosService} from '../../../../servicios/parametros/comentarios.service'
+import { ActivatedRoute } from '@angular/router';
 
 
 declare const ShowNotificationMessage: any;
@@ -20,15 +21,30 @@ export class MostarComentariosComponent implements OnInit {
   recordList : ComentarioModel[];
   eliminarComentarioId: String ='';
   comentarioPorPagina: number = FormsConfig.ELEMENTOS_PAGINA;
+  private sub: any;
+  
+  private idPublicacion: any;
 
   constructor(
     private service: ComentariosService,
     private spinner: NgxSpinnerService,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
     this.spinner.show();
     this.getRecordsList()
+
+    this.sub = this.route.params.subscribe(params => {
+      this.idPublicacion = params['idPublicacion'];
+      alert(this.idPublicacion)
+   });
+  }
+
+  idpublic:string= this.idPublicacion;
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
   getRecordsList(){

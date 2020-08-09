@@ -4,6 +4,7 @@ import { PerfilService } from 'src/app/servicios/perfil.service';
 import { PublicacionesService } from 'src/app/servicios/parametros/publicaciones.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PublicacionModel } from 'src/app/modelos/parametros/publicacion.model';
+import { SeguridadService } from 'src/app/servicios/seguridad.service'
 
 declare const ShowNotificationMessage:any;
 
@@ -18,10 +19,10 @@ export class CrearPublicacionComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private servicio: PublicacionesService,
+    private servicioPublicacion : PublicacionesService,
+    private servicio: SeguridadService,
     private route: ActivatedRoute,
-    private router: Router
-
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -32,7 +33,6 @@ export class CrearPublicacionComponent implements OnInit {
     this.fgValidator = this.fb.group({
       titulo: ['', [Validators.required, Validators.minLength(2)]],
       contenido: ['', [Validators.required, Validators.minLength(2)]],
-      //fecha: ['', [Validators.required]],
     });
   }
 
@@ -41,7 +41,7 @@ export class CrearPublicacionComponent implements OnInit {
       ShowNotificationMessage('Formulario inválido')
     }else{
         let model=this.getPubliDatos();
-        this.servicio.guardarNuevoRegistro(model).subscribe(data => {
+        this.servicioPublicacion.guardarNuevoRegistro(model).subscribe(data => {
           if(data){
             ShowNotificationMessage('Registro exitoso');
             this.router.navigate(['/parametros/publicaciones']);
@@ -63,8 +63,9 @@ export class CrearPublicacionComponent implements OnInit {
     model.titulo = this.fgv.titulo.value;
     model.contenido = this.fgv.contenido.value;
     let day = new Date;
-    model.fecha = (`Fecha:${day.getDate()}-${day.getMonth()+1}-${day.getFullYear()} Hora:${day.getHours()}:${day.getMinutes()}:${day.getSeconds()}`);
-    
+    model.fecha = (`Fecha:${day.getDate()}-${day.getMonth()+1}-${day.getFullYear()} Hora:${day.getHours()}:${day.getMinutes()}:${day.getSeconds()}`)
+    model.idUsuario = (this.servicio.getUsuarioId()).toString();
+    console.log(model.idUsuario)
     return model;
   }
 
