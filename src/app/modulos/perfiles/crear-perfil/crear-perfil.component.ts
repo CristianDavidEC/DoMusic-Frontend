@@ -46,6 +46,7 @@ export class CrearPerfilComponent implements OnInit {
     });
   }
 
+    
   crearPerfil(){
     if(this.fgValidator.invalid){
       ShowNotificationMessage('Formulario inválido')
@@ -97,6 +98,8 @@ export class CrearPerfilComponent implements OnInit {
     return this.cargarArchivoForm.controls;
   }
 
+
+
   cargarArchivo(){
     const formData = new FormData();
     formData.append('file', this.fgArchivo.file.value);
@@ -110,6 +113,7 @@ export class CrearPerfilComponent implements OnInit {
         ShowNotificationMessage("Error al cargar el archivo.");
       }
     );
+    
   }
 
   onFileSelect(event) { 
