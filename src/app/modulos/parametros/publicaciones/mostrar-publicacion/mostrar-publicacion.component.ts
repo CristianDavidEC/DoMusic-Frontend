@@ -6,11 +6,13 @@ import { FormsConfig } from 'src/app/config/forms-config';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxSpinnerService } from "ngx-spinner";
 import { Router, ActivatedRoute } from '@angular/router';
+
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
 declare const ShowNotificationMessage: any;
 declare const ShowRemoveConfimationPublic: any;
 declare const CloseModal: any;
+
 
 @Component({
   selector: 'app-mostrar-publicacion',
@@ -23,19 +25,31 @@ export class MostrarPublicacionComponent implements OnInit {
   recordList : PublicacionModel[];
   eliminarPubliId: String ='';
   publiPorPagina: number = FormsConfig.ELEMENTOS_PAGINA;
+  recordIdPublicacion: string = '';
+  idUsuarioPubli: String = "";
 
+<<<<<<< HEAD
+=======
+  private publicacion: any;
+  private sub: any;
+  private idPublicacionP: any;
+  private idUsuarioP: any;
+  private ret: any;
+
+>>>>>>> 1178656660e30dace5194968735f7461ffb52279
   constructor(
     private SeguridadService: SeguridadService,
     private service: PublicacionesService,
     private spinner: NgxSpinnerService,
-  ) { }
+    private router: Router,
+    private route: ActivatedRoute,
+  ) {
+    this.recordIdPublicacion = this.route.snapshot.params['idPublicacion']
+   }
 
   ngOnInit(): void {
-
     this.spinner.show();
-    
     this.getRecordsList()
-
   }
 
   getRecordsList(){
@@ -51,29 +65,46 @@ export class MostrarPublicacionComponent implements OnInit {
   ConfirmarEliminacion(idPublicacion){
     console.log(this.service.getPubli(idPublicacion))
     this.eliminarPubliId = idPublicacion;
+    this.verifPublicacion(this.eliminarPubliId);
+
     ShowRemoveConfimationPublic();
   }
 
-  /* verificarIdUsuario(idPublicacion):Boolean{
-    let publicacion = this.service.getPublicacion(idPublicacion);
-    let idUsuario = this.SeguridadService.getUsuarioId()
-    console.log(`Id Usuario Publicacio ${JSON.parse(publicacion).idUsuario}`)
-    return true
+  verifPublicacion(eliminarPubliId: String): Boolean{
+    this.service.getPublicacion2(eliminarPubliId).subscribe(
+      data =>{
+        this.idUsuarioP = (data.idUsuario);
+      },
+      error =>{
+        ShowNotificationMessage('Hubo un error');
+        this.router.navigate(["/parametros/publicaciones"])
+      }
+    )
+    if (this.idUsuarioP == this.SeguridadService.getUsuarioId()){
+      this.ret = true;
+    }else{
+      this.ret = false;
+    }
+      return this.ret;
+  } 
 
-  } */
 
   EliminarPubli(){
-    this.service.eliminarRegistro(this.eliminarPubliId).subscribe(
-      data => {
-        CloseModal('confirmarEliminacion');
-        ShowNotificationMessage('Se ha eliminado exitosamente');
-
-        this.getRecordsList();
-      },
-      error => {
-        ShowNotificationMessage('Error!');
-      }
-    );
+    console.log("todo melo? "+this.verifPublicacion(this.eliminarPubliId))
+    if(this.verifPublicacion(this.eliminarPubliId)){
+      this.service.eliminarRegistro(this.eliminarPubliId).subscribe(
+        data => {
+          CloseModal('confirmarEliminacion');
+          ShowNotificationMessage('Se ha eliminado exitosamente');
+          this.getRecordsList();
+        },
+        error => {
+          ShowNotificationMessage('Error!');
+        }
+      );
+    }else{
+      CloseModal('confirmarEliminacion');
+      ShowNotificationMessage('Error, esta publicacion no es tuya');
+    }
   }
-
 }

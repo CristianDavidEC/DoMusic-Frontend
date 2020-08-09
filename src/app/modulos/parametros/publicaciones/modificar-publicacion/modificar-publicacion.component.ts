@@ -33,7 +33,6 @@ export class ModificarPublicacionComponent implements OnInit {
   getPublicacion(){
     this.servicio.getPublicacion(this.recordIdPublicacion).subscribe(
       data =>{
-        console.log(data)
         this.fgv.idPublicacion.setValue(data.idPublicacion);
         this.fgv.titulo.setValue(data.titulo);
         this.fgv.contenido.setValue(data.contenido);
