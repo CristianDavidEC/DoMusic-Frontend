@@ -24,10 +24,6 @@ export class MostrarPublicacionComponent implements OnInit {
   eliminarPubliId: String ='';
   publiPorPagina: number = FormsConfig.ELEMENTOS_PAGINA;
 
-  private sub: any;
-  
-  private idPublicacion: any;
-
   constructor(
     private SeguridadService: SeguridadService,
     private service: PublicacionesService,
@@ -53,6 +49,7 @@ export class MostrarPublicacionComponent implements OnInit {
   }
 
   ConfirmarEliminacion(idPublicacion){
+    console.log(this.service.getPubli(idPublicacion))
     this.eliminarPubliId = idPublicacion;
     ShowRemoveConfimationPublic();
   }

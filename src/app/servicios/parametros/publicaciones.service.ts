@@ -24,7 +24,11 @@ export class PublicacionesService {
     return this.http.get <PublicacionModel[]>(`${ServiceConfig.BESE_URL_PUBLICACION}`);
   }
 
-  getPublicacion(recordIdPublicacion:String){
+  getPublicacion(recordIdPublicacion:String):Observable<PublicacionModel>{
+    return this.http.get <PublicacionModel>(`${ServiceConfig.BESE_URL_PUBLICACION}/${recordIdPublicacion}`);
+  }
+
+  getPubli(recordIdPublicacion:String){
     return this.http.get <PublicacionModel>(`${ServiceConfig.BESE_URL_PUBLICACION}/${recordIdPublicacion}`);
   }
 
