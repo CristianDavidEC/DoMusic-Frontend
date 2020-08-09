@@ -29,13 +29,13 @@ export class ComentariosService {
     return this.http.get <ComentarioModel>(`${ServiceConfig.BESE_URL_COMENTARIO}/${recordIdPublicacion}`);
   }
 
-  modificarRegistro(record:ComentarioModel):Observable<ComentarioModel>{
+  /* modificarRegistro(record:ComentarioModel):Observable<ComentarioModel>{
     return this.http.put<ComentarioModel>(`${ServiceConfig.BESE_URL_COMENTARIO}/${record.idPublicacion}`, record,{
       headers:new HttpHeaders({
         Authorization: `Bearer ${this.token}`
       })
     });
-  }
+  } */
 
   eliminarRegistro(recordId:String):Observable<any>{
     return this.http.delete<any>(`${ServiceConfig.BESE_URL_COMENTARIO}/${recordId}`,{
@@ -45,7 +45,7 @@ export class ComentariosService {
     });
   }
 
-  guardarNuevoRegistro(record:ComentarioModel):Observable<ComentarioModel>{
+  guardarComentario(record:ComentarioModel):Observable<ComentarioModel>{
     return this.http.post<ComentarioModel>(`${ServiceConfig.BESE_URL_COMENTARIO}`, record, {
       headers:new HttpHeaders({
         Authorization: `Bearer ${this.token}`

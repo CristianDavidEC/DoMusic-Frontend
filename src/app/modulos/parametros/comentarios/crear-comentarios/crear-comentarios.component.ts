@@ -14,11 +14,14 @@ declare const ShowNotificationMessage:any;
 })
 export class CrearComentariosComponent implements OnInit {
 
+  private sub: any;
+  private idPublicacion: any;
   fgValidator: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private servicio: ComentariosService,
+    private servicioSeguridad: SeguridadService,
     private route: ActivatedRoute,
     private router: Router,
     private seguridadSericio: SeguridadService
@@ -27,13 +30,18 @@ export class CrearComentariosComponent implements OnInit {
 
   ngOnInit(): void {
     this.FormBuilding();
+    this.sub = this.route.params.subscribe(params => {
+      this.idPublicacion = params['idPublicacion'];
+   });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
   FormBuilding(){ 
     this.fgValidator = this.fb.group({
       contenido: ['', [Validators.required, Validators.minLength(2)]],
-      idPublicacion: ['', [Validators.required]],
-      idUsuario: ['', [Validators.required]],
     });
   }
 
@@ -42,7 +50,7 @@ export class CrearComentariosComponent implements OnInit {
       ShowNotificationMessage('Formulario inválido')
     }else{
         let model=this.getComentariosDatos();
-        this.servicio.guardarNuevoRegistro(model).subscribe(data => {
+        this.servicio.guardarComentario(model).subscribe(data => {
           if(data){
             ShowNotificationMessage('Registro exitoso');
             this.router.navigate(['/parametros/comentarios']);
@@ -58,14 +66,13 @@ export class CrearComentariosComponent implements OnInit {
     return this.fgValidator.controls;
   }
 
-
   getComentariosDatos(): ComentarioModel{
     let model = new ComentarioModel();
     model.contenido = this.fgv.contenido.value;
     let day = new Date;
     model.fecha = (`Fecha:${day.getDate()}-${day.getMonth()+1}-${day.getFullYear()} Hora:${day.getHours()}:${day.getMinutes()}:${day.getSeconds()}`);
-    model.idPublicacion = this.fgv.idPublicacion.value;
-    model.idUsuario = "Nada en el momento";
+    model.idPublicacion = this.idPublicacion;
+    model.idUsuario = (this.servicioSeguridad.getUsuarioId()).toString();
     model.hijo = this.fgv.hijo.value;
 
     return model;

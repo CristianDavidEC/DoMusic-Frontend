@@ -5,7 +5,8 @@ import { FormsConfig } from 'src/app/config/forms-config';
 
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxSpinnerService } from "ngx-spinner";
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
 declare const ShowNotificationMessage: any;
 declare const ShowRemoveConfimationPublic: any;
@@ -23,7 +24,12 @@ export class MostrarPublicacionComponent implements OnInit {
   eliminarPubliId: String ='';
   publiPorPagina: number = FormsConfig.ELEMENTOS_PAGINA;
 
+  private sub: any;
+  
+  private idPublicacion: any;
+
   constructor(
+    private SeguridadService: SeguridadService,
     private service: PublicacionesService,
     private spinner: NgxSpinnerService,
   ) { }
@@ -50,6 +56,14 @@ export class MostrarPublicacionComponent implements OnInit {
     this.eliminarPubliId = idPublicacion;
     ShowRemoveConfimationPublic();
   }
+
+  /* verificarIdUsuario(idPublicacion):Boolean{
+    let publicacion = this.service.getPublicacion(idPublicacion);
+    let idUsuario = this.SeguridadService.getUsuarioId()
+    console.log(`Id Usuario Publicacio ${JSON.parse(publicacion).idUsuario}`)
+    return true
+
+  } */
 
   EliminarPubli(){
     this.service.eliminarRegistro(this.eliminarPubliId).subscribe(
