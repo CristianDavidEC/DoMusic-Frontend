@@ -5,6 +5,7 @@ import { BandaModel } from '../modelos/banda.model';
 import { HttpClient, HttpHeaders} from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { ServiceConfig} from '../config/service.config'
+import { CargarArchivosModel } from '../modelos/cargarArchivos/cargaArchivos.model'
 
 
 @Injectable({
@@ -37,6 +38,12 @@ export class PerfilService {
     })
   }
   
+  CargaArchivo(formData): Observable<CargarArchivosModel> {
+    return this.http.post<CargarArchivosModel>(`${ServiceConfig.BASE_URL_CARGA_ARCHIVO_PUBLICACION}`, formData, {
+      headers: new HttpHeaders({
+      })
+    });
+  }
   
 }
 

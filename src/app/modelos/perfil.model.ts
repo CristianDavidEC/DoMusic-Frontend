@@ -12,7 +12,7 @@ export class PerfilModel {
     fechaNacimiento: String;
     ciudad: String;
     genero: string;
-    fotoPerfil?: String;
+    image?: String;
     seguidores?: String[];
     seguidos?: String [];
     grupoXMusicoPId?:String;
