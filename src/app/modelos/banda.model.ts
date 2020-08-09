@@ -5,9 +5,9 @@ export class BandaModel {
     generoMusical: string;
     celular: string;
     correo: string;
-    fotoPerfil?: String;
+    image?: String;
     fechaCreacion: string;
     ciudad: string;
     seguidores?: string[];
     seguidos?: string[];
-}
+}   

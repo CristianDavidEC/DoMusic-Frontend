@@ -103,7 +103,7 @@ export class CrearPerfilComponent implements OnInit {
   cargarArchivo(){
     const formData = new FormData();
     formData.append('file', this.fgArchivo.file.value);
-    this.servicio.CargaArchivo(formData).subscribe(
+    this.servicio.CargaArchivoMusico(formData).subscribe(
       data => {
         console.log("Filename. " + data);
         this.fgv.image.setValue(data.filename);

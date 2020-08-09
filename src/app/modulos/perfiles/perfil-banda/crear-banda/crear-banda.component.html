@@ -98,6 +98,14 @@
                         <option value="Perú">Perú</option>
                     </select>
                 </div>
+                <form [formGroup]="cargarArchivoForm" >
+                    <div class="form-group input-group">
+                        <input formControlName="file" (change)="onFileSelect($event)" name="image" class="form-control-file bg-primary"
+                        type="file">
+                        <button type="button"  class="btn btn-primary justify-content-end btn-lg d-inline "  value="Cargar" (click)="cargarArchivo()">
+                            <i class="fas fa-angle-double-up "></i> Subir</button>
+                    </div>
+                </form>
 
                 <div class="form-group">
                     <button type="button" (click)="crearBanda()" class="btn btn-primary btn-lg">Registrarse</button>

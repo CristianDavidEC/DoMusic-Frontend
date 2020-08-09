@@ -44,6 +44,20 @@ export class PerfilService {
       })
     });
   }
+
+  CargaArchivoMusico(formData): Observable<CargarArchivosModel> {
+    return this.http.post<CargarArchivosModel>(`${ServiceConfig.BASE_URL_CARGA_ARCHIVO_MUSICO}`, formData, {
+      headers: new HttpHeaders({
+      })
+    });
+  }
+
+  CargaArchivoBanda(formData): Observable<CargarArchivosModel> {
+    return this.http.post<CargarArchivosModel>(`${ServiceConfig.BASE_URL_CARGA_ARCHIVO_BANDA}`, formData, {
+      headers: new HttpHeaders({
+      })
+    });
+  }
   
 }
 
