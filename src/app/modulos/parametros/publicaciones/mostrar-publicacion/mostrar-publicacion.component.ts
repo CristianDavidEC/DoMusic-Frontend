@@ -28,11 +28,11 @@ export class MostrarPublicacionComponent implements OnInit {
   recordIdPublicacion: string = '';
   idUsuarioPubli: String = "";
   
-
-
+  private publicacion: any;
   private sub: any;
-  
-  private idPublicacion: any;
+  private idPublicacionP: any;
+  private idUsuarioP: any;
+  private ret: any;
 
   constructor(
     private SeguridadService: SeguridadService,
@@ -40,17 +40,13 @@ export class MostrarPublicacionComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private router: Router,
     private route: ActivatedRoute,
-    private publicacion;
   ) {
     this.recordIdPublicacion = this.route.snapshot.params['idPublicacion']
    }
 
   ngOnInit(): void {
-
     this.spinner.show();
-    
     this.getRecordsList()
-
   }
 
   getRecordsList(){
@@ -65,31 +61,46 @@ export class MostrarPublicacionComponent implements OnInit {
 
   ConfirmarEliminacion(idPublicacion){
     this.eliminarPubliId = idPublicacion;
+    this.verifPublicacion(this.eliminarPubliId);
+
     ShowRemoveConfimationPublic();
   }
 
-  VerIdUseIdPubli(){
-    this.publicacion = this.service.getPublicacion(this.recordIdPublicacion).subscribe(
-      data => {
-        this.idUsuarioPubli = data.idUsuario;
+  verifPublicacion(eliminarPubliId: String): Boolean{
+    this.service.getPublicacion2(eliminarPubliId).subscribe(
+      data =>{
+        this.idUsuarioP = (data.idUsuario);
+      },
+      error =>{
+        ShowNotificationMessage('Hubo un error');
+        this.router.navigate(["/parametros/publicaciones"])
       }
     )
-    console.log("usuario publicacion" + this.idUsuarioPubli)
-  }
+    if (this.idUsuarioP == this.SeguridadService.getUsuarioId()){
+      this.ret = true;
+    }else{
+      this.ret = false;
+    }
+      return this.ret;
+  } 
+
 
   EliminarPubli(){
-    this.VerIdUseIdPubli()
-    this.service.eliminarRegistro(this.eliminarPubliId).subscribe(
-      data => {
-        CloseModal('confirmarEliminacion');
-        ShowNotificationMessage('Se ha eliminado exitosamente');
-
-        this.getRecordsList();
-      },
-      error => {
-        ShowNotificationMessage('Error!');
-      }
-    );
+    console.log("todo melo? "+this.verifPublicacion(this.eliminarPubliId))
+    if(this.verifPublicacion(this.eliminarPubliId)){
+      this.service.eliminarRegistro(this.eliminarPubliId).subscribe(
+        data => {
+          CloseModal('confirmarEliminacion');
+          ShowNotificationMessage('Se ha eliminado exitosamente');
+          this.getRecordsList();
+        },
+        error => {
+          ShowNotificationMessage('Error!');
+        }
+      );
+    }else{
+      CloseModal('confirmarEliminacion');
+      ShowNotificationMessage('Error publicacion no es suya');
+    }
   }
-
 }
