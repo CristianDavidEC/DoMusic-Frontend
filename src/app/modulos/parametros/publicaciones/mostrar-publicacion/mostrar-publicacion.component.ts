@@ -27,7 +27,7 @@ export class MostrarPublicacionComponent implements OnInit {
   publiPorPagina: number = FormsConfig.ELEMENTOS_PAGINA;
   recordIdPublicacion: string = '';
   idUsuarioPubli: String = "";
-  
+
   private publicacion: any;
   private sub: any;
   private idPublicacionP: any;
@@ -100,7 +100,7 @@ export class MostrarPublicacionComponent implements OnInit {
       );
     }else{
       CloseModal('confirmarEliminacion');
-      ShowNotificationMessage('Error publicacion no es suya');
+      ShowNotificationMessage('Error, esta publicacion no es tuya');
     }
   }
 }
