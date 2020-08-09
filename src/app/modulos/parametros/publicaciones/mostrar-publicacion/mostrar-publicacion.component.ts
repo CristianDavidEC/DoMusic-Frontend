@@ -5,7 +5,7 @@ import { FormsConfig } from 'src/app/config/forms-config';
 
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxSpinnerService } from "ngx-spinner";
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 declare const ShowNotificationMessage: any;
 declare const ShowRemoveConfimationPublic: any;
@@ -22,11 +22,18 @@ export class MostrarPublicacionComponent implements OnInit {
   recordList : PublicacionModel[];
   eliminarPubliId: String ='';
   publiPorPagina: number = FormsConfig.ELEMENTOS_PAGINA;
+  recordIdPublicacion: string = '';
+  idUsuarioPubli: String = "";
+
 
   constructor(
     private service: PublicacionesService,
     private spinner: NgxSpinnerService,
-  ) { }
+    private router: Router,
+    private route: ActivatedRoute,
+  ) {
+    this.recordIdPublicacion = this.route.snapshot.params['idPublicacion']
+   }
 
   ngOnInit(): void {
 
@@ -49,6 +56,16 @@ export class MostrarPublicacionComponent implements OnInit {
   ConfirmarEliminacion(idPublicacion){
     this.eliminarPubliId = idPublicacion;
     ShowRemoveConfimationPublic();
+  }
+
+  VerIdUseIdPubli():Boolean{
+    let publicacion = this.service.getPublicacion(this.recordIdPublicacion).subscribe(
+      data => {
+        this.idUsuarioPubli = data.fecha;
+      }
+    )
+    
+    return true
   }
 
   EliminarPubli(){
