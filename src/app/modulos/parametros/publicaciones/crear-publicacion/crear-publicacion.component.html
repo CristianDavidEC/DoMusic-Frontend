@@ -5,31 +5,32 @@
                 class="img-fluid rounded tamaño" alt="Eniun">
         </div>
         <div class="col-md-8">
-            <form [formGroup]="cargarArchivoForm" action="">
+            <form [formGroup]="cargarArchivoForm" >
                 <div class="form-group input-group">
-                    <div class="input-group">
-                        <input type="text
-                        " formControlName="archivo">
-                        <input type="file" formControlName="archivo" (change)="onFileSelect($event)" class="form-control" name="archivo">
-                        <input type="button" (click) = "cargarArchivo()" value="Cargar">
-                        <div class="warning-validator container" *ngIf="fgv.contenido.errors && (fgv.contenido.dirty || fgv.contenido.touched)">
-                            <strong *ngIf= "fgv.contenido.errors.required">
-                                Este campo es requerido! 
-                            </strong>
-                        </div>
-                    </div>
-                </div> 
+                    <input formControlName="file" (change)="onFileSelect($event)" name="image" class="form-control"
+                    type="file">
+                    <input type="button"  value="Cargar" (click)="cargarArchivo()">
+                    <!-- <div class="warning-validator container"
+                        *ngIf="fgv.archivo.errors && (fgv.archivo.dirty || fgv.archivo.touched)">
+                        <strong *ngIf="fgv.archivo.errors.required">
+                            Este campo es requerido!
+                        </strong>
+                    </div> -->
+                </div>
             </form>
             <form [formGroup]="fgValidator" action="/examples/actions/confirmation.php" method="post">
-                <h2 class="text-center">Crear publicación en <i class="fas fa-compact-disc"></i> <strong>DoMusic</strong> </h2>
+                <input type="text" formControlName="image">
+                <h2 class="text-center">Crear publicación en <i class="fas fa-compact-disc"></i>
+                    <strong>DoMusic</strong> </h2>
                 <hr>
                 <div class="form-group">
                     <div class="input-group">
                         <input formControlName="titulo" type="text" class="form-control" name="titulo"
                             placeholder="Título" required="required">
-                        <div class="warning-validator container" *ngIf="fgv.titulo.errors && (fgv.titulo.dirty || fgv.titulo.touched)">
-                            <strong *ngIf= "fgv.titulo.errors.required">
-                                Este campo es requerido! 
+                        <div class="warning-validator container"
+                            *ngIf="fgv.titulo.errors && (fgv.titulo.dirty || fgv.titulo.touched)">
+                            <strong *ngIf="fgv.titulo.errors.required">
+                                Este campo es requerido!
                             </strong>
                         </div>
                     </div>
@@ -38,22 +39,25 @@
                     <div class="input-group">
                         <input formControlName="contenido" type="text" class="form-control" name="contenido"
                             placeholder="Contenido" required="required">
-                        <div class="warning-validator container" *ngIf="fgv.contenido.errors && (fgv.contenido.dirty || fgv.contenido.touched)">
-                            <strong *ngIf= "fgv.contenido.errors.required">
-                                Este campo es requerido! 
+                        <div class="warning-validator container"
+                            *ngIf="fgv.contenido.errors && (fgv.contenido.dirty || fgv.contenido.touched)">
+                            <strong *ngIf="fgv.contenido.errors.required">
+                                Este campo es requerido!
                             </strong>
                         </div>
                     </div>
-                </div>        
+                </div>
                 <div class="form-group">
-                    <button type="button" (click)="crearPublicacion()" class="btn btn-primary justify-content-end btn-lg d-inline">Publicar</button>
-                
-                    <a type="button" class="btn btn-danger justify-content-end btn-lg d-inline" routerLink="/parametros/publicaciones">Cancelar</a>
+                    <button type="button" (click)="crearPublicacion()"
+                        class="btn btn-primary justify-content-end btn-lg d-inline">Publicar</button>
+
+                    <a type="button" class="btn btn-danger justify-content-end btn-lg d-inline"
+                        routerLink="/parametros/publicaciones">Cancelar</a>
                 </div>
                 <!-- ------------------------------------------------------------------------------------------------------------ -->
 
             </form>
-            
+
         </div>
 
     </div>

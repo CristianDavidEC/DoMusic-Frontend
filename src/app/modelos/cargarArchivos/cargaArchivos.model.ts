@@ -1,3 +1,3 @@
 export class CargarArchivosModel{
-    archivo: String;
+    filename: String;
 }

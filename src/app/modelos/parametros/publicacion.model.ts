@@ -4,6 +4,6 @@ export class PublicacionModel{
     fecha: string;
     reacciones?: number;
     contenido: string;
-    archivo?: string;
+    image?: string;
     idUsuario:string;
 }

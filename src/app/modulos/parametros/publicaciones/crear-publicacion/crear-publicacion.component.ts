@@ -33,8 +33,9 @@ export class CrearPublicacionComponent implements OnInit {
 
   FormBuilding(){ 
     this.fgValidator = this.fb.group({
-      titulo: ['', [Validators.required, Validators.minLength(2)]],
-      contenido: ['', [Validators.required, Validators.minLength(2)]],
+      titulo:['', [Validators.required, Validators.minLength(2)]],
+      contenido:['', [Validators.required, Validators.minLength(2)]],
+      image:['', [Validators.required]],
     });
   }
 
@@ -67,13 +68,15 @@ export class CrearPublicacionComponent implements OnInit {
     let day = new Date;
     model.fecha = (`Fecha:${day.getDate()}-${day.getMonth()+1}-${day.getFullYear()} Hora:${day.getHours()}:${day.getMinutes()}:${day.getSeconds()}`)
     model.idUsuario = (this.servicio.getUsuarioId()).toString();
-    console.log(model.idUsuario)
+    model.image = this.fgv.image.value;
+    
     return model;
   }
 
+
   formCargaArchivo(){
     this.cargarArchivoForm = this.fb.group({
-      archivo: ['', [Validators.required]],
+      file: ['', [Validators.required]],
     })
   }
 
@@ -83,12 +86,11 @@ export class CrearPublicacionComponent implements OnInit {
 
   cargarArchivo(){
     const formData = new FormData();
-    formData.append('file', this.fgArchivo.archivo.value);
+    formData.append('file', this.fgArchivo.file.value);
     this.servicioPublicacion.CargaArchivo(formData).subscribe(
       data => {
         console.log("Filename. " + data);
-
-        this.fgv.image.setValue(data.archivo);
+        this.fgv.image.setValue(data.filename);
         ShowNotificationMessage("El archivo cargó con éxito.");
       },
       err => {
@@ -103,5 +105,4 @@ export class CrearPublicacionComponent implements OnInit {
       this.fgArchivo.file.setValue(f);
     }
   }
-
 }
