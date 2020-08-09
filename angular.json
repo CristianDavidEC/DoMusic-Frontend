@@ -28,7 +28,7 @@
             ],
             "scripts": [
               "src/assets/scripts/general-functions.js",
-              "src/assets/scripts/boostrap-init.js"
+              "src/assets/scripts/bootstrap-init.js"
             ]
           },
           "configurations": {
