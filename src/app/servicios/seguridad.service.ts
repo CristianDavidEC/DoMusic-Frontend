@@ -112,6 +112,6 @@ export class SeguridadService {
   Logout(){
     localStorage.removeItem('session');
     this.setUserData(new UsuarioModel());
-
   }
+
 }

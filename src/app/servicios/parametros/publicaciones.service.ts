@@ -4,6 +4,7 @@ import { PublicacionModel} from '../../modelos/parametros/publicacion.model'
 import { Observable } from 'rxjs';
 import { ServiceConfig } from 'src/app/config/service.config';
 import { SeguridadService } from '../seguridad.service';
+import { CargarArchivosModel} from '../../modelos/cargarArchivos/cargaArchivos.model'
 
 @Injectable({
   providedIn: 'root'
@@ -56,6 +57,14 @@ export class PublicacionesService {
   guardarNuevoRegistro(record:PublicacionModel):Observable<PublicacionModel>{
     return this.http.post<PublicacionModel>(`${ServiceConfig.BESE_URL_PUBLICACION}`, record, {
       headers:new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    });
+  }
+
+  CargaArchivo(formData): Observable<CargarArchivosModel> {
+    return this.http.post<CargarArchivosModel>(`${ServiceConfig.BASE_URL_CARGA_ARCHIVO_PUBLICACION}`, formData, {
+      headers: new HttpHeaders({
         Authorization: `Bearer ${this.token}`
       })
     });
