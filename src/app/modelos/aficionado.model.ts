@@ -9,7 +9,7 @@ export class AficionadoModel {
     fechaNacimiento: String;
     genero: string;
     temasInteres: String [];
-    fotoPerfil?: String;
+    image?: String;
     seguidores?: String [];
     seguidos?: String [];
     grupoXAficionadoId?:String;

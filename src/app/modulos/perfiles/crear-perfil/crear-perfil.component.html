@@ -48,6 +48,7 @@
                         </div>
                     </div>
                 </div>
+                <label>Tipo de Músico:</label>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-music"></i></span>
@@ -68,6 +69,7 @@
                         </strong>
                     </div>
                 </div>
+                <label>Genero Musical:</label>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-headphones"></i></span>
@@ -185,16 +187,16 @@
                 </div>
                 
                 <form [formGroup]="cargarArchivoForm" >
-                    <div class="form-group input-group">
+                    <div class="container form-group input-group">
                         <input formControlName="file" (change)="onFileSelect($event)" name="image" class="form-control-file bg-primary"
                         type="file">
-                        <button type="button"  class="btn btn-primary justify-content-end btn-lg d-inline "  value="Cargar" (click)="cargarArchivo()">
+                        <button type="button"  class="btn btn-primary"  value="Cargar" (click)="cargarArchivo()">
                             <i class="fas fa-angle-double-up "></i> Subir</button>
                     </div>
                 </form>
 
                 <div class="form-group">
-                    <button type="button" (click)="crearPerfil()" class="btn btn-primary btn-lg"><i class="far fa-plus-square"></i> Registrate</button>
+                    <button type="button" (click)="crearPerfil()" class="btn btn-primary btn-lg align-middle"><i class="far fa-plus-square"></i> Registrate</button>
                 </div>
                 <!-- ------------------------------------------------------------------------------------------------------------ -->
             </form>
