@@ -5,7 +5,7 @@
                 class="img-fluid rounded tamaño" alt="Eniun">
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-8 justify-content-center">
             <form [formGroup]="fgValidator" action="/examples/actions/confirmation.php" method="post">
                 <h2 class="text-center">Regístrate en <i class="fas fa-compact-disc"></i> <strong>DoMusic</strong> </h2>
                 <p class="text-center">Por favor llena el formulario para crear tu cuenta de Aficionado</p>
@@ -37,7 +37,8 @@
                         <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
                     </div>
                     <select formControlName="codigoPais" class="custom-select" style="max-width: 120px;">
-                        <option selected="">+57</option>
+                        <option disabled>Codigo del Pais</option>
+                        <option selected="true">+57</option>
                         <option value="1">+34</option>
                         <option value="2">+54</option>
                         <option value="3">+41</option>
@@ -56,6 +57,8 @@
                             placeholder="Correo Electrónico" required="required">
                     </div>
                 </div>
+                
+                <label for="">Fecha De Nacimiento:</label>
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -67,6 +70,7 @@
                             placeholder="Fecha" required="required">
                     </div>
                 </div>
+                <label>Nainalidad:</label>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-globe-americas"></i></span>
@@ -81,6 +85,7 @@
                         <option>Perú</option>
                     </select>
                 </div>
+                <label >Genero</label>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-globe-americas"></i></span>
@@ -91,17 +96,28 @@
                     </select>
                 </div>
 
+                <label>Intereses Musicales:</label>
                 <div *ngFor="let data of Intereses; let i=index">
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="customCheck{{i}}" ng-checked="interese.includes(data.value)" (change)="check($event)"
                             [value]="data.value">
                         <label class="custom-control-label" for="customCheck{{i}}">{{data.name}}</label>
                     </div>
-                </div>
+                </div> 
+                <hr>
+                <label>Foto de Perfil:</label>
+                <form [formGroup]="cargarArchivoForm" >
+                    <div class="container form-group input-group">
+                        <input formControlName="file" (change)="onFileSelect($event)" name="image" class="form-control-file bg-primary"
+                        type="file">
+                        <button type="button"  class="btn btn-primary"  value="Cargar" (click)="cargarArchivo()">
+                            <i class="fas fa-angle-double-up "></i> Subir</button>
+                    </div>
+                </form>
 
                 <div class="form-group">
                     <button type="button" (click)="crearAficionado()"
-                        class="btn btn-primary btn-lg">Registrarse</button>
+                        class="btn btn-primary align-middle">Registrarse</button>
                 </div>
 
             </form>

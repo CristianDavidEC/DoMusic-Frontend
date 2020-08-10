@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators,FormControl, FormArray} from '@angul
 import { AficionadoModel} from '../../../../modelos/aficionado.model'
 import { PerfilService} from '../../../../servicios/perfil.service'
 
+declare const ShowNotificationMessage:any;
 
 @Component({
   selector: 'app-crear-aficionado',
@@ -13,6 +14,7 @@ export class CrearAficionadoComponent implements OnInit {
 
   fgValidator:FormGroup;
   formIntereses: FormGroup;
+  cargarArchivoForm: FormGroup;
   
   constructor(
     private fb: FormBuilder,
@@ -23,6 +25,7 @@ export class CrearAficionadoComponent implements OnInit {
 
   ngOnInit(): void {
     this.FormBuilding();
+    this.formCargaArchivo();
   }
 
   Intereses: Array<any> = [
@@ -43,7 +46,8 @@ export class CrearAficionadoComponent implements OnInit {
       ciudad: [Validators.required],   
       fechaNacimiento: ['', [Validators.required]],
       genero: [Validators.required],
-      codigoPais: [Validators.required],   
+      codigoPais: [Validators.required],
+      image:['', [Validators.required]]   
     });
   }
 
@@ -67,13 +71,13 @@ export class CrearAficionadoComponent implements OnInit {
       alert('Formulario inválido');
     }else{
         let model=this.getPerfilDatos();
-        this.servicio.CrearAficionado(model).subscribe(data => {
+        this.servicio.CargarArchivoAficionado(model).subscribe(data => {
           console.log(data);
           if(data){
-            alert('Registro exitoso, consulta tu contraseña en un mensaje de Texto a tu celular');
+            ShowNotificationMessage('Registro exitoso, consulta tu contraseña en un mensaje de texto a tu celular');
           }
           else{
-            alert('Error!');
+            ShowNotificationMessage('Error!');
           }
         });      
     }
@@ -93,12 +97,45 @@ export class CrearAficionadoComponent implements OnInit {
     model.fechaNacimiento = this.fgv.fechaNacimiento.value;    
     model.genero = this.fgv.genero.value;
     model.temasInteres = this.intereses;
-    model.fotoPerfil = "";
+    model.image =this.fgv.image.value;
     model.seguidores = [""];
     model.seguidos = [""];
     model.grupoXAficionadoId = "";
 
     return model;
+  }
+
+  formCargaArchivo(){
+    this.cargarArchivoForm = this.fb.group({
+      file: ['', [Validators.required]],
+    })
+  }
+
+  get fgArchivo(){
+    return this.cargarArchivoForm.controls;
+  }
+
+  cargarArchivo(){
+    const formData = new FormData();
+    formData.append('file', this.fgArchivo.file.value);
+    this.servicio.CargaArchivo(formData).subscribe(
+      data => {
+        console.log("Filename. " + data);
+        this.fgv.image.setValue(data.filename);
+        ShowNotificationMessage("El archivo cargó con éxito.");
+      },
+      err => {
+        ShowNotificationMessage("Error al cargar el archivo.");
+      }
+    );
+    
+  }
+
+  onFileSelect(event) { 
+    if (event.target.files.length > 0) {
+      const f = event.target.files[0];
+      this.fgArchivo.file.setValue(f);
+    }
   }
 
 }

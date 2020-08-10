@@ -102,3 +102,15 @@
   input:checked{
 	background-color: #506D87 !important;
   }
+
+  .bg-primary{
+	  background-color: #d6e0e9 !important;
+	  height: 7%;
+	  color:#1B252E;
+	  border-color: #1B252E;
+  }
+
+  .signup-form label {
+	font-weight: normal;
+	font-size: 15px;
+}
