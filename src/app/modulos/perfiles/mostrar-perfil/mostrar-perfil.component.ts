@@ -5,6 +5,7 @@ import { SeguridadService } from 'src/app/servicios/seguridad.service';
 import { PerfilService } from 'src/app/servicios/perfil.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router, ActivatedRoute } from '@angular/router';
+import { PerfilModel } from 'src/app/modelos/perfil.model';
 
 declare const ShowNotificationMessage: any;
 declare const ShowRemoveConfimationPublic: any;
@@ -19,6 +20,7 @@ export class MostrarPerfilComponent implements OnInit {
 
   pagina: number = 1;
   recordList : PerfilesModule[];
+  perfilUsuario: PerfilModel;
   eliminarPubliId: String ='';
   publiPorPagina: number = FormsConfig.ELEMENTOS_PAGINA;
   recordIdMusicoP: string = '';
@@ -43,11 +45,13 @@ export class MostrarPerfilComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    this.getRecordsList()
+    this.getRecordsList();
+    this.getPerfilUsuario()
   }
 
   getRecordsList(){
     this.service.getAllRecords().subscribe(records => {
+      //console.log((this.SeguridadService.getIdPerfil()).toString());
       this.recordList = records;
       setTimeout(() => {
         this.spinner.hide();
@@ -55,6 +59,14 @@ export class MostrarPerfilComponent implements OnInit {
     },
     error => {ShowNotificationMessage ("Hubo un problema con la comunicación en el Backend")})
   }
+
+  getPerfilUsuario(){
+    let idPerfil = this.SeguridadService.getIdPerfil().toString();
+    this.service.getMusico(idPerfil).subscribe(records =>{
+      console.log(records)
+    });    
+  }
+
 
   /* ConfirmarEliminacion(idPublicacion){
     console.log(this.service.getPubli(idPublicacion))

@@ -70,9 +70,11 @@ export class PerfilService {
   getAllRecords():Observable<PerfilModel[]>{
     return this.http.get <PerfilModel[]>(`${ServiceConfig.BASE_URL_MUSICO}`);
   }
-  getMusico(recordIdPublicacion:String){
-    return this.http.get <PerfilModel>(`${ServiceConfig.BASE_URL_MUSICO}/${recordIdPublicacion}`);
+
+  getMusico(recordIdMusico:String){
+    return this.http.get <PerfilModel>(`${ServiceConfig.BASE_URL_MUSICO}?filter[where][idMusicoProfesional]=${recordIdMusico}`);
   }
+
   getAllRecordsAficionado():Observable<AficionadoModel[]>{
     return this.http.get <AficionadoModel[]>(`${ServiceConfig.BASE_URL_AFICIONADO}`);
   }

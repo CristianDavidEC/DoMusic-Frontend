@@ -109,6 +109,11 @@ export class SeguridadService {
     return JSON.parse(currentSession).idUsuario;
   }
 
+  getIdPerfil():String{
+    let session = this.getSession();
+    return JSON.parse(session).musicoProfesionalId;
+  }
+
   Logout(){
     localStorage.removeItem('session');
     this.setUserData(new UsuarioModel());

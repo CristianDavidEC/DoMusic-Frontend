@@ -98,8 +98,6 @@ export class CrearPerfilComponent implements OnInit {
     return this.cargarArchivoForm.controls;
   }
 
-
-
   cargarArchivo(){
     const formData = new FormData();
     formData.append('file', this.fgArchivo.file.value);
