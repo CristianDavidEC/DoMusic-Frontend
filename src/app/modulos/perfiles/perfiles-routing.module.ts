@@ -6,6 +6,9 @@ import { CrearPerfilComponent } from './crear-perfil/crear-perfil.component'
 import { CrearAficionadoComponent } from './perfil-aficionado/crear-aficionado/crear-aficionado.component'
 import { from } from 'rxjs';
 import { CrearBandaComponent } from './perfil-banda/crear-banda/crear-banda.component';
+import { MostrarPerfilComponent} from './mostrar-perfil/mostrar-perfil.component'
+import { MostrarAficionadoComponent} from './perfil-aficionado/mostrar-aficionado/mostrar-aficionado.component'
+import { MostrarBandaComponent} from './perfil-banda/mostrar-banda/mostrar-banda.component'
 
 const routes: Routes = [
   {
@@ -23,7 +26,19 @@ const routes: Routes = [
   {
     path: 'crear-banda',
     component: CrearBandaComponent
-  }
+  },
+  {
+    path: 'profesionales',
+    component: MostrarPerfilComponent
+  },
+  {
+    path: 'aficionados',
+    component: MostrarAficionadoComponent
+  },
+  {
+    path: 'bandas',
+    component: MostrarBandaComponent
+  },
 
 
 ];

@@ -42,7 +42,7 @@ export class CrearPerfilComponent implements OnInit {
       fechaNacimiento: ['', [Validators.required]],
       ciudad: [Validators.required],
       genero: [Validators.required],
-      image:['', [Validators.required]],
+      image:[''],
     });
   }
 

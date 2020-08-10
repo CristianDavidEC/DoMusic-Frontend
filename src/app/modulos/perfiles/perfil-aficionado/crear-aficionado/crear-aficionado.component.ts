@@ -47,7 +47,7 @@ export class CrearAficionadoComponent implements OnInit {
       fechaNacimiento: ['', [Validators.required]],
       genero: [Validators.required],
       codigoPais: [Validators.required],
-      image:['', [Validators.required]]   
+      image:['']   
     });
   }
 

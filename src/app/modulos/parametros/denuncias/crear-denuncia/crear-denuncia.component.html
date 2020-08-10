@@ -1,1 +1,64 @@
-<p>crear-denuncia works!</p>
+<div class="container signup-form">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="https://image.freepik.com/vector-gratis/empresario-golpea-abajo_83111-315.jpg"
+                class="img-fluid rounded tamaño" alt="Eniun">
+        </div>
+        <div class="col-md-6">
+            <h2 class="text-center">Crear denuncia <i class="fas fa-compact-disc"></i></h2>
+            <hr>
+            <form [formGroup]="fgValidator" action="/examples/actions/confirmation.php" method="post">
+                <input type="hidden" formControlName="archivoPrueba">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input formControlName="asunto" type="text" class="form-control" name="asunto"
+                            placeholder="Asunto" required="required">
+                        <div class="warning-validator container"
+                            *ngIf="fgv.asunto.errors && (fgv.asunto.dirty || fgv.asunto.touched)">
+                            <strong *ngIf="fgv.asunto.errors.required">
+                                Este campo es requerido!
+                            </strong>
+                            <strong *ngIf="fgv.asunto.errors.minlength">
+                                Este campo debe tener al menos 2 caracteres.
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+                <label>Tipo de denuncia: </label>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-ban"></i></span>
+                    </div>
+                    <select formControlName="tipo" class="form-control">
+                        <option disabled>Tipo de denuncia</option>
+                        <option>Perfil falso</option>
+                        <option>Contenido inapropiado</option>
+                        <option>Amenazas</option>
+                        <option>Extorsión</option>
+                    </select>
+                </div>
+                <label> El archivo con las pruebas debe ser de formato PDF</label>
+                <form [formGroup]="cargarArchivoForm" >
+                    <div class="container form-group input-group">
+                        <input formControlName="file" (change)="onFileSelect($event)" name="image" class="form-control-file bg-primary"
+                        type="file">
+                        <button type="button"  class="btn btn-primary"  value="Cargar" (click)="cargarArchivo()">
+                            <i class="fas fa-angle-double-up "></i> Subir</button>
+                    </div>
+                </form>
+
+                <div class="form-group">
+                    <button type="button" (click)="crearDenuncia()"
+                        class="btn btn-primary justify-content-end btn-lg d-inline"><i class="far fa-arrow-alt-circle-up"></i> Denunciar</button>
+
+                    <a type="button" class="btn btn-danger justify-content-end btn-lg d-inline"
+                        routerLink="/perfiles"><i class="far fa-times-circle"></i> Cancelar</a>
+                </div>
+                <!-- ------------------------------------------------------------------------------------------------------------ -->
+
+            </form>
+
+        </div>
+
+    </div>
+</div>

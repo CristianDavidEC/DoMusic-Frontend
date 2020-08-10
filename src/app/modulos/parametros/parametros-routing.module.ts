@@ -66,7 +66,7 @@ const routes: Routes = [
 },
 
 {
-  path: 'crear-denuncias',
+  path: 'denuncias/:idMusicoProfesional',
   component: CrearDenunciaComponent
 },
 {
