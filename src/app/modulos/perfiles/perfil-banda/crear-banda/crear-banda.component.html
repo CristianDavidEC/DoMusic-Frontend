@@ -33,7 +33,7 @@
                             placeholder="Integrantes" required="required">
                     </div>
                 </div>
-               
+               <label>Genero Musical:</label>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-globe-americas"></i></span>
@@ -48,12 +48,13 @@
                         <option value="Rock">Rock</option>
                     </select>
                 </div>
+                <label>Numero de Celular:</label>
+
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
                     </div>
                     <select formControlName="codigoPais" class="custom-select" style="max-width: 120px;">
-                        <option disabled="disabled">Codiogo Pais</option>
                         <option value="+57">+57</option>
                         <option value="+34">+34</option>
                         <option value="+54">+54</option>
@@ -73,6 +74,8 @@
                             placeholder="Correo Electrónico" required="required">
                     </div>
                 </div>
+                <label>Fecha Creacion:</label>
+
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -84,6 +87,8 @@
                             required="required">
                     </div>
                 </div>
+                <label>Pais:</label>
+
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-globe-americas"></i></span>
@@ -98,6 +103,8 @@
                         <option value="Perú">Perú</option>
                     </select>
                 </div>
+                <label>Foto de Perfil:</label>
+
                 <form [formGroup]="cargarArchivoForm" >
                     <div class="form-group input-group">
                         <input formControlName="file" (change)="onFileSelect($event)" name="image" class="form-control-file bg-primary"
