@@ -34,6 +34,15 @@
                         </div>
                     </div>
                 </div>
+                <form [formGroup]="cargarArchivoForm" >
+                    <div class="container form-group input-group">
+                        <input formControlName="file" (change)="onFileSelect($event)" name="image" class="form-control-file bg-primary"
+                        type="file">
+                        <button type="button"  class="btn btn-primary"  value="Cargar" (click)="cargarArchivo()">
+                            <i class="fas fa-angle-double-up "></i> Subir</button>
+                    </div>
+                </form>
+
                 <div class="form-group">
                     <button type="button" (click)="crearPublicacion()"
                         class="btn btn-primary justify-content-end btn-lg d-inline"><i class="far fa-arrow-alt-circle-up"></i> Publicar</button>

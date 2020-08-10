@@ -71,7 +71,7 @@ export class CrearAficionadoComponent implements OnInit {
       alert('Formulario inválido');
     }else{
         let model=this.getPerfilDatos();
-        this.servicio.CargarArchivoAficionado(model).subscribe(data => {
+        this.servicio.CrearAficionado(model).subscribe(data => {
           console.log(data);
           if(data){
             ShowNotificationMessage('Registro exitoso, consulta tu contraseña en un mensaje de texto a tu celular');
@@ -118,7 +118,7 @@ export class CrearAficionadoComponent implements OnInit {
   cargarArchivo(){
     const formData = new FormData();
     formData.append('file', this.fgArchivo.file.value);
-    this.servicio.CargaArchivo(formData).subscribe(
+    this.servicio.CargarArchivoAficionado(formData).subscribe(
       data => {
         console.log("Filename. " + data);
         this.fgv.image.setValue(data.filename);

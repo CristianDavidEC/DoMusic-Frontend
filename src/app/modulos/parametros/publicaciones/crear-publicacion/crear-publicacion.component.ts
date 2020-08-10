@@ -35,7 +35,7 @@ export class CrearPublicacionComponent implements OnInit {
     this.fgValidator = this.fb.group({
       titulo:['', [Validators.required, Validators.minLength(2)]],
       contenido:['', [Validators.required, Validators.minLength(2)]],
-      image:['', [Validators.required]],
+      image:[''],
     });
   }
 

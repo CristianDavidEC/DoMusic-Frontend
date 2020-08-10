@@ -61,7 +61,7 @@ export class PerfilService {
 
 
   CargarArchivoAficionado(formData): Observable<CargarArchivosModel> {
-    return this.http.post<CargarArchivosModel>(`${ServiceConfig.BASE_URL_CARGA_ARCHIVO_PUBLICACION}`, formData, {
+    return this.http.post<CargarArchivosModel>(`${ServiceConfig.BASE_URL_CARGA_ARCHIVO_AFICIONADO}`,formData, {
       headers: new HttpHeaders({
       })
     });
