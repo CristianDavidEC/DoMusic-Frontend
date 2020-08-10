@@ -54,7 +54,6 @@
                         <span class="input-group-text"> <i class="fas fa-music"></i></span>
                     </div>
                     <select formControlName="tipo" class="form-control">
-                        <option disabled="disabled">Tipo de músico</option>
                         <option value="Pianista">Pianista</option>
                         <option value="Guitarrista">Guitarrista</option>
                         <option value="Baterista">Baterista</option>
@@ -75,7 +74,6 @@
                         <span class="input-group-text"> <i class="fas fa-headphones"></i></span>
                     </div>
                     <select formControlName="generoMusica" class="form-control">
-                        <option disabled="disabled">Género musical</option>
                         <option value="Salsa">Salsa</option>
                         <option value="Vallenato">Vallenato</option>
                         <option value="Electrónica">Electrónica</option>
@@ -89,12 +87,12 @@
                         </strong>
                     </div>
                 </div>
+                <label>Numero de Celular:</label>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
                     </div>
                     <select formControlName="codigoPais" class="custom-select" style="max-width: 120px;">
-                        <option disabled="disabled">Codiogo Pais</option>
                         <option value="+57">+57</option>
                         <option value="+34">+34</option>
                         <option value="+54">+54</option>
@@ -135,6 +133,7 @@
                         </div>
                     </div>
                 </div>
+                <label>Fecha de Nacimiento:</label>
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -150,13 +149,13 @@
                             </strong>
                         </div>
                     </div>
-                </div>           
+                </div>
+                <label>Pais:</label>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-globe-americas"></i></span>
                     </div>
                     <select formControlName="ciudad" class="form-control">
-                        <option disabled>País</option>
                         <option value="Colombia">Colombia</option>
                         <option value="Estados Unidos">Estados Unidos</option>
                         <option value="China">China</option>
@@ -170,12 +169,13 @@
                         </strong>
                     </div>
                 </div>
+                <label>Genero:</label>
+
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-male"></i><i class="fas fa-female"></i></span>
                     </div>
                     <select formControlName="genero" class="form-control " aria-placeholder="Género">
-                        <option disabled="disabled">Genero</option>
                         <option value="Masculino">Masculino</option>
                         <option value="Femenino">Femenino</option>
                     </select>
@@ -185,8 +185,10 @@
                         </strong>
                     </div>
                 </div>
-                
+                <label>Foto de Perfil:</label>
+
                 <form [formGroup]="cargarArchivoForm" >
+
                     <div class="container form-group input-group">
                         <input formControlName="file" (change)="onFileSelect($event)" name="image" class="form-control-file bg-primary"
                         type="file">
