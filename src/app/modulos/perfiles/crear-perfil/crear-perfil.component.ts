@@ -110,8 +110,7 @@ export class CrearPerfilComponent implements OnInit {
       err => {
         ShowNotificationMessage("Error al cargar el archivo.");
       }
-    );
-    
+    );    
   }
 
   onFileSelect(event) { 

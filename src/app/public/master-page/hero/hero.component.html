@@ -57,8 +57,8 @@
   
   <div class="container">
     <div class="center">
-      <a class="btn btn-primary btn-lg btn-block" href="/seguridad/login" role="button">Ingresar</a>
-      <a class="btn btn-secondary btn-lg btn-block" href="/perfiles/tipo-perfil" role="button">Registrarse</a>
+      <a class="btn btn-primary btn-lg btn-block" *ngIf="!estaLogueado" href="/seguridad/login" role="button">Ingresar</a>
+      <a class="btn btn-secondary btn-lg btn-block" *ngIf="!estaLogueado" href="/perfiles/tipo-perfil" role="button">Registrarse</a>
     </div>
   </div>
   

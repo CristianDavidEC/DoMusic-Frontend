@@ -83,12 +83,10 @@ export class PerfilService {
 
   getMusico(recordIdMusico:String){
     return this.http.get <PerfilModel>(`${ServiceConfig.BASE_URL_MUSICO}?filter[where][idMusicoProfesional]=${recordIdMusico}`);
-
   }
   
   getMusicoP(idMusicoProfesional:String):Observable<PerfilModel>{
     return this.http.get <PerfilModel>(`${ServiceConfig.BASE_URL_MUSICO}/${idMusicoProfesional}`);
-
   }
 
   getAllRecordsAficionado():Observable<AficionadoModel[]>{
