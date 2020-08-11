@@ -10,6 +10,8 @@ import { SeguridadService } from 'src/app/servicios/seguridad.service';
 export class SideMenuComponent implements OnInit {
 
   estaLogueado: Boolean= false;
+  esAdmin: Boolean= false;
+  suscripcion: Subscription;
 
   subscription: Subscription;
   role: String = "";
@@ -28,6 +30,10 @@ export class SideMenuComponent implements OnInit {
       this.estaLogueado = data.estaLogueado;
       this.role = data.rol;
     });
+
+    if(this.role == "Administrador"){
+      this.esAdmin = true
+    }
   }
 
 }

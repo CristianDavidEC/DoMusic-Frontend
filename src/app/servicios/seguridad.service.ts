@@ -98,7 +98,7 @@ export class SeguridadService {
       return true;
     }
   }
-  
+   
   getToken():String{
     let currentSession = this.getSession();
     return JSON.parse(currentSession).token;

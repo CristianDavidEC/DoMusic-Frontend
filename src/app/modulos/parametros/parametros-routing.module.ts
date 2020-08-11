@@ -8,6 +8,8 @@ import { MostarComentariosComponent} from './comentarios/mostar-comentarios/most
 
 import { CrearDenunciaComponent} from './denuncias/crear-denuncia/crear-denuncia.component';
 import { EliminarDenunciaComponent} from './denuncias/eliminar-denuncia/eliminar-denuncia.component';
+import { MostrarDenunciasComponent} from './denuncias/mostrar-denuncias/mostrar-denuncias.component';
+
 
 import { CrearMensajeComponent} from './mensajes/crear-mensaje/crear-mensaje.component';
 import { EliminarMensajeComponent} from './mensajes/eliminar-mensaje/eliminar-mensaje.component';
@@ -72,6 +74,10 @@ const routes: Routes = [
 {
   path: 'eliminar-denuncias',
   component: EliminarDenunciaComponent
+},
+{
+  path: 'denuncias',
+  component: MostrarDenunciasComponent
 },
 {
   path: 'crear-mensajes',

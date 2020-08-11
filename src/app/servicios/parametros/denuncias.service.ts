@@ -22,12 +22,17 @@ export class DenunciasService {
   }
 
   getAllRecords():Observable<DenunciasModel[]>{
-    return this.http.get <DenunciasModel[]>(`${ServiceConfig.BASE_URL_DENUNCIAS}`);
+    return this.http.get <DenunciasModel[]>(`${ServiceConfig.BASE_URL_DENUNCIAS}`,{
+      headers:new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    });
   }
 
-  getPublicidad(recordIdDenuncia:String):Observable<DenunciasModel>{
+  getDenuncia(recordIdDenuncia:String):Observable<DenunciasModel>{
     return this.http.get <DenunciasModel>(`${ServiceConfig.BASE_URL_DENUNCIAS}/${recordIdDenuncia}`);
   }
+  
 
   modificarRegistro(record:DenunciasModel):Observable<DenunciasModel>{
     return this.http.put<DenunciasModel>(`${ServiceConfig.BASE_URL_DENUNCIAS}/${record.idDenunciaXusuario}`, record,{
