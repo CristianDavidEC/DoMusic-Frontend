@@ -8,6 +8,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
+import { PerfilModel } from 'src/app/modelos/perfil.model';
 
 declare const ShowNotificationMessage: any;
 declare const ShowRemoveConfimationPublic: any;
@@ -23,6 +24,7 @@ export class MostrarPublicacionComponent implements OnInit {
 
   pagina: number = 1;
   recordList : PublicacionModel[];
+  reacciones : string[];
   eliminarPubliId: String ='';
   publiPorPagina: number = FormsConfig.ELEMENTOS_PAGINA;
   recordIdPublicacion: string = '';
@@ -65,6 +67,19 @@ export class MostrarPublicacionComponent implements OnInit {
     this.verifPublicacion(this.eliminarPubliId);
 
     ShowRemoveConfimationPublic();
+  }
+
+  reaccionar(eliminarPubliId: String){
+    this.service.getPublicacion2(eliminarPubliId).subscribe(
+      data =>{
+        console.log(data);
+        this.reacciones.push(data.idUsuario);
+      },
+      error =>{
+        ShowNotificationMessage('Hubo un error');
+        this.router.navigate(["/parametros/publicaciones"])
+      }
+    )
   }
 
   verifPublicacion(eliminarPubliId: String): Boolean{

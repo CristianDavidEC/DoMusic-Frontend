@@ -1,8 +1,7 @@
 <div id="wrapper">
   <div id="sidebar-wrapper" class="colorDoMusic1">
     <li class="side-item" *ngIf="estaLogueado">
-      <a class="side-link h5 font-weight-light" routerLink="/parametros/notificaciones"><i class="fas fa-bell icon"></i>
-        Notificaciones</a>
+      <a class="side-link h5 font-weight-light" routerLink="/parametros/notificaciones"><i class="fas fa-bell icon"></i>Notificaciones</a>
     </li>
     <li class="side-item" *ngIf="estaLogueado">
       <a class="side-link h5  font-weight-light" routerLink="#"><i class="fas fa-comment-dots icon"></i>Mensajes</a>
@@ -13,56 +12,97 @@
     </li>
     <li class="side-item" *ngIf="estaLogueado">
       <a class="side-link h5  font-weight-light" routerLink="/parametros/publicidad"><i
-          class="far fa-images icon"></i>Publicidades</a>
+<<<<<<< HEAD
+          class="fas fa-ad icon"></i>Publicidades</a>
     
     </li>
     <li class="side-item" *ngIf="esAdmin">
       <a class="side-link h5  font-weight-light" routerLink="/parametros/denuncias"><i
-          class="far fa-images icon"></i>Denuncias</a>
+          class="fas fa-archive icon"></i>Denuncias</a>
     
     </li>
   <li class="side-item" *ngIf="estaLogueado">
     <a class="side-link h5  font-weight-light" routerLink="/perfiles/profesionales"><i
-        class="far fa-images icon"></i>Músicos Profesionales</a>
+        class="fas fa-user icon"></i>Músicos Profesionales</a>
   </li>
   <li class="side-item" *ngIf="estaLogueado">
     <a class="side-link h5  font-weight-light" routerLink="/perfiles/aficionados"><i
-        class="far fa-images icon"></i>Aficicionados</a>
+        class="fas fa-user icon"></i>Aficicionados</a>
   </li>
   <li class="side-item" *ngIf="estaLogueado">
     <a class="side-link h5  font-weight-light" routerLink="/perfiles/bandas"><i
-        class="far fa-images icon"></i>Bandas</a>
+        class="fas fa-user-friends icon"></i>Bandas</a>
   </li>
     <!-- <li class="side-item" *ngIf="estaLogueado">
       <a class="side-link h5  font-weight-light" routerLink="/parametros/comentarios"><i
           class="far fa-images icon"></i>Comentarios</a>
     </li> -->
+=======
+          class="far fa-images icon"></i>Publicidades</a>
+
+    </li>
+    <li class="side-item" *ngIf="esAdmin">
+      <a class="side-link h5  font-weight-light" routerLink="/parametros/denuncias">
+        <i class="fas fa-file-signature"></i> Denuncias</a>
+>>>>>>> 01421e8ba2fa222fa627551d453a810a5da21954
 
     <li class="side-item dropdown" *ngIf="estaLogueado">
-
-      <a class="side-link dropdown-toggle h5 font-weight-light" id="sideDropdown" role="button"
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-cogs icon"></i>Configuraciones
+      <a class="side-link dropdown-toggle h5 font-weight-light" id="sideDropdown" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-users"></i>Perfiles
       </a>
       <div class="dropdown-menu colorDoMusic1 font-weight-light" aria-labelledby="sideDropdown">
-        <a class="dropdown-item colorDoMusic1 font-weight-light" routerLink="/seguridad/cambiarContrasena"><i class="fas fa-lock icon"></i>Cambiar
-          Contraseña</a>
-        <a class="dropdown-item colorDoMusic1 font-weight-light" routerLink="/perfiles/modificar-perfil/{{idMusicoProfesional}}"><i
-            class="fas fa-user-edit icon"></i>Modificar Perfil</a>
+    
+        <a class="dropdown-item colorDoMusic1 font-weight-light" routerLink="/perfiles/profesionales">
+          <i class="fas fa-user-friends"></i> Músicos Profesionales</a>
+
+        <a class="dropdown-item colorDoMusic1 font-weight-light" routerLink="/perfiles/aficionados">
+          <i class="fas fa-user-friends"></i> Aficicionados</a>
+
+        <a class="dropdown-item colorDoMusic1 font-weight-light" routerLink="/perfiles/bandas">
+          <i class="fas fa-user-friends"></i> Bandas</a>
       </div>
     </li>
+<<<<<<< HEAD
     <li class="side-item dropdown" *ngIf="estaLogueado">
       <a class="side-link h5  font-weight-light " routerLink="/seguridad/logout"><i
           class="fas fa-sign-out-alt icon"></i>Salir</a>
     </li>
+    <br />
+<br />
   </div>
+=======
+>>>>>>> 01421e8ba2fa222fa627551d453a810a5da21954
 
-  <div id="page-content-wrapper">
-    <div class="container-fluid">
-      <router-outlet>
-      </router-outlet>
+  <li class="side-item dropdown" *ngIf="estaLogueado">
+
+    <a class="side-link dropdown-toggle h5 font-weight-light" id="sideDropdown" role="button" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      <i class="fas fa-cogs icon"></i>Configuraciones
+    </a>
+    <div class="dropdown-menu colorDoMusic1 font-weight-light" aria-labelledby="sideDropdown">
+      <a class="dropdown-item colorDoMusic1 font-weight-light" routerLink="/seguridad/cambiarContrasena"><i
+          class="fas fa-lock icon"></i>Cambiar
+        Contraseña</a>
+      <a class="dropdown-item colorDoMusic1 font-weight-light"
+        routerLink="/perfiles/modificar-perfil/{{idMusicoProfesional}}"><i class="fas fa-user-edit icon"></i>Modificar
+        Perfil</a>
     </div>
+  </li>
+
+
+  <li class="side-item dropdown" *ngIf="estaLogueado">
+    <a class="side-link h5  font-weight-light " routerLink="/seguridad/logout"><i
+        class="fas fa-sign-out-alt icon"></i>Salir</a>
+  </li>
+</div>
+
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <router-outlet>
+    </router-outlet>
   </div>
-  <app-footer *ngIf="estaLogueado">
-  </app-footer>
+</div>
+<app-footer *ngIf="estaLogueado">
+</app-footer>
 </div>

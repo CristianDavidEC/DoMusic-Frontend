@@ -39,7 +39,8 @@ import { CrearDenunciaComponent} from './denuncias/crear-denuncia/crear-denuncia
     ReactiveFormsModule,
     FormsModule,
     NgxPaginationModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    
   ]
 })
 export class ParametrosModule { }

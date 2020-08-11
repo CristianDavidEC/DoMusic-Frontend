@@ -19,6 +19,9 @@
             <td >
                 Eliminar
             </td>
+            <td >
+                Reacciones
+            </td>
             <td>
                 Comentarios
             </td>
@@ -38,12 +41,21 @@
             <td>
                 {{r.contenido}}
             </td>
+            
             <td>
                 <a class="btn btn-warning" routerLink= "/parametros/modificar-publicaciones/{{r.idPublicacion}}" role= "button">Modificar</a>
             </td>
             <td>
                 <button type="button" class = "btn btn-danger" (click) = "ConfirmarEliminacion(r.idPublicacion)">
                     Eliminar
+                </button>
+            </td>
+            <td>
+                <imput>
+                    20
+                </imput>
+                <button type="button" class = "btn btn-dark" (click) = "reaccionar(r.idPublicacion)">
+                    Reaccionar
                 </button>
             </td>
             <td>

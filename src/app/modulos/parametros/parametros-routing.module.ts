@@ -73,11 +73,15 @@ const routes: Routes = [
 },
 {
   path: 'eliminar-denuncias',
-  component: EliminarDenunciaComponent
+  component: EliminarDenunciaComponent,
+  canActivate: [AutAdminGuard]
+
 },
 {
   path: 'denuncias',
-  component: MostrarDenunciasComponent
+  component: MostrarDenunciasComponent,
+  canActivate: [AutAdminGuard]
+
 },
 {
   path: 'crear-mensajes/:idReceptor',
