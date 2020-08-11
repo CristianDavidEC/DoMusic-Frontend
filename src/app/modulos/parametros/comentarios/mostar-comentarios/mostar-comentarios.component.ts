@@ -4,6 +4,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ComentarioModel} from '../../../../modelos/parametros/comentario.model'
 import { ComentariosService} from '../../../../servicios/parametros/comentarios.service'
 import { ActivatedRoute } from '@angular/router';
+import { CompileShallowModuleMetadata } from '@angular/compiler';
 
 
 declare const ShowNotificationMessage: any;
@@ -33,11 +34,10 @@ export class MostarComentariosComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    this.getRecordsList()
+    this.getRecordsList();
 
     this.sub = this.route.params.subscribe(params => {
       this.idPublicacion = params['idPublicacion'];
-      alert(this.idPublicacion)
    });
   }
 
@@ -48,8 +48,12 @@ export class MostarComentariosComponent implements OnInit {
   }
 
   getRecordsList(){
-    this.service.getAllRecords().subscribe(records => {
+    this.service.getComentarioOb(this.idPublicacion).subscribe(records => {
+      console.log("id       "+this.idPublicacion)
+      console.log(records)
       this.recordList = records;
+      console.log(this.recordList)
+
       setTimeout(() => {
         this.spinner.hide();
       },1000)
