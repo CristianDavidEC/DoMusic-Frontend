@@ -22,8 +22,7 @@ export class SideMenuComponent implements OnInit {
     private service: SeguridadService
     ){
     this.idMusicoProfesional = (this.service.getUsuarioId()).toString();
-
-   }
+  }
 
   ngOnInit(): void {
     this.subscription= this.service.getUserData().subscribe(data =>{
