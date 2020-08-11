@@ -54,7 +54,7 @@ export class CrearComentariosComponent implements OnInit {
         this.servicio.guardarComentario(model).subscribe(data => {
           if(data){
             ShowNotificationMessage('Registro exitoso');
-            this.router.navigate(['/parametros/comentarios']);
+            this.router.navigate(['/parametros/publicaciones']);
           }
           else{
             ShowNotificationMessage('Error!');
@@ -71,12 +71,26 @@ export class CrearComentariosComponent implements OnInit {
     let model = new ComentarioModel();
     model.contenido = this.fgv.contenido.value;
     let day = new Date;
+    model.hijo = false;
     model.fecha = (`Fecha:${day.getDate()}-${day.getMonth()+1}-${day.getFullYear()} Hora:${day.getHours()}:${day.getMinutes()}:${day.getSeconds()}`);
-    model.idPublicacion = this.idPublicacion;
-    model.idUsuario = (this.servicioSeguridad.getUsuarioId()).toString();
-    model.hijo = this.fgv.hijo.value;
+    model.publicacionId = this.idPublicacion;
+    model.usuarioId = (this.servicioSeguridad.getUsuarioId()).toString();
 
     return model;
   }
+
+  getComenComentario(): ComentarioModel{
+    let model = new ComentarioModel();
+    model.contenido = this.fgv.contenido.value;
+    let day = new Date;
+    model.hijo = true;
+    model.fecha = (`Fecha:${day.getDate()}-${day.getMonth()+1}-${day.getFullYear()} Hora:${day.getHours()}:${day.getMinutes()}:${day.getSeconds()}`);
+    model.publicacionId = this.idPublicacion;
+    model.usuarioId = (this.servicioSeguridad.getUsuarioId()).toString();
+
+    return model;
+  }
+
+  
 
 }

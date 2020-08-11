@@ -21,9 +21,7 @@ export class ComentariosService {
     this.token = this.seguridadService.getToken();
   }
 
-  getAllRecords():Observable<ComentarioModel[]>{
-    return this.http.get <ComentarioModel[]>(`${ServiceConfig.BESE_URL_COMENTARIO}`);
-  }
+  
 
   getPublicacion(recordIdPublicacion:String):Observable<ComentarioModel>{
     return this.http.get <ComentarioModel>(`${ServiceConfig.BESE_URL_COMENTARIO}/${recordIdPublicacion}`);
@@ -51,5 +49,19 @@ export class ComentariosService {
         Authorization: `Bearer ${this.token}`
       })
     });
+  }
+
+  getComentario(id:String){
+    return this.http.get <ComentarioModel>(`${ServiceConfig.BESE_URL_COMENTARIO}?filter[where][publicacionId]=${id}`);
+
+  }
+
+  getComentarioOb(id:String): Observable<ComentarioModel[]>{
+    return this.http.get <ComentarioModel[]>(`${ServiceConfig.BESE_URL_COMENTARIO}?filter[where][publicacionId]=${id}`);
+
+  }
+
+  getAllRecords():Observable<ComentarioModel[]>{
+    return this.http.get <ComentarioModel[]>(`${ServiceConfig.BESE_URL_COMENTARIO}`);
   }
 }

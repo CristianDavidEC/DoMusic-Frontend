@@ -5,8 +5,7 @@ export class ComentarioModel{
     idComentario?: string;
     contenido: string;
     fecha: string;
-    idPadre?: string;
+    publicacionId?: string;
+    usuarioId?: string;
     hijo: boolean;
-    idPublicacion?: string;
-    idUsuario?: string;
 }

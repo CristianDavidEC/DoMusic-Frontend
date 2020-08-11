@@ -10,6 +10,7 @@ import { MostrarPerfilComponent} from './mostrar-perfil/mostrar-perfil.component
 import { MostrarAficionadoComponent} from './perfil-aficionado/mostrar-aficionado/mostrar-aficionado.component'
 import { MostrarBandaComponent} from './perfil-banda/mostrar-banda/mostrar-banda.component'
 import { ModificarPerfilComponent } from './modificar-perfil/modificar-perfil.component';
+import { VistaPerfilComponent } from './vista-perfil/vista-perfil.component'
 
 const routes: Routes = [
   {
@@ -44,6 +45,11 @@ const routes: Routes = [
     path: 'bandas',
     component: MostrarBandaComponent
   },
+  {
+    path: 'vista-perfil',
+    component: VistaPerfilComponent
+  },
+  
 
 
 ];
