@@ -22,8 +22,10 @@ export class PerfilService {
     private http: HttpClient,
     private seguridadService: SeguridadService
   ) { 
-    
-    //this.token = this.seguridadService.getToken();
+
+    if(this.seguridadService.existeSesion()){
+      this.token = this.seguridadService.getToken();
+    }
   }
 
   CrearPerfil(model: PerfilModel): Observable<PerfilModel> {
