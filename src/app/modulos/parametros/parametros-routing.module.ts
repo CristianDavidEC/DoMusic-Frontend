@@ -80,7 +80,7 @@ const routes: Routes = [
   component: MostrarDenunciasComponent
 },
 {
-  path: 'crear-mensajes',
+  path: 'crear-mensajes/:idReceptor',
   component: CrearMensajeComponent
 },
 {

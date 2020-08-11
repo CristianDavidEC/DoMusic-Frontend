@@ -5,6 +5,7 @@ export namespace ServiceConfig {
     export const BASE_URL_LOGIN = 'http://localhost:3000/login';
     export const BASE_URL_DENUNCIAS = 'http://localhost:3000/denuncia-xusarios';
     export const BESE_URL_PUBLICACION = 'http://localhost:3000/publicaciones';
+    export const BESE_URL_MENSAJE = 'http://localhost:3000/mensajes';
     export const BESE_URL_RECUPERACONTRASENA = 'http://localhost:3000/recuperar-contrasena';
     export const BESE_URL_CAMBIARCONTRASENA = 'http://localhost:3000/cambiar-contrasena';
     export const BESE_URL_PUBLICIDAD = ' http://localhost:3000/publicidad';  
