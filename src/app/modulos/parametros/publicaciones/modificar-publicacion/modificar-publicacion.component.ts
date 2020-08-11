@@ -77,6 +77,9 @@ export class ModificarPublicacionComponent implements OnInit {
   } 
 
   modificarPublicacion(){
+    if(this.verifPublicacion(this.recordIdPublicacion)){
+      
+    }
     if(this.fgValidator.invalid){
       ShowNotificationMessage('Formulario inválido')
     }else{
