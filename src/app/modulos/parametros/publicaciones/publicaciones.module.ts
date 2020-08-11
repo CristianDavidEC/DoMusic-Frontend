@@ -11,7 +11,7 @@ import {NotificacionesRoutingModule} from '../notificaciones/notificaciones-rout
   declarations: [
   CrearPublicacionComponent, 
   ModificarPublicacionComponent, 
-  MostrarPublicacionComponent
+  MostrarPublicacionComponent,
 ],
   imports: [
     CommonModule,

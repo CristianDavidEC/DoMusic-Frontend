@@ -9,6 +9,7 @@ import { CrearBandaComponent } from './perfil-banda/crear-banda/crear-banda.comp
 import { MostrarPerfilComponent} from './mostrar-perfil/mostrar-perfil.component'
 import { MostrarAficionadoComponent} from './perfil-aficionado/mostrar-aficionado/mostrar-aficionado.component'
 import { MostrarBandaComponent} from './perfil-banda/mostrar-banda/mostrar-banda.component'
+import { ModificarPerfilComponent } from './modificar-perfil/modificar-perfil.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'crear-perfil',
     component: CrearPerfilComponent
+  },
+  {
+    path: 'modificar-perfil/:idMusicoProfesional',
+    component: ModificarPerfilComponent
   },
   {
     path: 'crear-aficionado',
