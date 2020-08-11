@@ -6,12 +6,11 @@ import { EliminarDenunciaComponent } from './eliminar-denuncia/eliminar-denuncia
 import { CrearDenunciaComponent } from './crear-denuncia/crear-denuncia.component';
 import { MostrarDenunciasComponent } from './mostrar-denuncias/mostrar-denuncias.component';
 
-
 @NgModule({
   declarations: [EliminarDenunciaComponent, CrearDenunciaComponent, MostrarDenunciasComponent],
   imports: [
     CommonModule,
-    DenunciasRoutingModule
+    DenunciasRoutingModule,
   ]
 })
 export class DenunciasModule { }

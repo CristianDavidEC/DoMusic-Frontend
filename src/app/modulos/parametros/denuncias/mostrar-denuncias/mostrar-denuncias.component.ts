@@ -6,6 +6,7 @@ import { DenunciasService } from 'src/app/servicios/parametros/denuncias.service
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router, ActivatedRoute } from '@angular/router';
 
+
 declare const ShowNotificationMessage: any;
 declare const ShowRemoveConfimationPublic: any;
 declare const CloseModal: any;
@@ -21,7 +22,7 @@ export class MostrarDenunciasComponent implements OnInit {
 
   
   pagina: number = 1;
-  recordList : DenunciasModel[];
+  recordListDenuncia : DenunciasModel[];
   eliminarDenId: String ='';
   publiPorPagina: number = FormsConfig.ELEMENTOS_PAGINA;
   recordIdPublicacion: string = '';
@@ -51,7 +52,7 @@ export class MostrarDenunciasComponent implements OnInit {
   getRecordsList(){
     this.service.getAllRecords().subscribe(records => {
       console.log(records);
-      this.recordList = records;
+      this.recordListDenuncia = records;
       setTimeout(() => {
         this.spinner.hide();
       },1000)
