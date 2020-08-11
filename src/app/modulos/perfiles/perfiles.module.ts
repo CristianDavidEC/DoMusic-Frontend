@@ -11,6 +11,7 @@ import { CrearAficionadoComponent } from './perfil-aficionado/crear-aficionado/c
 
 import { CrearBandaComponent } from './perfil-banda/crear-banda/crear-banda.component'
 
+
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TipoPerfilComponent } from './tipo-perfil/tipo-perfil.component';
 import { HttpHeaders, HttpClientModule } from '@angular/common/http';
@@ -24,7 +25,8 @@ import { HttpHeaders, HttpClientModule } from '@angular/common/http';
     MostrarPerfilComponent,
     TipoPerfilComponent,
     CrearAficionadoComponent,
-    CrearBandaComponent],
+    CrearBandaComponent
+  ],
   imports: [
     CommonModule,
     PerfilesRoutingModule,

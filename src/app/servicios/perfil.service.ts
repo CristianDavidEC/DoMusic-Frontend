@@ -6,6 +6,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { ServiceConfig } from '../config/service.config'
 import { CargarArchivosModel } from '../modelos/cargarArchivos/cargaArchivos.model'
+import { SeguridadService } from '../servicios/seguridad.service';
+import { PerfilesModule } from '../modulos/perfiles/perfiles.module';
 
 
 @Injectable({
@@ -13,9 +15,15 @@ import { CargarArchivosModel } from '../modelos/cargarArchivos/cargaArchivos.mod
 })
 
 export class PerfilService {
+
+  token: String = "";
+
   constructor(
-    private http: HttpClient
-  ) { }
+    private http: HttpClient,
+    private seguridadService: SeguridadService
+  ) { 
+    this.token = this.seguridadService.getToken();
+  }
 
   CrearPerfil(model: PerfilModel): Observable<PerfilModel> {
     return this.http.post<PerfilModel>(`${ServiceConfig.BASE_URL_MUSICO}`, model, {
@@ -73,10 +81,23 @@ export class PerfilService {
 
   getMusico(recordIdMusico:String){
     return this.http.get <PerfilModel>(`${ServiceConfig.BASE_URL_MUSICO}?filter[where][idMusicoProfesional]=${recordIdMusico}`);
+
+  }
+  
+  getMusicoP(idMusicoProfesional:String):Observable<PerfilModel>{
+    return this.http.get <PerfilModel>(`${ServiceConfig.BASE_URL_MUSICO}/${idMusicoProfesional}`);
+
   }
 
   getAllRecordsAficionado():Observable<AficionadoModel[]>{
     return this.http.get <AficionadoModel[]>(`${ServiceConfig.BASE_URL_AFICIONADO}`);
   }
 
+  modificarRegistro(record:PerfilModel):Observable<PerfilModel>{
+    return this.http.put<PerfilModel>(`${ServiceConfig.BASE_URL_MUSICO}/${record.idMusicoProfesional}`, record,{
+      headers:new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    });
+  }
 }

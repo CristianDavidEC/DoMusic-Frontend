@@ -13,8 +13,15 @@ export class SideMenuComponent implements OnInit {
 
   subscription: Subscription;
   role: String = "";
+  
+  idMusicoProfesional: string = '';
 
-  constructor(private service: SeguridadService) { }
+  constructor(
+    private service: SeguridadService
+    ){
+    this.idMusicoProfesional = (this.service.getUsuarioId()).toString();
+
+   }
 
   ngOnInit(): void {
     this.subscription= this.service.getUserData().subscribe(data =>{

@@ -36,12 +36,12 @@
                                 <span class="fa fa-user"></span>
                             </span>
                         </div>
-                        <input formControlName="apellido" type="text" class="form-control" name="apellido"
+                         <input formControlName="apellido" type="text" class="form-control" name="apellido"
                             placeholder="Apellido" required="required">
                         <div class="warning-validator container" *ngIf="fgv.apellido.errors && (fgv.apellido.dirty || fgv.apellido.touched)">
                             <strong *ngIf= "fgv.apellido.errors.required">
                                 Este campo es requerido! 
-                            </strong>
+                           </strong>
                             <strong *ngIf= "fgv.apellido.errors.minlength">
                                 Este campo debe tener al menos 2 caracteres. 
                             </strong>
