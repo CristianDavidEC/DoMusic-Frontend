@@ -34,7 +34,6 @@ export class NavbarComponent implements OnInit {
     this.getPerfilMusico();
   }
 
-
   getPerfilMusico(){
     let idPerfil = this.service.getIdPerfil().toString();
     this.servicePefil.getMusicoP(idPerfil).subscribe(records => {
