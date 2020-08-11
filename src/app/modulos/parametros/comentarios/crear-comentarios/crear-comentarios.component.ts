@@ -17,6 +17,7 @@ export class CrearComentariosComponent implements OnInit {
   private sub: any;
   private idPublicacion: any;
   fgValidator: FormGroup;
+  private bandera: any;
 
   constructor(
     private fb: FormBuilder,
@@ -79,18 +80,36 @@ export class CrearComentariosComponent implements OnInit {
     return model;
   }
 
+  // Comentario para responder a un cometario ya respondido
+
   getComenComentario(): ComentarioModel{
     let model = new ComentarioModel();
     model.contenido = this.fgv.contenido.value;
     let day = new Date;
     model.hijo = true;
     model.fecha = (`Fecha:${day.getDate()}-${day.getMonth()+1}-${day.getFullYear()} Hora:${day.getHours()}:${day.getMinutes()}:${day.getSeconds()}`);
-    model.publicacionId = this.idPublicacion;
+    this.servicio.getComen(this.idPublicacion).subscribe(data=>{
+      this.bandera=data.publicacionId
+    })
+    model.publicacionId = this.bandera;
     model.usuarioId = (this.servicioSeguridad.getUsuarioId()).toString();
 
     return model;
+  
   }
 
-  
+  /* validHijo(){
+    this.servicio.getComen(this.idPublicacion).subscribe(data=>{
+      this.bandera=data.hijo
+    },error => {
+      ShowNotificationMessage('Error!');
+    })
+
+    if (this.bandera == true){
+      return false;
+    }else {
+      return true;
+    }
+  } */
 
 }

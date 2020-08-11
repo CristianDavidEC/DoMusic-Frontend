@@ -13,6 +13,9 @@
                 Eliminar
             </td>
             <td>
+                Respuestas
+            </td>
+            <td>
                 Comentar
             </td>
         </tr>
@@ -29,6 +32,9 @@
                 <button type="button" class="btn btn-danger" (click)="ConfirmarEliminacion(r.idComentario)">
                     Eliminar
                 </button>
+            </td>
+            <td>
+                <a class="btn btn-primary" routerLink= "/parametros/comentarios/{{r.idComentario}}" (click)="getRecordsList()" role= "button">Respuesta</a>
             </td>
             <td>
                 <a class="btn btn-warning" routerLink= "/parametros/crear-comentarios/{{r.idComentario}}" role= "button">Comentar</a>

@@ -23,7 +23,7 @@ export class ComentariosService {
 
   
 
-  getPublicacion(recordIdPublicacion:String):Observable<ComentarioModel>{
+  getComen(recordIdPublicacion:String):Observable<ComentarioModel>{
     return this.http.get <ComentarioModel>(`${ServiceConfig.BESE_URL_COMENTARIO}/${recordIdPublicacion}`);
   }
 
