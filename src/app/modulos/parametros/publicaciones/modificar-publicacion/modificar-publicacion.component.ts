@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PublicacionesService } from 'src/app/servicios/parametros/publicaciones.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PublicacionModel } from 'src/app/modelos/parametros/publicacion.model';
+import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
 declare const ShowNotificationMessage:any;
 
@@ -15,10 +16,14 @@ export class ModificarPublicacionComponent implements OnInit {
 
   fgValidator: FormGroup;
   recordIdPublicacion: string = '';
+  private idUsuarioP: any;
+  private ret: any;
+
 
   constructor(
     private fb: FormBuilder,
     private servicio: PublicacionesService,
+    private seguridad: SeguridadService,
     private route: ActivatedRoute,
     private router: Router
   ) {
@@ -52,6 +57,24 @@ export class ModificarPublicacionComponent implements OnInit {
       contenido: ['', [Validators.required, Validators.minLength(2)]],
     });
   }
+
+  verifPublicacion(eliminarPubliId: String): Boolean{
+    this.servicio.getPublicacion2(eliminarPubliId).subscribe(
+      data =>{
+        this.idUsuarioP = (data.idUsuario);
+      },
+      error =>{
+        ShowNotificationMessage('Hubo un error');
+        this.router.navigate(["/parametros/publicaciones"])
+      }
+    )
+    if (this.idUsuarioP == this.seguridad.getUsuarioId()){
+      this.ret = true;
+    }else{
+      this.ret = false;
+    }
+      return this.ret;
+  } 
 
   modificarPublicacion(){
     if(this.fgValidator.invalid){
