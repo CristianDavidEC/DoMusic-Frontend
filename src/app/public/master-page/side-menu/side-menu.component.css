@@ -61,7 +61,7 @@
     }
 
     #page-content-wrapper {
-        padding: 20px;
+        padding: 0;
         position: relative;
     }
 
@@ -104,7 +104,6 @@ a:hover{
     margin-right: 3%;
   }
 
-  router-outlet{
-      width: 100% !important;
-      height:100% !important;
-  }
+ .container-fluid{
+    padding: 0;
+ }
