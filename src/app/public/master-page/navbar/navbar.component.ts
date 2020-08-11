@@ -34,8 +34,8 @@ export class NavbarComponent implements OnInit {
     this.getPerfilMusico();
   }
 
-
   getPerfilMusico(){
+    if(this.service.getSession()){
     let idPerfil = this.service.getIdPerfil().toString();
     this.servicePefil.getMusicoP(idPerfil).subscribe(records => {
       this.perfilUsuario = records;
@@ -45,6 +45,6 @@ export class NavbarComponent implements OnInit {
     },
     error => {ShowNotificationMessage ("Hubo un problema con la comunicación en el Backend")})
   }
-
+}
 
 }

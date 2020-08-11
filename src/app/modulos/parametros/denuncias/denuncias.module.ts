@@ -12,7 +12,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 
 
-
 @NgModule({
   declarations: [EliminarDenunciaComponent, CrearDenunciaComponent, MostrarDenunciasComponent],
   imports: [

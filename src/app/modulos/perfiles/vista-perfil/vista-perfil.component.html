@@ -9,10 +9,10 @@
             </div>
             <div class="col-md-6">
                 <div class="profile-head">
-                    <h4>Cristian David Escobar Castillo</h4>
-                    <h5>Guitarrista</h5>
-                    <h5>Genero Musical: Pop</h5>
-                    <h5>Banda: PlanetShekeers</h5>
+                    <h4>{{perfilUsuario.nombre}} {{perfilUsuario.apellido}}</h4>
+                    <h5>{{perfilUsuario.tipo}}</h5>
+                    <h5>Genero Musical: {{perfilUsuario.generoMusica}}</h5>
+                    <!-- <h5>Banda: PlanetShekeers</h5> -->
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
@@ -36,11 +36,11 @@
                 <br>
                 <div class="profile-work">
                     <h4>Mas Informacion</h4>
-                    <a href="">Correo: pepitoperez@pepito</a><br />
-                    <a href="">Telefono: +573207865667</a><br />
-                    <a href="">Pais: Colombia</a> <br>
-                    <a href="">Fecha de Nacimiento: 13/09/2000</a><br />
-                    <a href="">Genero: Masculino</a><br />
+                    <a href="">Correo: {{perfilUsuario.correo}}</a><br />
+                    <a href="">Telefono: {{perfilUsuario.celular}}</a><br />
+                    <a href="">Pais: {{perfilUsuario.ciudad}}</a> <br>
+                    <a href="">Fecha de Nacimiento: {{perfilUsuario.fechaNacimiento}}</a><br />
+                    <a href="">Genero: {{perfilUsuario.genero}}</a><br />
                 </div>
             </div>
             <div class="col-md-8">

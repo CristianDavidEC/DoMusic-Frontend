@@ -22,6 +22,7 @@ export class PerfilService {
     private http: HttpClient,
     private seguridadService: SeguridadService
   ) { 
+
     if(this.seguridadService.existeSesion()){
       this.token = this.seguridadService.getToken();
     }
