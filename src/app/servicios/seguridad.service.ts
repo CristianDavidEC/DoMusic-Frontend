@@ -114,6 +114,7 @@ export class SeguridadService {
     return JSON.parse(session).musicoProfesionalId;
   }
 
+
   Logout(){
     localStorage.removeItem('session');
     this.setUserData(new UsuarioModel());
