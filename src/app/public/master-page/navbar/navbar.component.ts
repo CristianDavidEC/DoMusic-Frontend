@@ -4,6 +4,7 @@ import { SeguridadService } from 'src/app/servicios/seguridad.service';
 import { PerfilService } from 'src/app/servicios/perfil.service';
 import { PerfilModel } from 'src/app/modelos/perfil.model';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { async } from 'rxjs/internal/scheduler/async';
 
 declare const ShowNotificationMessage: any;
 
@@ -30,15 +31,18 @@ export class NavbarComponent implements OnInit {
       this.estaLogueado = data.estaLogueado;
       this.role = data.rol;
     });
-
+    this.perfilUsuario =new PerfilModel();
     this.getPerfilMusico();
   }
 
-  getPerfilMusico(){
+  
+
+  async getPerfilMusico(){
     if(this.service.getSession()){
     let idPerfil = this.service.getIdPerfil().toString();
     this.servicePefil.getMusicoP(idPerfil).subscribe(records => {
       this.perfilUsuario = records;
+      console.log(this.perfilUsuario)
       setTimeout(() => {
         this.spinner.hide();
       },1000)

@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
-                    <img src="https://image.freepik.com/foto-gratis/musico-banjo-juego_430-19315458.jpg"
+                    <img src="http://localhost:3000/files/1/{{perfilUsuario.idMusicoProfesional}}"
                         class="img-fluid rounded">
                 </div>
             </div>
@@ -26,6 +26,7 @@
                 </div>
             </div>
             <div class="col-md-2">
+                <!-- <a class="profile-edit-btn" ruterLink="modificar-perfil/{{perfilUsuario.idMusicoProfesional}}" name="btnAddMore">Editar Perfil</a> -->
                 <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Editar Perfil"/><br>
                 <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Seguir" /><br>
                 <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Chatear" /><br>
@@ -35,7 +36,7 @@
             <div class="col-md-5">
                 <br>
                 <div class="profile-work">
-                    <h4>Mas Informacion</h4>
+                    <h4>Más Información</h4>
                     <a href="">Correo: {{perfilUsuario.correo}}</a><br />
                     <a href="">Telefono: {{perfilUsuario.celular}}</a><br />
                     <a href="">Pais: {{perfilUsuario.ciudad}}</a> <br>
