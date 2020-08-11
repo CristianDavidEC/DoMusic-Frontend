@@ -31,6 +31,7 @@ export class VistaPerfilComponent implements OnInit {
       this.role = data.rol;
     });
 
+    this.perfilUsuario =new PerfilModel();
     this.getPerfilMusico();
   }
 
