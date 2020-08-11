@@ -88,7 +88,6 @@ export class MostrarPublicacionComponent implements OnInit {
 
 
   EliminarPubli(){
-    console.log("todo melo? "+this.verifPublicacion(this.eliminarPubliId))
     if(this.verifPublicacion(this.eliminarPubliId)){
       this.service.eliminarRegistro(this.eliminarPubliId).subscribe(
         data => {

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PublicacionesService } from 'src/app/servicios/parametros/publicaciones.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PublicacionModel } from 'src/app/modelos/parametros/publicacion.model';
+import {SeguridadService} from 'src/app/servicios/seguridad.service'
 
 declare const ShowNotificationMessage:any;
 
@@ -15,12 +16,16 @@ export class ModificarPublicacionComponent implements OnInit {
 
   fgValidator: FormGroup;
   recordIdPublicacion: string = '';
+  private idUsuarioP: any;
+  private ret: any;
+
 
   constructor(
     private fb: FormBuilder,
     private servicio: PublicacionesService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private SeguridadService: SeguridadService
   ) {
     this.recordIdPublicacion = this.route.snapshot.params['idPublicacion']
    }
@@ -54,20 +59,25 @@ export class ModificarPublicacionComponent implements OnInit {
   }
 
   modificarPublicacion(){
-    if(this.fgValidator.invalid){
-      ShowNotificationMessage('Formulario inválido')
+    if (this.verifPublicacion(this.recordIdPublicacion)){
+      if(this.fgValidator.invalid){
+        ShowNotificationMessage('Formulario inválido')
+      }else{
+          let model=this.getPubliDatos();
+          this.servicio.modificarRegistro(model).subscribe(
+            data => {
+            
+              ShowNotificationMessage('Modificación exitosamente');
+              this.router.navigate(['/parametros/publicaciones']);
+            },
+            error => {
+              ShowNotificationMessage('Error!');
+            }
+          );      
+      }
     }else{
-        let model=this.getPubliDatos();
-        this.servicio.modificarRegistro(model).subscribe(
-          data => {
-          
-            ShowNotificationMessage('Modificación exitosamente');
-            this.router.navigate(['/parametros/publicaciones']);
-          },
-          error => {
-            ShowNotificationMessage('Error!');
-          }
-        );      
+      ShowNotificationMessage('Esta publicacion no es tuya');
+      this.router.navigate(['/parametros/publicaciones']);
     }
   }
 
@@ -84,5 +94,23 @@ export class ModificarPublicacionComponent implements OnInit {
     model.fecha = (`Fecha:${day.getDate()}-${day.getMonth()+1}-${day.getFullYear()} Hora:${day.getHours()}:${day.getMinutes()}:${day.getSeconds()}`);
     return model;
   }
+
+  verifPublicacion(IdPublicacion: String): Boolean{
+    this.servicio.getPublicacion2(IdPublicacion).subscribe(
+      data =>{
+        this.idUsuarioP = (data.idUsuario);
+      },
+      error =>{
+        ShowNotificationMessage('Hubo un error');
+        this.router.navigate(["/parametros/publicaciones"])
+      }
+    )
+    if (this.idUsuarioP == this.SeguridadService.getUsuarioId()){
+      this.ret = true;
+    }else{
+      this.ret = false;
+    }
+      return this.ret;
+  } 
 
 }
