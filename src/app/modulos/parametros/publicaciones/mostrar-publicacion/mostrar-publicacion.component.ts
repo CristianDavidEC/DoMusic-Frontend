@@ -28,7 +28,6 @@ export class MostrarPublicacionComponent implements OnInit {
   recordIdPublicacion: string = '';
   idUsuarioPubli: String = "";
 
-
   private publicacion: any;
   private sub: any;
   private idPublicacionP: any;

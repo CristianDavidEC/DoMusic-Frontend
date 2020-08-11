@@ -110,5 +110,4 @@ export class ModificarPublicacionComponent implements OnInit {
     model.fecha = (`Fecha:${day.getDate()}-${day.getMonth()+1}-${day.getFullYear()} Hora:${day.getHours()}:${day.getMinutes()}:${day.getSeconds()}`);
     return model;
   }
-
 }
