@@ -36,8 +36,8 @@ import { CrearDenunciaComponent} from './denuncias/crear-denuncia/crear-denuncia
   imports: [
     CommonModule,
     ParametrosRoutingModule,
-    ReactiveFormsModule,
     FormsModule,
+    ReactiveFormsModule,
     NgxPaginationModule,
     NgxSpinnerModule,
     

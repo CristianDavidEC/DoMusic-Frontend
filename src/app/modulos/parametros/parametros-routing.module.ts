@@ -84,7 +84,7 @@ const routes: Routes = [
 
 },
 {
-  path: 'crear-mensajes',
+  path: 'crear-mensajes/:idReceptor',
   component: CrearMensajeComponent
 },
 {

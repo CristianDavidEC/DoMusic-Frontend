@@ -20,7 +20,6 @@
           class="fas fa-archive icon"></i>Denuncias</a>
     
     </li>
-  
     <!-- <li class="side-item" *ngIf="estaLogueado">
       <a class="side-link h5  font-weight-light" routerLink="/parametros/comentarios"><i
           class="far fa-images icon"></i>Comentarios</a>
@@ -43,6 +42,7 @@
           <i class="fas fa-user-friends"></i> Bandas</a>
       </div>
     </li>
+
   <li class="side-item dropdown" *ngIf="estaLogueado">
 
     <a class="side-link dropdown-toggle h5 font-weight-light" id="sideDropdown" role="button" data-toggle="dropdown"
@@ -72,6 +72,5 @@
     </router-outlet>
   </div>
 </div>
-<app-footer *ngIf="estaLogueado">
-</app-footer>
-</div>
+  <app-footer *ngIf="estaLogueado">
+  </app-footer>
