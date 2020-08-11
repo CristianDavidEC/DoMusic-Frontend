@@ -25,12 +25,9 @@ export class MostrarDenunciasComponent implements OnInit {
   recordListDenuncia : DenunciasModel[];
   eliminarDenId: String ='';
   publiPorPagina: number = FormsConfig.ELEMENTOS_PAGINA;
-  recordIdPublicacion: string = '';
+  recordIdDenuncia: string = '';
   idUsuarioPubli: String = "";
 
-  private publicacion: any;
-  private sub: any;
-  private idPublicacionP: any;
   private idUsuarioP: any;
   private ret: any;
 
@@ -41,7 +38,7 @@ export class MostrarDenunciasComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
   ) {
-    this.recordIdPublicacion = this.route.snapshot.params['idPublicacion']
+    this.recordIdDenuncia = this.route.snapshot.params['idDenuncia']
    }
 
   ngOnInit(): void {

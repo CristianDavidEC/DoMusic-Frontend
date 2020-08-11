@@ -1,8 +1,7 @@
 <div id="wrapper">
   <div id="sidebar-wrapper" class="colorDoMusic1">
     <li class="side-item" *ngIf="estaLogueado">
-      <a class="side-link h5 font-weight-light" routerLink="/parametros/notificaciones"><i class="fas fa-bell icon"></i>
-        Notificaciones</a>
+      <a class="side-link h5 font-weight-light" routerLink="/parametros/notificaciones"><i class="fas fa-bell icon"></i>Notificaciones</a>
     </li>
     <li class="side-item" *ngIf="estaLogueado">
       <a class="side-link h5  font-weight-light" routerLink="#"><i class="fas fa-comment-dots icon"></i>Mensajes</a>
@@ -13,12 +12,19 @@
     </li>
     <li class="side-item" *ngIf="estaLogueado">
       <a class="side-link h5  font-weight-light" routerLink="/parametros/publicidad"><i
-          class="far fa-images icon"></i>Publicidades</a>
-
+          class="fas fa-ad icon"></i>Publicidades</a>
+    
     </li>
     <li class="side-item" *ngIf="esAdmin">
-      <a class="side-link h5  font-weight-light" routerLink="/parametros/denuncias">
-        <i class="fas fa-file-signature"></i> Denuncias</a>
+      <a class="side-link h5  font-weight-light" routerLink="/parametros/denuncias"><i
+          class="fas fa-archive icon"></i>Denuncias</a>
+    
+    </li>
+  
+    <!-- <li class="side-item" *ngIf="estaLogueado">
+      <a class="side-link h5  font-weight-light" routerLink="/parametros/comentarios"><i
+          class="far fa-images icon"></i>Comentarios</a>
+    </li> -->
 
     <li class="side-item dropdown" *ngIf="estaLogueado">
       <a class="side-link dropdown-toggle h5 font-weight-light" id="sideDropdown" role="button" data-toggle="dropdown"
@@ -28,16 +34,15 @@
       <div class="dropdown-menu colorDoMusic1 font-weight-light" aria-labelledby="sideDropdown">
     
         <a class="dropdown-item colorDoMusic1 font-weight-light" routerLink="/perfiles/profesionales">
-          <i class="fas fa-user-friends"></i> Músicos Profesionales</a>
+          <i class="fas fa-user"></i> Músicos Profesionales</a>
 
         <a class="dropdown-item colorDoMusic1 font-weight-light" routerLink="/perfiles/aficionados">
-          <i class="fas fa-user-friends"></i> Aficicionados</a>
+          <i class="fas fa-user"></i> Aficicionados</a>
 
         <a class="dropdown-item colorDoMusic1 font-weight-light" routerLink="/perfiles/bandas">
           <i class="fas fa-user-friends"></i> Bandas</a>
       </div>
     </li>
-
   <li class="side-item dropdown" *ngIf="estaLogueado">
 
     <a class="side-link dropdown-toggle h5 font-weight-light" id="sideDropdown" role="button" data-toggle="dropdown"
