@@ -48,6 +48,10 @@ const routes: Routes = [
     loadChildren: () => import ('./modulos/comentarios/comentarios.module').then(m => m.ComentariosModule)
   },
   {
+    path: 'administradores',
+    loadChildren: () => import ('./modulos/administrador/administrador.module').then(m => m.AdministradorModule)
+  },
+  {
     path: '**',
     redirectTo: '/home'
   }

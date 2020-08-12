@@ -8,6 +8,7 @@ import { ServiceConfig } from '../config/service.config'
 import { CargarArchivosModel } from '../modelos/cargarArchivos/cargaArchivos.model'
 import { SeguridadService } from '../servicios/seguridad.service';
 import { PerfilesModule } from '../modulos/perfiles/perfiles.module';
+import { AdministradorModel } from '../modelos/administrador.model';
 
 
 @Injectable({
@@ -44,6 +45,13 @@ export class PerfilService {
 
   CrearBanda(model: BandaModel): Observable<BandaModel> {
     return this.http.post<BandaModel>(`${ServiceConfig.BASE_URL_BANDA}`, model, {
+      headers: new HttpHeaders({
+      })
+    })
+  }
+
+  CrearAdministrador(model: AdministradorModel): Observable<AdministradorModel> {
+    return this.http.post<AdministradorModel>(`${ServiceConfig.BASE_URL_ADMINSTRADOR}`, model, {
       headers: new HttpHeaders({
       })
     })
