@@ -1,4 +1,5 @@
-<a class="btn btn-success" routerLink="/parametros/crear-publicaciones" role="button">Nueva Publicacion</a>
+<br />
+<a class="btn btn-success" routerLink="/publicaciones/crear-publicaciones" role="button">Nueva Publicacion</a>
 <br />
 <br />
 <table class="table">
@@ -43,7 +44,7 @@
             </td>
             
             <td>
-                <a class="btn btn-warning" routerLink= "/parametros/modificar-publicaciones/{{r.idPublicacion}}" role= "button">Modificar</a>
+                <a class="btn btn-warning" routerLink= "/publicaciones/modificar-publicaciones/{{r.idPublicacion}}" role= "button">Modificar</a>
             </td>
             <td>
                 <button type="button" class = "btn btn-danger" (click) = "ConfirmarEliminacion(r.idPublicacion)">
@@ -52,7 +53,7 @@
             </td>
             <td>
                 <imput>
-                    20
+                    {{r.reacciones}}
                 </imput>
                 <button type="button" class = "btn btn-dark" (click) = "reaccionar(r.idPublicacion)">
                     Reaccionar

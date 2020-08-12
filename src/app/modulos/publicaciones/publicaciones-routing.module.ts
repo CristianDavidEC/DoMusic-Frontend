@@ -6,7 +6,7 @@ import { MostrarPublicacionComponent } from './mostrar-publicacion/mostrar-publi
 const routes: Routes = [
   
   {
-    path: 'publicaciones',
+    path: 'crear-publicaciones',
     component: CrearPublicacionComponent
   },
   {

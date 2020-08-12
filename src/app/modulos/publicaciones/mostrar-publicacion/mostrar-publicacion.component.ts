@@ -9,6 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
 import { PerfilModel } from 'src/app/modelos/perfil.model';
+import { PerfilService } from 'src/app/servicios/perfil.service';
 
 declare const ShowNotificationMessage: any;
 declare const ShowRemoveConfimationPublic: any;
@@ -24,7 +25,7 @@ export class MostrarPublicacionComponent implements OnInit {
 
   pagina: number = 1;
   recordList : PublicacionModel[];
-  reacciones : string[];
+  reacciones : PerfilModel[];
   eliminarPubliId: String ='';
   publiPorPagina: number = FormsConfig.ELEMENTOS_PAGINA;
   recordIdPublicacion: string = '';
@@ -35,13 +36,17 @@ export class MostrarPublicacionComponent implements OnInit {
   private idPublicacionP: any;
   private idUsuarioP: any;
   private ret: any;
+  cant: number;
+
 
   constructor(
     private SeguridadService: SeguridadService,
     private service: PublicacionesService,
+    private serPerfil: PerfilService,
     private spinner: NgxSpinnerService,
     private router: Router,
     private route: ActivatedRoute,
+
   ) {
     this.recordIdPublicacion = this.route.snapshot.params['idPublicacion']
    }
@@ -69,17 +74,46 @@ export class MostrarPublicacionComponent implements OnInit {
     ShowRemoveConfimationPublic();
   }
 
-  reaccionar(eliminarPubliId: String){
-    this.service.getPublicacion2(eliminarPubliId).subscribe(
-      data =>{
-        console.log(data);
-        this.reacciones.push(data.idUsuario);
-      },
-      error =>{
-        ShowNotificationMessage('Hubo un error');
-        this.router.navigate(["/parametros/publicaciones"])
+  reaccionar(Id: String){
+    let usuarioId = this.SeguridadService.getUsuarioId();
+    let model = new PublicacionModel();
+    let lista=[""];
+    let bandera= true;
+    console.log(usuarioId)
+    console.log(lista)
+
+    this.service.getPublicacion(Id).subscribe(data =>{
+      model.idPublicacion = data.idPublicacion;
+      model.titulo = data.titulo;
+      model.contenido = data.contenido;
+      model.fecha = data.fecha;
+      model.reacciones = (data.reacciones + 1);
+      model.idUsuario = data.idUsuario;
+      lista=data.userReacciones;
+      console.log(lista)
+      
+      lista.forEach(element => {
+        if (element == usuarioId){
+          bandera=false;
+        }else{
+          lista.push((usuarioId).toString());
+          model.userReacciones = lista;
+        }
+      });
+
+      if(bandera == false){
+        ShowNotificationMessage('Ya reaccionaste a esta publicacion');
+      }else{
+        this.service.modificarRegistro(model).subscribe(
+          data => {
+            ShowNotificationMessage('Reaccionaste exitosamente');
+          },
+          error => {
+            ShowNotificationMessage('Error!');
+          }
+        ); 
       }
-    )
+    })
   }
 
   verifPublicacion(eliminarPubliId: String): Boolean{

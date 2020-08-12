@@ -5,6 +5,7 @@ import { SeguridadService } from 'src/app/servicios/seguridad.service';
 import { DenunciasService } from 'src/app/servicios/parametros/denuncias.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router, ActivatedRoute } from '@angular/router';
+import { PerfilService } from 'src/app/servicios/perfil.service';
 
 
 declare const ShowNotificationMessage: any;
@@ -27,6 +28,7 @@ export class MostrarDenunciasComponent implements OnInit {
   publiPorPagina: number = FormsConfig.ELEMENTOS_PAGINA;
   recordIdDenuncia: string = '';
   idUsuarioPubli: String = "";
+  idUsuarioReportado: any;
 
   private idUsuarioP: any;
   private ret: any;
@@ -34,21 +36,20 @@ export class MostrarDenunciasComponent implements OnInit {
   constructor(
     private SeguridadService: SeguridadService,
     private service: DenunciasService,
+    private servicePerfil: PerfilService,
     private spinner: NgxSpinnerService,
     private router: Router,
     private route: ActivatedRoute,
   ) {
-    console.log("entre constructor")
    }
 
   ngOnInit(): void {
-    // this.spinner.show();
-    // this.getRecordsList()
+    this.spinner.show();
+    this.getRecordsList()
   }
 
   getRecordsList(){
     this.service.getAllRecords().subscribe(records => {
-      console.log(records);
       this.recordListDenuncia = records;
       setTimeout(() => {
         this.spinner.hide();
