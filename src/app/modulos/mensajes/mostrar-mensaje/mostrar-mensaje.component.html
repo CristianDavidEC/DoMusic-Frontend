@@ -1,1 +1,63 @@
-<p>mostrar-mensaje works!</p>
+<br />
+<!-- <a class="btn btn-success" routerLink="/publicaciones/crear-publicaciones" role="button">Nueva Publicacion</a> -->
+<br />
+<br />
+<table class="table">
+    <thead class="table-dark"> 
+        <tr>
+            <td>
+                Contenido
+            </td>
+            <td>
+                Fecha
+            </td>
+            <td>
+                Remitente
+            </td>
+            <td >
+                Eliminar
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let r of recordList | paginate: { itemsPerPage: publiPorPagina, currentPage: pagina}">
+            <td>
+                {{r.contenido}}
+            </td>
+            <td>
+                {{r.fecha}}
+            </td>
+            <td>
+                {{r.idRemitente}}
+            </td>
+            <td>
+                <button type="button" class = "btn btn-danger" (click) = "ConfirmarEliminacion(r.idMensaje)">
+                    Eliminar
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<pagination-controls (pageChange)="pagina = $event" nextLabel="Siguiente" previousLabel="Anterior"></pagination-controls>
+<ngx-spinner></ngx-spinner>
+<div class="modal" id= "confirmarEliminacion" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmacion de Eliminacion</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Estás seguro de eliminar esta mensaje?
+        </div>
+        <div class="modal-footer">
+          <button (click)="EliminarPubli()" type="button" class="btn btn-success" >Confirmar</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
