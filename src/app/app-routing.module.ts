@@ -24,13 +24,33 @@ const routes: Routes = [
     loadChildren: () => import ('./modulos/perfiles/perfiles.module').then(m => m.PerfilesModule)
   },
   {
-    path: 'parametros',
-    loadChildren: () => import ('./modulos/parametros/parametros.module').then(m => m.ParametrosModule)
+    path: 'denuncias',
+    loadChildren: () => import ('./modulos/denuncias/denuncias.module').then(m => m.DenunciasModule)
+  },
+  {
+    path: 'mensajes',
+    loadChildren: () => import ('./modulos/mensajes/mensajes.module').then(m => m.MensajesModule)
+  },
+  {
+    path: 'publicidades',
+    loadChildren: () => import ('./modulos/publicidad/publicidad.module').then(m => m.PublicidadModule)
+  },
+  {
+    path: 'publicaciones',
+    loadChildren: () => import ('./modulos/publicaciones/publicaciones.module').then(m => m.PublicacionesModule)
+  },
+  {
+    path: 'notificaciones',
+    loadChildren: () => import ('./modulos/notificaciones/notificaciones.module').then(m => m.NotificacionesModule)
+  },
+  {
+    path: 'comentarios',
+    loadChildren: () => import ('./modulos/comentarios/comentarios.module').then(m => m.ComentariosModule)
   },
   {
     path: '**',
     redirectTo: '/home'
-  },
+  }
 
  
 ];

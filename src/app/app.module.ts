@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -12,6 +11,7 @@ import { FooterComponent } from './public/master-page/footer/footer.component';
 //import { CrearComentariosComponent } from './modulos/parametros/comentarios/crear-comentarios/crear-comentarios.component';
 import { CrearGrupoComponent } from './modulos/grupos/crear-grupo/crear-grupo.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
