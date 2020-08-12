@@ -37,7 +37,7 @@ export class VistaPerfilComponent implements OnInit {
 
   getPerfilMusico(){
     if(this.service.getSession()){
-    let idPerfil = this.service.getIdPerfil().toString();
+    let idPerfil = this.service.getIdPerfil();
     this.servicePefil.getMusicoP(idPerfil).subscribe(records => {
       this.perfilUsuario = records;
       console.log(this.perfilUsuario)

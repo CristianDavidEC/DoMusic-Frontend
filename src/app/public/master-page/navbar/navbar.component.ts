@@ -16,9 +16,11 @@ declare const ShowNotificationMessage: any;
 export class NavbarComponent implements OnInit {
 
   estaLogueado: Boolean = false;
+  admin: Boolean = false;
   role: String = "";
   subscription: Subscription;
   perfilUsuario: PerfilModel;
+
 
   constructor(
     private service: SeguridadService,
@@ -30,19 +32,20 @@ export class NavbarComponent implements OnInit {
     this.subscription = this.service.getUserData().subscribe(data => {
       this.estaLogueado = data.estaLogueado;
       this.role = data.rol;
+      if(this.role == "Administrador"){
+        this.admin= true
+      }
     });
     this.perfilUsuario = new PerfilModel();
     this.getPerfilMusico();
   }
 
-
-
   async getPerfilMusico() {
-    if (this.service.getSession()) {
+    if (this.service.getSession() && !this.admin) {
       let idPerfil = this.service.getIdPerfil();
       this.servicePefil.getMusicoP(idPerfil).subscribe(records => {
         this.perfilUsuario = records;
-        console.log(this.perfilUsuario)
+        console.log("Aqui tambien")
         setTimeout(() => {
           this.spinner.hide();
         }, 1000)

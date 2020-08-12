@@ -109,6 +109,11 @@ export class SeguridadService {
     return JSON.parse(currentSession).idUsuario;
   }
 
+  getRol():String{
+    let currentSession = this.getSession();
+    return JSON.parse(currentSession).rol;
+  }
+
   getIdPerfil():String{
     let session = this.getSession();
     return JSON.parse(session).musicoProfesionalId;
