@@ -45,7 +45,6 @@ export class NavbarComponent implements OnInit {
       let idPerfil = this.service.getIdPerfil();
       this.servicePefil.getMusicoP(idPerfil).subscribe(records => {
         this.perfilUsuario = records;
-        console.log("Aqui tambien")
         setTimeout(() => {
           this.spinner.hide();
         }, 1000)

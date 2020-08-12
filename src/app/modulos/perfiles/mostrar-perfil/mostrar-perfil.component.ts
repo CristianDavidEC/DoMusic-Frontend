@@ -51,7 +51,6 @@ export class MostrarPerfilComponent implements OnInit {
 
   getRecordsList(){
     this.service.getAllRecords().subscribe(records => {
-      //console.log((this.SeguridadService.getIdPerfil()).toString());
       this.recordList = records;
       setTimeout(() => {
         this.spinner.hide();
@@ -63,7 +62,6 @@ export class MostrarPerfilComponent implements OnInit {
   getPerfilUsuario(){
     let idPerfil = this.SeguridadService.getIdPerfil().toString();
     this.service.getMusico(idPerfil).subscribe(records =>{
-      console.log(records)
     });    
   }
 

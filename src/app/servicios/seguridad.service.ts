@@ -60,7 +60,6 @@ export class SeguridadService {
   }
 
   saveSession(sessionData: any): Boolean{
-    console.log(sessionData)
     let currentSession = localStorage.getItem('session');
     if(currentSession){
       console.log("Ya existe")

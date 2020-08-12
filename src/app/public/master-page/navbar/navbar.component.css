@@ -8,8 +8,9 @@
 }
 
 .foto-perfil{
-    width: 40px !Important;
-    left: 40px !Important;
+    width: 60px !Important;
+    height: 60px !Important;
+    object-fit: cover;
     border-radius: 50%;
   }
 
