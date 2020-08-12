@@ -18,10 +18,13 @@ export class AutAdminGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.servicio.existeSesion() && this.servicio.esUsuario(ServiceConfig.ROLADMI)){
+      console.log("si es admin")
      return true;
     }
     else{
       this.router.navigate(["/seguridad/login"]);
+      console.log("no es admin")
+
       return false;
     }
   }

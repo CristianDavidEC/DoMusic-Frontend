@@ -6,22 +6,21 @@ import { EliminarDenunciaComponent } from './eliminar-denuncia/eliminar-denuncia
 import { CrearDenunciaComponent } from './crear-denuncia/crear-denuncia.component';
 import { MostrarDenunciasComponent } from './mostrar-denuncias/mostrar-denuncias.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms'
-import { NgxSpinnerService } from 'ngx-spinner';
+import {NgxSpinnerModule } from 'ngx-spinner';
 import { NgxPaginationModule} from 'ngx-pagination';
-import { BrowserModule } from '@angular/platform-browser';
+import { ListarDenunciasComponent } from './listar-denuncias/listar-denuncias.component';
 
 
 
 @NgModule({
-  declarations: [EliminarDenunciaComponent, CrearDenunciaComponent, MostrarDenunciasComponent],
+  declarations: [EliminarDenunciaComponent, CrearDenunciaComponent, MostrarDenunciasComponent, ListarDenunciasComponent],
   imports: [
     CommonModule,
     DenunciasRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxSpinnerService,
+    NgxSpinnerModule,
     NgxPaginationModule,
-    BrowserModule
   ]
 })
 export class DenunciasModule { }

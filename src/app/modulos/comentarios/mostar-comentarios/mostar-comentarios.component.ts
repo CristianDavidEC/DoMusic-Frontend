@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsConfig } from 'src/app/config/forms-config';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { ComentarioModel} from '../../../../modelos/parametros/comentario.model'
-import { ComentariosService} from '../../../../servicios/parametros/comentarios.service'
+import { ComentarioModel} from '../../../modelos/parametros/comentario.model'
+import { ComentariosService} from '../../../servicios/parametros/comentarios.service'
 import { ActivatedRoute, Router } from '@angular/router';
 import { CompileShallowModuleMetadata } from '@angular/compiler';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';

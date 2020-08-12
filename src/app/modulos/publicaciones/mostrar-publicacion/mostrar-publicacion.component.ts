@@ -1,44 +1,49 @@
 import { Component, OnInit } from '@angular/core';
-import { DenunciasModel } from 'src/app/modelos/parametros/denuncia.model';
+import { PublicacionesService} from '../../../servicios/parametros/publicaciones.service'
+import { PublicacionModel } from 'src/app/modelos/parametros/publicacion.model';
 import { FormsConfig } from 'src/app/config/forms-config';
-import { SeguridadService } from 'src/app/servicios/seguridad.service';
-import { DenunciasService } from 'src/app/servicios/parametros/denuncias.service';
-import { NgxSpinnerService } from 'ngx-spinner';
+
+import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxSpinnerService } from "ngx-spinner";
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { SeguridadService } from 'src/app/servicios/seguridad.service';
+import { PerfilModel } from 'src/app/modelos/perfil.model';
 
 declare const ShowNotificationMessage: any;
 declare const ShowRemoveConfimationPublic: any;
 declare const CloseModal: any;
 
 
-
 @Component({
-  selector: 'app-mostrar-denuncias',
-  templateUrl: './mostrar-denuncias.component.html',
-  styleUrls: ['./mostrar-denuncias.component.css']
+  selector: 'app-mostrar-publicacion',
+  templateUrl: './mostrar-publicacion.component.html',
+  styleUrls: ['./mostrar-publicacion.component.css']
 })
-export class MostrarDenunciasComponent implements OnInit {
+export class MostrarPublicacionComponent implements OnInit {
 
-  
   pagina: number = 1;
-  recordListDenuncia : DenunciasModel[];
-  eliminarDenId: String ='';
+  recordList : PublicacionModel[];
+  reacciones : string[];
+  eliminarPubliId: String ='';
   publiPorPagina: number = FormsConfig.ELEMENTOS_PAGINA;
-  recordIdDenuncia: string = '';
+  recordIdPublicacion: string = '';
   idUsuarioPubli: String = "";
 
+  private publicacion: any;
+  private sub: any;
+  private idPublicacionP: any;
   private idUsuarioP: any;
   private ret: any;
 
   constructor(
     private SeguridadService: SeguridadService,
-    private service: DenunciasService,
+    private service: PublicacionesService,
     private spinner: NgxSpinnerService,
     private router: Router,
     private route: ActivatedRoute,
   ) {
-    this.recordIdDenuncia = this.route.snapshot.params['idDenuncia']
+    this.recordIdPublicacion = this.route.snapshot.params['idPublicacion']
    }
 
   ngOnInit(): void {
@@ -48,8 +53,7 @@ export class MostrarDenunciasComponent implements OnInit {
 
   getRecordsList(){
     this.service.getAllRecords().subscribe(records => {
-      console.log(records);
-      this.recordListDenuncia = records;
+      this.recordList = records;
       setTimeout(() => {
         this.spinner.hide();
       },1000)
@@ -57,18 +61,31 @@ export class MostrarDenunciasComponent implements OnInit {
     error => {ShowNotificationMessage ("Hubo un problema con la comunicación en el Backend")})
   }
 
-  ConfirmarEliminacion(idDenuncia){
-    console.log(this.service.getDenuncia(idDenuncia))
-    this.eliminarDenId = idDenuncia;
-    this.verifPublicacion(this.eliminarDenId);
+  ConfirmarEliminacion(idPublicacion){
+    console.log(this.service.getPubli(idPublicacion))
+    this.eliminarPubliId = idPublicacion;
+    this.verifPublicacion(this.eliminarPubliId);
 
     ShowRemoveConfimationPublic();
   }
 
-  verifPublicacion(eliminarPubliId: String): Boolean{
-    this.service.getDenuncia(eliminarPubliId).subscribe(
+  reaccionar(eliminarPubliId: String){
+    this.service.getPublicacion2(eliminarPubliId).subscribe(
       data =>{
-        this.idUsuarioP = (data.usuarioId);
+        console.log(data);
+        this.reacciones.push(data.idUsuario);
+      },
+      error =>{
+        ShowNotificationMessage('Hubo un error');
+        this.router.navigate(["/parametros/publicaciones"])
+      }
+    )
+  }
+
+  verifPublicacion(eliminarPubliId: String): Boolean{
+    this.service.getPublicacion2(eliminarPubliId).subscribe(
+      data =>{
+        this.idUsuarioP = (data.idUsuario);
       },
       error =>{
         ShowNotificationMessage('Hubo un error');
@@ -85,8 +102,8 @@ export class MostrarDenunciasComponent implements OnInit {
 
 
   EliminarPubli(){
-    if(this.verifPublicacion(this.eliminarDenId)){
-      this.service.eliminarRegistro(this.eliminarDenId).subscribe(
+    if(this.verifPublicacion(this.eliminarPubliId)){
+      this.service.eliminarRegistro(this.eliminarPubliId).subscribe(
         data => {
           CloseModal('confirmarEliminacion');
           ShowNotificationMessage('Se ha eliminado exitosamente');
@@ -102,5 +119,3 @@ export class MostrarDenunciasComponent implements OnInit {
     }
   }
 }
-
-

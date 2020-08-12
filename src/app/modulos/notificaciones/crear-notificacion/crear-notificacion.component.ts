@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import {NotificacionModel} from '../../../../modelos/parametros/notificacion.model'
-import {NotificacionService} from '../../../../servicios/parametros/notificacion.service'
+import {NotificacionModel} from '../../../modelos/parametros/notificacion.model'
+import {NotificacionService} from '../../../servicios/parametros/notificacion.service'
 
 
 declare const ShowNotificationMessage:any;

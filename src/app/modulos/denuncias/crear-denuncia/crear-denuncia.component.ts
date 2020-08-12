@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { DenunciasService} from '../../../../servicios/parametros/denuncias.service'
+import { DenunciasService} from '../../../servicios/parametros/denuncias.service'
 import { ActivatedRoute, Router } from '@angular/router';
 import { DenunciasModel } from 'src/app/modelos/parametros/denuncia.model';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';

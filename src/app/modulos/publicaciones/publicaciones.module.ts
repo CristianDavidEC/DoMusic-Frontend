@@ -6,6 +6,9 @@ import { CrearPublicacionComponent } from './crear-publicacion/crear-publicacion
 import { ModificarPublicacionComponent } from './modificar-publicacion/modificar-publicacion.component';
 import { MostrarPublicacionComponent } from './mostrar-publicacion/mostrar-publicacion.component';
 import {NotificacionesRoutingModule} from '../notificaciones/notificaciones-routing.module'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,11 @@ import {NotificacionesRoutingModule} from '../notificaciones/notificaciones-rout
   imports: [
     CommonModule,
     PublicacionesRoutingModule,
-    NotificacionesRoutingModule
+    NotificacionesRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxSpinnerModule,
+    NgxPaginationModule
   ]
 })
 export class PublicacionesModule { }

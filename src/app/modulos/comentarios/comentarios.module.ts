@@ -7,9 +7,8 @@ import { ModificarComentariosComponent } from './modificar-comentarios/modificar
 import { EliminarComentariosComponent } from './eliminar-comentarios/eliminar-comentarios.component';
 import { MostarComentariosComponent } from './mostar-comentarios/mostar-comentarios.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms'
-import { NgxSpinnerService } from 'ngx-spinner';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgxPaginationModule} from 'ngx-pagination';
-import { BrowserModule } from '@angular/platform-browser';
 
 
 
@@ -25,9 +24,8 @@ import { BrowserModule } from '@angular/platform-browser';
     ComentariosRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxSpinnerService,
+    NgxSpinnerModule,
     NgxPaginationModule,
-    BrowserModule
   ]
 })
 export class ComentariosModule { }
