@@ -11,6 +11,7 @@ import { FooterComponent } from './public/master-page/footer/footer.component';
 //import { CrearComentariosComponent } from './modulos/parametros/comentarios/crear-comentarios/crear-comentarios.component';
 import { CrearGrupoComponent } from './modulos/grupos/crear-grupo/crear-grupo.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     
   ],
   imports: [
+    BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     CommonModule

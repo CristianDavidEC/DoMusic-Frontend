@@ -12,7 +12,7 @@ import { AutAdminGuard} from '../../guardianes/aut-admin.guard'
 
 const routes: Routes = [
   {
-    path: 'denuncias/:idMusicoProfesional',
+    path: 'denuncias',
     component: CrearDenunciaComponent
   },
   {
@@ -23,7 +23,7 @@ const routes: Routes = [
   },
   {
     path: 'listar-denuncias',
-    component: ListarDenunciasComponent
+    component: MostrarDenunciasComponent
   
   },
 ];
