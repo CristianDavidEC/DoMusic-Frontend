@@ -36,6 +36,9 @@ export class CrearPublicacionComponent implements OnInit {
       titulo:['', [Validators.required, Validators.minLength(2)]],
       contenido:['', [Validators.required, Validators.minLength(2)]],
       image:[''],
+      reacciones:[''],
+      userReacciones:[''],
+
     });
   }
 
@@ -69,6 +72,8 @@ export class CrearPublicacionComponent implements OnInit {
     model.fecha = (`Fecha:${day.getDate()}-${day.getMonth()+1}-${day.getFullYear()} Hora:${day.getHours()}:${day.getMinutes()}:${day.getSeconds()}`)
     model.idUsuario = (this.servicio.getUsuarioId()).toString();
     model.image = this.fgv.image.value;
+    model.reacciones = 0;
+    model.userReacciones = [""];
     
     return model;
   }
