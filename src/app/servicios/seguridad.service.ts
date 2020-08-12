@@ -60,7 +60,6 @@ export class SeguridadService {
   }
 
   saveSession(sessionData: any): Boolean{
-    console.log(sessionData)
     let currentSession = localStorage.getItem('session');
     if(currentSession){
       console.log("Ya existe")
@@ -107,6 +106,11 @@ export class SeguridadService {
   getUsuarioId():String{
     let currentSession = this.getSession();
     return JSON.parse(currentSession).idUsuario;
+  }
+
+  getRol():String{
+    let currentSession = this.getSession();
+    return JSON.parse(currentSession).rol;
   }
 
   getIdPerfil():String{

@@ -15,40 +15,42 @@ declare const ShowNotificationMessage: any;
 })
 export class NavbarComponent implements OnInit {
 
-  estaLogueado: Boolean= false;
+  estaLogueado: Boolean = false;
+  admin: Boolean = false;
   role: String = "";
   subscription: Subscription;
   perfilUsuario: PerfilModel;
+
 
   constructor(
     private service: SeguridadService,
     private servicePefil: PerfilService,
     private spinner: NgxSpinnerService,
-    ) { }
+  ) { }
 
   ngOnInit(): void {
-    this.subscription= this.service.getUserData().subscribe(data =>{
+    this.subscription = this.service.getUserData().subscribe(data => {
       this.estaLogueado = data.estaLogueado;
       this.role = data.rol;
+      if(this.role == "Administrador"){
+        this.admin= true
+      }
     });
-    this.perfilUsuario =new PerfilModel();
+    this.perfilUsuario = new PerfilModel();
     this.getPerfilMusico();
   }
 
-  
-
-  async getPerfilMusico(){
-    if(this.service.getSession()){
-    let idPerfil = this.service.getIdPerfil().toString();
-    this.servicePefil.getMusicoP(idPerfil).subscribe(records => {
-      this.perfilUsuario = records;
-      console.log(this.perfilUsuario)
-      setTimeout(() => {
-        this.spinner.hide();
-      },1000)
-    },
-    error => {ShowNotificationMessage ("Hubo un problema con la comunicación en el Backend")})
+  async getPerfilMusico() {
+    if (this.service.getSession() && !this.admin) {
+      let idPerfil = this.service.getIdPerfil();
+      this.servicePefil.getMusicoP(idPerfil).subscribe(records => {
+        this.perfilUsuario = records;
+        setTimeout(() => {
+          this.spinner.hide();
+        }, 1000)
+      },
+        error => { ShowNotificationMessage("Hubo un problema con la comunicación en el Backend") })
+    }
   }
-}
 
 }

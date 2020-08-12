@@ -14,11 +14,18 @@
         <a class="nav-link" routerLink="/perfiles/tipo-perfil">Registrar</a>
       </li>
 
-      <li class="nav-item esp" *ngIf="estaLogueado">
+      <li class="nav-item esp" *ngIf="estaLogueado && !admin">
         <a class="nav-link h5 d-inline text-mayus font-weight-light" routerLink="perfiles/vista-perfil"> 
-          <img src="http://localhost:3000/files/1/{{perfilUsuario.idMusicoProfesional}}" class="foto-perfil d-inline img-fluid">
+        <img src="http://localhost:3000/files/1/{{perfilUsuario.idMusicoProfesional}}" class="foto-perfil d-inline img-fluid">
           {{perfilUsuario.nombre}} {{perfilUsuario.apellido}}
-        </a>
+       </a>
+      </li>
+
+      <li class="nav-item esp" *ngIf="estaLogueado && admin">
+        <a class="nav-link h5 d-inline text-mayus font-weight-light" routerLink="#"> 
+        <img src="https://www.revistamercado.do/wp-content/uploads/2018/11/software-3663509_1280-1280x856.jpg" class="foto-perfil d-inline img-fluid">
+          Administrador
+       </a>
       </li>
 
       <li class="nav-item dropdown" *ngIf="!estaLogueado">

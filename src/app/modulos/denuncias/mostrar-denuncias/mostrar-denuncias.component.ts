@@ -1,57 +1,56 @@
 import { Component, OnInit } from '@angular/core';
-import { PerfilesModule } from '../perfiles.module';
+import { DenunciasModel } from 'src/app/modelos/parametros/denuncia.model';
 import { FormsConfig } from 'src/app/config/forms-config';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
-import { PerfilService } from 'src/app/servicios/perfil.service';
+import { DenunciasService } from 'src/app/servicios/parametros/denuncias.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router, ActivatedRoute } from '@angular/router';
-import { PerfilModel } from 'src/app/modelos/perfil.model';
+import { PerfilService } from 'src/app/servicios/perfil.service';
+
 
 declare const ShowNotificationMessage: any;
 declare const ShowRemoveConfimationPublic: any;
 declare const CloseModal: any;
 
+
+
 @Component({
-  selector: 'app-mostrar-perfil',
-  templateUrl: './mostrar-perfil.component.html',
-  styleUrls: ['./mostrar-perfil.component.css']
+  selector: 'app-mostrar-denuncias',
+  templateUrl: './mostrar-denuncias.component.html',
+  styleUrls: ['./mostrar-denuncias.component.css']
 })
-export class MostrarPerfilComponent implements OnInit {
+export class MostrarDenunciasComponent implements OnInit {
 
+  
   pagina: number = 1;
-  recordList : PerfilesModule[];
-  perfilUsuario: PerfilModel;
-  eliminarPubliId: String ='';
+  recordListDenuncia : DenunciasModel[];
+  eliminarDenId: String ='';
   publiPorPagina: number = FormsConfig.ELEMENTOS_PAGINA;
-  recordIdMusicoP: string = '';
+  recordIdDenuncia: string = '';
   idUsuarioPubli: String = "";
+  idUsuarioReportado: any;
 
-
-  private publicacion: any;
-  private sub: any;
-  private idMusicoP: any;
   private idUsuarioP: any;
   private ret: any;
 
   constructor(
     private SeguridadService: SeguridadService,
-    private service: PerfilService,
+    private service: DenunciasService,
+    private servicePerfil: PerfilService,
     private spinner: NgxSpinnerService,
     private router: Router,
     private route: ActivatedRoute,
   ) {
-    this.recordIdMusicoP = this.route.snapshot.params['idMusicoProfesional']
    }
 
   ngOnInit(): void {
     this.spinner.show();
-    this.getRecordsList();
-    this.getPerfilUsuario()
+    this.getRecordsList()
   }
 
   getRecordsList(){
     this.service.getAllRecords().subscribe(records => {
-      this.recordList = records;
+      this.recordListDenuncia = records;
       setTimeout(() => {
         this.spinner.hide();
       },1000)
@@ -59,25 +58,18 @@ export class MostrarPerfilComponent implements OnInit {
     error => {ShowNotificationMessage ("Hubo un problema con la comunicación en el Backend")})
   }
 
-  getPerfilUsuario(){
-    let idPerfil = this.SeguridadService.getIdPerfil().toString();
-    this.service.getMusico(idPerfil).subscribe(records =>{
-    });    
-  }
-
-
-  /* ConfirmarEliminacion(idPublicacion){
-    console.log(this.service.getPubli(idPublicacion))
-    this.eliminarPubliId = idPublicacion;
-    this.verifPublicacion(this.eliminarPubliId);
+  ConfirmarEliminacion(idDenuncia){
+    console.log(this.service.getDenuncia(idDenuncia))
+    this.eliminarDenId = idDenuncia;
+    this.verifPublicacion(this.eliminarDenId);
 
     ShowRemoveConfimationPublic();
   }
 
   verifPublicacion(eliminarPubliId: String): Boolean{
-    this.service.getPublicacion2(eliminarPubliId).subscribe(
+    this.service.getDenuncia(eliminarPubliId).subscribe(
       data =>{
-        this.idUsuarioP = (data.idUsuario);
+        this.idUsuarioP = (data.usuarioId);
       },
       error =>{
         ShowNotificationMessage('Hubo un error');
@@ -94,9 +86,8 @@ export class MostrarPerfilComponent implements OnInit {
 
 
   EliminarPubli(){
-    console.log("todo melo? "+this.verifPublicacion(this.eliminarPubliId))
-    if(this.verifPublicacion(this.eliminarPubliId)){
-      this.service.eliminarRegistro(this.eliminarPubliId).subscribe(
+    if(this.verifPublicacion(this.eliminarDenId)){
+      this.service.eliminarRegistro(this.eliminarDenId).subscribe(
         data => {
           CloseModal('confirmarEliminacion');
           ShowNotificationMessage('Se ha eliminado exitosamente');
@@ -110,6 +101,7 @@ export class MostrarPerfilComponent implements OnInit {
       CloseModal('confirmarEliminacion');
       ShowNotificationMessage('Error, esta publicacion no es tuya');
     }
-  } */
-
+  }
 }
+
+

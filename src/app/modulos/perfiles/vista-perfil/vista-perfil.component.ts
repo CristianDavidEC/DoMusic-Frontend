@@ -14,7 +14,7 @@ declare const ShowNotificationMessage: any;
 })
 export class VistaPerfilComponent implements OnInit {
 
-  estaLogueado: Boolean= false;
+  estaLogueado: Boolean = false;
   role: String = "";
   subscription: Subscription;
   perfilUsuario: PerfilModel;
@@ -23,31 +23,29 @@ export class VistaPerfilComponent implements OnInit {
     private service: SeguridadService,
     private servicePefil: PerfilService,
     private spinner: NgxSpinnerService,
-    ) { }
+  ) { }
 
   ngOnInit(): void {
-    this.subscription= this.service.getUserData().subscribe(data =>{
+    this.subscription = this.service.getUserData().subscribe(data => {
       this.estaLogueado = data.estaLogueado;
       this.role = data.rol;
     });
 
-    this.perfilUsuario =new PerfilModel();
+    this.perfilUsuario = new PerfilModel();
     this.getPerfilMusico();
   }
 
-  getPerfilMusico(){
-    if(this.service.getSession()){
-    let idPerfil = this.service.getIdPerfil().toString();
-    this.servicePefil.getMusicoP(idPerfil).subscribe(records => {
-      this.perfilUsuario = records;
-      console.log(this.perfilUsuario)
-      setTimeout(() => {
-        this.spinner.hide();
-      },1000)
-    },
-    error => {ShowNotificationMessage ("Hubo un problema con la comunicación en el Backend")})
+  getPerfilMusico() {
+    if (this.service.getSession()) {
+      let idPerfil = this.service.getIdPerfil();
+      this.servicePefil.getMusicoP(idPerfil).subscribe(records => {
+        this.perfilUsuario = records;
+        setTimeout(() => {
+          this.spinner.hide();
+        }, 1000)
+      },
+        error => { ShowNotificationMessage("Hubo un problema con la comunicación en el Backend") })
+    }
   }
-  console.log("no hay session")
-}
 
 }

@@ -6,4 +6,6 @@ export class PublicacionModel{
     contenido: string;
     image?: string;
     idUsuario:string;
+    userReacciones?: string[];
+
 }
