@@ -66,11 +66,9 @@ export class MostrarPublicacionComponent implements OnInit {
 
       for (let publi of this.recordList) {
         this.serPerfil.getUsuario2(publi.idUsuario).subscribe(records => {
-          console.log(records)
           this.perfiles1.push(records)
         })
       }
-      console.log(this.perfiles1)
       setTimeout(() => {
         this.spinner.hide();
       }, 1000)
@@ -100,6 +98,7 @@ export class MostrarPublicacionComponent implements OnInit {
       model.fecha = data.fecha;
       model.reacciones = (data.reacciones + 1);
       model.idUsuario = data.idUsuario;
+      model.image = data.image;
       lista = data.userReacciones;
 
 
