@@ -98,6 +98,10 @@ export class PerfilService {
     return this.http.get <UsuarioModel>(`${ServiceConfig.BASE_URL_USUARIO}/${recordIdUsuario}`);
   }
 
+  getUsuario2(recordIdUsuario:string):Observable<UsuarioModel>{
+    return this.http.get <UsuarioModel>(`${ServiceConfig.BASE_URL_USUARIO}/${recordIdUsuario}`);
+  }
+
   getUsuarioFiltro(recordIdUsuario:string){
     return this.http.get <UsuarioModel>(`${ServiceConfig.BASE_URL_USUARIO}?filter[where][idUsuario]=${recordIdUsuario}`);
   }

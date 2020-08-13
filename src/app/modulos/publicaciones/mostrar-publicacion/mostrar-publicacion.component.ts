@@ -63,10 +63,16 @@ export class MostrarPublicacionComponent implements OnInit {
     this.service.getAllRecords().subscribe(records => {
       this.recordList = records;
       let usuarios = []
+      console.log("list publis")
       console.log(this.recordList)
       for (let publi of this.recordList) {
+        console.log("public")
         console.log(publi)
-        this.serPerfil.getUsuario(publi.idUsuario).subscribe(records => {
+
+        this.serPerfil.getUsuario2(publi.idUsuario).subscribe(records => {
+          console.log("id´s")
+          console.log(records)
+
           this.perfiles1.push(records)
         })
       }

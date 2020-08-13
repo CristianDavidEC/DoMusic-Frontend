@@ -22,13 +22,15 @@ export class VistaPerfilComponent implements OnInit {
   subscription: Subscription;
   perfilUsuario: PerfilModel;
   publicacionesUsuario: PublicacionModel;
+  idMusicoProfesional: String ="";
 
   constructor(
     private service: SeguridadService,
     private publicacionService: PublicacionesService,
     private servicePefil: PerfilService,
     private spinner: NgxSpinnerService,
-  ) { }
+  ) {     this.idMusicoProfesional = (this.service.getUsuarioId()).toString();
+  }
 
   ngOnInit(): void {
     this.subscription = this.service.getUserData().subscribe(data => {
