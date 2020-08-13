@@ -93,44 +93,6 @@ export class MostrarPublicacionComponent implements OnInit {
       error => { ShowNotificationMessage("Hubo un problema con la comunicación en el Backend") })
   }
 
-
-  getRecordsList1() {
-    this.service.getAllRecords().subscribe(records => {
-      this.recordList = records;
-      let ids = []
-      //console.log(this.recordList)
-      for (let user of this.recordList) {
-        if (ids.indexOf(user.idUsuario) < 0) {
-          ids.push(user.idUsuario)
-          this.serPerfil.getUsuario(user.idUsuario).subscribe(records => {
-            this.serPerfil.getMusicoP(records.musicoProfesionalId).subscribe(records => {
-              this.perfiles1.push(records)
-            })
-          })
-        }
-        //console.log(this.perfiles1)
-      }
-
-
-      for (let publi of this.recordList) {
-        let lis = this.perfiles1
-        for (let perfil of lis) {
-          console.log("entro 2")
-          if (publi.idUsuario == perfil.idUsuario) {
-            console.log("entro")
-            this.perfiles2.push(perfil)
-          }
-        }
-      }
-      setTimeout(() => {
-        this.spinner.hide();
-      }, 1000)
-    },
-      error => { ShowNotificationMessage("Hubo un problema con la comunicación en el Backend") })
-
-  }
-
-
   ConfirmarEliminacion(idPublicacion) {
     console.log(this.service.getPubli(idPublicacion))
     this.eliminarPubliId = idPublicacion;
