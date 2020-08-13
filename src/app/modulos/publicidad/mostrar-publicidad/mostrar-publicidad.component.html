@@ -1,4 +1,4 @@
-<a class="btn btn-success" routerLink="/publicidades/crear-publicidades" role="button">Nueva Publicidad</a>
+<a class="btn btn-success" *ngIf="esAdmin" routerLink="/publicidades/crear-publicidades" role="button">Nueva Publicidad</a>
 <br />
 <br />
 <table class="table">
@@ -10,12 +10,7 @@
             <td>
                 Contenido
             </td>
-            <td>
-                Modificar
-            </td>
-            <td>
-                Eliminar
-            </td>
+            
         </tr>
     </thead>
     <tbody>
@@ -27,10 +22,10 @@
                 {{r.contenido}}
             </td>
             <td>
-                <a class="btn btn-warning" routerLink= "/parametros/modificar-publicidad/{{r.idPublicidad}}" role= "button">Modificar</a>
+                <a class="btn btn-warning" *ngIf="esAdmin" routerLink= "/parametros/modificar-publicidad/{{r.idPublicidad}}" role= "button">Modificar</a>
             </td>
             <td>
-                <button type="button" class = "btn btn-danger" (click) = "ConfirmarEliminacion(r.idPublicidad)">
+                <button type="button" *ngIf="esAdmin" class = "btn btn-danger" (click) = "ConfirmarEliminacion(r.idPublicidad)">
                     Eliminar
                 </button>
             </td>
