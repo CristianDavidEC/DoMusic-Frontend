@@ -15,7 +15,8 @@ export namespace ServiceConfig {
     export const BESE_URL_COMENTARIO = 'http://localhost:3000/comentarios'; 
     export const BASE_URL_NOTIFICACION = 'http://localhost:3000/notificacions';
     export const BASE_URL_CARGA_ARCHIVO = 'http://localhost:3000/archivoDenunciaUsuario';
-    export const BASE_URL_CARGA_ARCHIVO_PUBLICACION = 'http://localhost:3000/archivoPublicacion';  
+    export const BASE_URL_CARGA_ARCHIVO_PUBLICACION = 'http://localhost:3000/archivoPublicacion';
+    export const BASE_URL_CARGA_ARCHIVO_PUBLICIDAD = 'http://localhost:3000/publicidadImage';    
     export const BASE_URL_CARGA_ARCHIVO_BANDA = 'http://localhost:3000/archivoFotoBanda';
     export const BASE_URL_CARGA_ARCHIVO_MUSICO = 'http://localhost:3000/archivoFotoMusico';
     export const BASE_URL_CARGA_ARCHIVO_AFICIONADO = 'http://localhost:3000/fotoAficionado';  
