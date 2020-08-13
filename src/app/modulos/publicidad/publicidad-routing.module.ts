@@ -14,7 +14,7 @@ const routes: Routes = [
   component: CrearPublicidadComponent
 },
 {
-  path: 'modificar-publicidades',
+  path: 'modificar-publicidades/:idPublicidad',
   component: ModificarPublicidadComponent
 }
 
