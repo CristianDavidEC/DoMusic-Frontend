@@ -5,7 +5,7 @@ import { MostrarDenunciaComponent} from './mostrar-denuncia/mostrar-denuncia.com
 
 const routes: Routes = [
   {
-    path: 'denuncias',
+    path: 'denuncias/:idPublicacion',
     component: CrerDenunciaComponent
   },
   {

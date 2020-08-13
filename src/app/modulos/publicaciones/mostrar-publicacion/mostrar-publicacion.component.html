@@ -22,6 +22,9 @@
                 Eliminar
             </td>
             <td >
+                Denunciar
+            </td>
+            <td >
                 Reacciones
             </td>
             <td>
@@ -51,6 +54,9 @@
                 <button type="button" class = "btn btn-danger" (click) = "ConfirmarEliminacion(r.idPublicacion)">
                     Eliminar
                 </button>
+            </td>
+            <td>
+                <a class="btn btn-primary" routerLink= "/denuncias-p/denuncias/{{r.idPublicacion}}" role= "button">Denunciar</a>
             </td>
             <td>
                 <imput>
