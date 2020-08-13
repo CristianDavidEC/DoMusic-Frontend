@@ -7,7 +7,7 @@
 }
 
 .btn-primary{
-    margin-top: 2%;
+    
     background-color:  #32485a;
     border-color: #2A3A47;
     height: 3%;
@@ -28,3 +28,23 @@ img {
     border:1px solid #021a40;
     background-color:#ff0;
  }
+
+ .signup-form form {
+	color: #999;
+	border-radius: 3px;
+	background: #fff;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    margin: 2%;
+}
+
+.col-md-8{
+    margin-top: 5%;
+}
+
+.tamaño{
+    margin-top: 10%;
+    width: 95% !Important;
+    left: 80% !Important;
+    margin-bottom:5% ;
+  }
