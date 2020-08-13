@@ -65,18 +65,21 @@ export class MostrarPublicacionComponent implements OnInit {
       let usuarios = []
       console.log("list publis")
       console.log(this.recordList)
+
+
       for (let publi of this.recordList) {
-        console.log("public")
-        console.log(publi)
+        console.log(publi.idUsuario)
 
-        this.serPerfil.getUsuario2(publi.idUsuario).subscribe(records => {
+        this.serPerfil.getUsuario2(publi.idUsuario).subscribe(r => {
+          console.log("public")
+          console.log(publi.idUsuario)
+
           console.log("id´s")
-          console.log(records)
+          console.log(r)
 
-          this.perfiles1.push(records)
+          this.perfiles1.push(r)
         })
       }
-      console.log(this.perfiles1)
       //console.log(this.perfiles1)
       /* for (let p = 0; p < this.recordList.length; p++) {
        console.log(this.perfiles1)
@@ -91,6 +94,7 @@ export class MostrarPublicacionComponent implements OnInit {
       }, 1000)
     },
       error => { ShowNotificationMessage("Hubo un problema con la comunicación en el Backend") })
+      
   }
 
 
