@@ -1,7 +1,7 @@
 <br />
 <br />
 <table class="table">
-    <thead class="table-dark"> 
+    <thead class="table-dark">
         <tr>
             <td>
                 Nombre
@@ -19,14 +19,14 @@
                 Denunciar
             </td>
             <td>
-                
+
             </td>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let r of recordList">
             <td>
-                {{r.nombre}}    
+                {{r.nombre}}
             </td>
             <td>
                 {{r.tipo}}
@@ -38,12 +38,14 @@
                 {{r.correo}}
             </td>
             <td>
-                <button type="button" routerLink="/denuncias/denuncias/{{r.idMusicoProfesional}}" class = "btn btn-danger">
+                <button type="button" routerLink="/denuncias/denuncias/{{r.idMusicoProfesional}}"
+                    class="btn btn-danger">
                     Denunciar
                 </button>
             </td>
             <td>
-                <button type="button" routerLink="/mensajes/crear-mensajes/{{r.idMusicoProfesional}}" class = "btn btn-primary">
+                <button type="button" routerLink="/mensajes/crear-mensajes/{{r.idMusicoProfesional}}"
+                    class="btn btn-primary">
                     Enviar mensaje
                 </button>
             </td>
@@ -51,27 +53,41 @@
     </tbody>
 </table>
 
+<div class="container" >
+    <div *ngFor="let p of recordList" class="d-inline element">
+        <div class="align-middle">
+            <div class="card booking-card d-block mb-4">
+                <div class="view overlay">
+                    <img class="card-img-top" src="http://localhost:3000/files/1/{{p.idMusicoProfesional}}"
+                        alt="Card image cap">
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h4 class="card-title font-weight-bold text-center">{{p.nombre}} {{p.apellido}}</h4>
+                    </div>
+                    <h6 class="card-text color text-center">{{p.generoMusica}}</h6>
+                    <h6 class="card-text color text-center">{{p.ciudad}}</h6>
+                    <h6 class="card-text color text-center">{{p.celular}}</h6>
+                    <h6 class="card-text color text-center">{{p.correo}}</h6>
+                    <h6 class="card-text color text-center">{{p.fechaNacimiento}}</h6>
+                    <h6 class="card-text color text-center">{{p.genero}}</h6>
+                </div>
 
 
-<!-- <pagination-controls (pageChange)="pagina = $event" nextLabel="Siguiente" previousLabel="Anterior"></pagination-controls>
-<ngx-spinner></ngx-spinner> -->
-<!-- <div class="modal" id= "confirmarEliminacion" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Confirmacion de Eliminacion</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+                <div class="d-flex justify-content-between">
+                    <button type="button" (click)="reaccionar(p.idPublicacion)"
+                        class="btn btn-outline-primary mx-2 my-2"><i class="far fa-star"></i>
+                        Denunciar</button>
+                    <button type="button" routerLink="/comentarios/crear-comentarios/{{p.idPublicacion}}"
+                        class="btn btn-outline-primary mx-2 my-2"><i class="fas fa-comment-medical"></i>
+                        Enviar Mesaje</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          ¿Estás seguro de eliminar esta publicacion?
-        </div>
-        <div class="modal-footer">
-          <button (click)="EliminarPubli()" type="button" class="btn btn-success" >Confirmar</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-
-        </div>
-      </div>
     </div>
-  </div> -->
+</div>
+
+<!--  <pagination-controls (pageChange)="pagina = $event" nextLabel="Siguiente" previousLabel="Anterior" class="pagination">
+</pagination-controls>
+
+ <ngx-spinner></ngx-spinner> -->
