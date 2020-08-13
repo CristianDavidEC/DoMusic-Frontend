@@ -28,8 +28,12 @@ export class DenunciasPService {
     });
   }
 
-  getDenuncia(recordIdDenuncia:String):Observable<DenunciasPModel>{
-    return this.http.get <DenunciasPModel>(`${ServiceConfig.BASE_URL_DENUNCIAS_PUBLI}/${recordIdDenuncia}`);
+  getDenuncia(recordIdDenuncia:String){
+    return this.http.get <DenunciasPModel>(`${ServiceConfig.BASE_URL_DENUNCIAS_PUBLI}/${recordIdDenuncia}`,{
+      headers:new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    });
   }
   
 
@@ -58,7 +62,7 @@ export class DenunciasPService {
   }
 
   CargarArchivo(formData): Observable<CargarArchivosModel> {
-    return this.http.post<CargarArchivosModel>(`${ServiceConfig.BASE_URL_DENUNCIAS_PUBLI}`, formData, {
+    return this.http.post<CargarArchivosModel>(`${ServiceConfig.BASE_URL_CARGA_ARCHIVO}`, formData, {
       headers: new HttpHeaders({
       })
     });

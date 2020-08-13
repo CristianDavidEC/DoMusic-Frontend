@@ -47,6 +47,7 @@ export class MostrarDenunciaComponent implements OnInit {
   getRecordsList(){
     this.service.getAllRecords().subscribe(records => {
       this.recordListDenuncia = records;
+      // console.log(records.publicacionId)
       setTimeout(() => {
         this.spinner.hide();
       },1000)
@@ -55,14 +56,13 @@ export class MostrarDenunciaComponent implements OnInit {
   }
 
   ConfirmarEliminacion(idDenuncia){
-    console.log(this.service.getDenuncia(idDenuncia))
     this.eliminarDenId = idDenuncia;
-    this.verifPublicacion(this.eliminarDenId);
+    // this.verifPublicacion(this.eliminarDenId);
 
     ShowRemoveConfimationPublic();
   }
 
-  verifPublicacion(eliminarPubliId: String): Boolean{
+  /* verifPublicacion(eliminarPubliId: String): Boolean{
     this.service.getDenuncia(eliminarPubliId).subscribe(
       data =>{
         this.idUsuarioP = (data.usuarioId);
@@ -78,11 +78,21 @@ export class MostrarDenunciaComponent implements OnInit {
       this.ret = false;
     }
       return this.ret;
-  } 
+  }  */
 
 
   EliminarPubli(){
-    if(this.verifPublicacion(this.eliminarDenId)){
+    this.service.eliminarRegistro(this.eliminarDenId).subscribe(
+      data => {
+        CloseModal('confirmarEliminacion');
+        ShowNotificationMessage('Se ha eliminado exitosamente');
+        this.getRecordsList();
+      },
+      error => {
+        ShowNotificationMessage('Error!');
+      }
+    );
+    /* if(this.verifPublicacion(this.eliminarDenId)){
       this.service.eliminarRegistro(this.eliminarDenId).subscribe(
         data => {
           CloseModal('confirmarEliminacion');
@@ -96,6 +106,6 @@ export class MostrarDenunciaComponent implements OnInit {
     }else{
       CloseModal('confirmarEliminacion');
       ShowNotificationMessage('Error, esta publicacion no es tuya');
-    }
-  }
+    }*/
+  } 
 }

@@ -21,8 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SideMenuComponent,
     HeroComponent,
     FooterComponent,
-    CrearGrupoComponent,
-    
+    CrearGrupoComponent
   ],
   imports: [
     CommonModule,

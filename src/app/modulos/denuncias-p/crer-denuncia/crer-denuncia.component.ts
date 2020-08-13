@@ -79,6 +79,7 @@ export class CrerDenunciaComponent implements OnInit {
     model.fecha = (`Fecha:${day.getDate()}-${day.getMonth()+1}-${day.getFullYear()} Hora:${day.getHours()}:${day.getMinutes()}:${day.getSeconds()}`)
     model.usuarioId = (this.servicioSeguridad.getUsuarioId()).toString();
     model.publicacionId = this.publicacionId;
+    console.log("id" + this.publicacionId)
     
     return model;
   }

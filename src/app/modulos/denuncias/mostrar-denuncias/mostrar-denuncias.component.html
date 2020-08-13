@@ -29,7 +29,7 @@
                 {{r.fecha}}
             </td>
             <td>
-                <button type="button" class = "btn btn-danger" (click) = "ConfirmarEliminacion(r.idPublicacion)">
+                <button type="button" class = "btn btn-danger" (click) = "ConfirmarEliminacion(r.idDenunciaXusuario)">
                     Eliminar
                 </button>
             </td>
@@ -52,7 +52,7 @@
           ¿Estás seguro de eliminar esta publicacion?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" >Confirmar</button>
+          <button type="button" (click)="EliminarPubli()" class="btn btn-success" >Confirmar</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 
         </div>
