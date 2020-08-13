@@ -53,10 +53,10 @@
     </tbody>
 </table>
 
-<div class="container" >
-    <div *ngFor="let p of recordList" class="d-inline element">
-        <div class="align-middle">
-            <div class="card booking-card d-block mb-4">
+<div class="container">
+    <div *ngFor="let p of recordList">
+        <div class="card-columns">
+            <div class="card mb-4" style="width: 18rem;">
                 <div class="view overlay">
                     <img class="card-img-top" src="http://localhost:3000/files/1/{{p.idMusicoProfesional}}"
                         alt="Card image cap">
