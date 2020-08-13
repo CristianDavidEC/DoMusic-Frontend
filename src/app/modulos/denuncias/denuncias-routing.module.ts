@@ -22,7 +22,9 @@ const routes: Routes = [
   },
   {
     path: 'listar-denuncias',
-    component: MostrarDenunciasComponent
+    component: MostrarDenunciasComponent,
+    canActivate: [AutAdminGuard]
+
   
   },
 ];

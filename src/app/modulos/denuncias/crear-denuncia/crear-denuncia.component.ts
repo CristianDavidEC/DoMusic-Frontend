@@ -51,13 +51,11 @@ export class CrearDenunciaComponent implements OnInit {
 
   
   crearDenuncia(){
-    console.log(this.idUsuarioReportado)
     if(this.fgValidator.invalid){
       ShowNotificationMessage('Formulario inválido')
     }else{
         let model=this.getPerfilDatos();
         this.servicio.guardarNuevoRegistro(model).subscribe(data => {
-          console.log(data);
           if(data){
             ShowNotificationMessage('Tu denuncia ha sido reportada, pronto daremos respuesta.');
             this.router.navigate(['/perfiles/profesionales']);
@@ -103,7 +101,6 @@ export class CrearDenunciaComponent implements OnInit {
     formData.append('file', this.fgArchivo.file.value);
     this.servicio.CargarArchivo(formData).subscribe(
       data => {
-        console.log("Filename. " + data);
         this.fgv.archivoPrueba.setValue(data.filename);
         ShowNotificationMessage("El archivo cargó con éxito.");
       },

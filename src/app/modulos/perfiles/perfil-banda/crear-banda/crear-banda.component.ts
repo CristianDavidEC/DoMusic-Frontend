@@ -51,7 +51,6 @@ export class CrearBandaComponent implements OnInit {
     }else{
         let model=this.getPerfilDatos();
         this.servicio.CrearBanda(model).subscribe(data => {
-          console.log(data);
           if(data){
             ShowNotificationMessage('Registro exitoso, consulta tu contraseña en un mensaje de texto a tu celular');
             this.router.navigate(['/seguridad/login']);
@@ -97,7 +96,6 @@ export class CrearBandaComponent implements OnInit {
     formData.append('file', this.fgArchivo.file.value);
     this.servicio.CargaArchivoBanda(formData).subscribe(
       data => {
-        console.log("Filename. " + data.filename);
         this.fgv.image.setValue(data.filename);
         ShowNotificationMessage("El archivo cargó con éxito.");
       },

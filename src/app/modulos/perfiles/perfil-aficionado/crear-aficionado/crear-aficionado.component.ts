@@ -72,7 +72,6 @@ export class CrearAficionadoComponent implements OnInit {
     }else{
         let model=this.getPerfilDatos();
         this.servicio.CrearAficionado(model).subscribe(data => {
-          console.log(data);
           if(data){
             ShowNotificationMessage('Registro exitoso, consulta tu contraseña en un mensaje de texto a tu celular');
           }
@@ -120,7 +119,6 @@ export class CrearAficionadoComponent implements OnInit {
     formData.append('file', this.fgArchivo.file.value);
     this.servicio.CargarArchivoAficionado(formData).subscribe(
       data => {
-        console.log("Filename. " + data);
         this.fgv.image.setValue(data.filename);
         ShowNotificationMessage("El archivo cargó con éxito.");
       },

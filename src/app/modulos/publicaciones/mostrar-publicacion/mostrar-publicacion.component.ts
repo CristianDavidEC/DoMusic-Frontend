@@ -78,7 +78,6 @@ export class MostrarPublicacionComponent implements OnInit {
   }
 
   ConfirmarEliminacion(idPublicacion) {
-    console.log(this.service.getPubli(idPublicacion))
     this.eliminarPubliId = idPublicacion;
     this.verifPublicacion(this.eliminarPubliId);
 
@@ -136,9 +135,17 @@ export class MostrarPublicacionComponent implements OnInit {
         this.router.navigate(["/parametros/publicaciones"])
       }
     )
+
+    let c;
+    this.SeguridadService.getUserData().subscribe(data=>{
+      c = data.rol;
+    })
+
     if (this.idUsuarioP == this.SeguridadService.getUsuarioId()) {
       this.ret = true;
-    } else {
+    } if(c == "Administrador"){
+      this.ret = true;
+    }else {
       this.ret = false;
     }
     return this.ret;

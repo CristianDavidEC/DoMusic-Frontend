@@ -47,7 +47,6 @@ export class CrearComentariosComponent implements OnInit {
   }
 
   crearComentario(){
-    console.log(this.idPublicacion)
     if(this.fgValidator.invalid){
       ShowNotificationMessage('Formulario inválido')
     }else{

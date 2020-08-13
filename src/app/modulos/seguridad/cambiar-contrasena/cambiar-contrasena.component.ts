@@ -65,7 +65,6 @@ export class CambiarContrasenaComponent implements OnInit {
   getCambiarContrasenaData(): CambiarContrasenaModel {
     let model = new CambiarContrasenaModel();
     model.id = this.servicio.getUsuarioId();
-    console.log(model.id)
     model.contrasenaActual = MD5(this.fgv.contrasenaActual.value).toString();
     model.contrasenaNueva =MD5(this.fgv.contrasenaNueva.value).toString();
 

@@ -55,10 +55,9 @@ export class CrerDenunciaComponent implements OnInit {
     }else{
         let model=this.getPerfilDatos();
         this.servicio.guardarNuevoRegistro(model).subscribe(data => {
-          console.log(data);
           if(data){
             ShowNotificationMessage('Tu denuncia ha sido reportada, pronto daremos respuesta.');
-            this.router.navigate(['/perfiles/profesionales']);
+            this.router.navigate(['/publicaciones/listar-publicaciones']);
           }
           else{
             ShowNotificationMessage('Error!');
@@ -79,7 +78,6 @@ export class CrerDenunciaComponent implements OnInit {
     model.fecha = (`Fecha:${day.getDate()}-${day.getMonth()+1}-${day.getFullYear()} Hora:${day.getHours()}:${day.getMinutes()}:${day.getSeconds()}`)
     model.usuarioId = (this.servicioSeguridad.getUsuarioId()).toString();
     model.publicacionId = this.publicacionId;
-    console.log("id" + this.publicacionId)
     
     return model;
   }
@@ -99,7 +97,6 @@ export class CrerDenunciaComponent implements OnInit {
     formData.append('file', this.fgArchivo.file.value);
     this.servicio.CargarArchivo(formData).subscribe(
       data => {
-        console.log("Filename. " + data);
         this.fgv.archivoPrueba.setValue(data.filename);
         ShowNotificationMessage("El archivo cargó con éxito.");
       },

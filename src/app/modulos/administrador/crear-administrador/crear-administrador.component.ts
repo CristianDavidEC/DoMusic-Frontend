@@ -44,7 +44,6 @@ export class CrearAdministradorComponent implements OnInit {
     }else{
         let model= this.getPerfilDatos();
         this.servicio.CrearAdministrador(model).subscribe(data => {
-          console.log(data);
           if(data){
             ShowNotificationMessage('Registro exitoso, consulta tu contraseña en un mensaje de texto a tu celular');
             this.router.navigate(['/seguridad/login']);

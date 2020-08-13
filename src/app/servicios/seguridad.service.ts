@@ -67,7 +67,6 @@ export class SeguridadService {
   saveSession(sessionData: any): Boolean{
     let currentSession = localStorage.getItem('session');
     if(currentSession){
-      console.log("Ya existe")
       return false
     }else{
       sessionData.estaLogueado=true;
