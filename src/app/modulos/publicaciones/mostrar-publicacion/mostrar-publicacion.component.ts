@@ -63,29 +63,13 @@ export class MostrarPublicacionComponent implements OnInit {
     this.service.getAllRecords().subscribe(records => {
       this.recordList = records;
       let usuarios = []
-      console.log("list publis")
-      console.log(this.recordList)
       for (let publi of this.recordList) {
-        console.log("public")
-        console.log(publi)
-
         this.serPerfil.getUsuario2(publi.idUsuario).subscribe(records => {
-          console.log("id´s")
           console.log(records)
-
           this.perfiles1.push(records)
         })
       }
       console.log(this.perfiles1)
-      //console.log(this.perfiles1)
-      /* for (let p = 0; p < this.recordList.length; p++) {
-       console.log(this.perfiles1)
-       for(let user of this.perfiles1){
-        console.log(user)
-       }
-      
-      } */
-
       setTimeout(() => {
         this.spinner.hide();
       }, 1000)
