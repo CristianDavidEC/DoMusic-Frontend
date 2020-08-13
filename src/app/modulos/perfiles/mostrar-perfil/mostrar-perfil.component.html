@@ -55,10 +55,10 @@
 
 <div class="container">
 
-    <div class="card-columns d-inline" *ngFor="let p of recordList">
+    <div class="card-columns d-inline elements mx-3" *ngFor="let p of recordList">
         <div class="card mb-4" style="width: 18rem;">
-            <div class="view overlay">
-                <img class="card-img-top" src="http://localhost:3000/files/1/{{p.idMusicoProfesional}}"
+            <div class="view overlay d-flex justify-content-center">
+                <img class="card-img-top img img-fluid rounded mt-4" src="http://localhost:3000/files/1/{{p.idMusicoProfesional}}"
                     alt="Card image cap">
             </div>
             <div class="card-body">

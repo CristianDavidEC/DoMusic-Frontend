@@ -63,6 +63,9 @@ input{
     max-width: 80%;
 }
 
-.element{
-    max-width: 40%;
+.img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
 }
+
