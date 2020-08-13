@@ -6,6 +6,7 @@ import { ServiceConfig} from '../config/service.config'
 import { PerfilModel } from '../modelos/perfil.model';
 import { restaurarContrasenaModel } from '../modelos/seguridad/restaura-contrana.model';
 import { CambiarContrasenaModel } from '../modelos/seguridad/cambiar.contrasena.model';
+import { PerfilesModule } from '../modulos/perfiles/perfiles.module';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,10 @@ export class SeguridadService {
 
   getUserData(){
     return this.userData.asObservable();
+  }
+
+  get(id:String){
+    return this.http.get<PerfilesModule>(`${ServiceConfig.BASE_URL_MUSICO}/id`)
   }
 
   LoginUsuario(model: UsuarioModel):Observable<PerfilModel>{
@@ -116,6 +121,11 @@ export class SeguridadService {
   getIdPerfil():String{
     let session = this.getSession();
     return JSON.parse(session).musicoProfesionalId;
+  }
+
+  getIdPerfilAdmin():String{
+    let session = this.getSession();
+    return JSON.parse(session).administradorId;
   }
 
   Logout(){

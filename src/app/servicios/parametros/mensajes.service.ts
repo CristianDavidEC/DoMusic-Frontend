@@ -22,7 +22,26 @@ export class MensajesService {
   }
   
   getAllRecords():Observable<MensajeModel[]>{
-    return this.http.get <MensajeModel[]>(`${ServiceConfig.BESE_URL_MENSAJE}`);
+    return this.http.get <MensajeModel[]>(`${ServiceConfig.BESE_URL_MENSAJE}`, {
+      headers:new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    });
+  }
+
+  getMsg(idUsuario:String):Observable<MensajeModel[]>{
+    return this.http.get <MensajeModel[]>(`${ServiceConfig.BESE_URL_MENSAJE}?filter[where][idReceptor]=${idUsuario}`, {
+      headers:new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    });
+  }
+  getMsgEnv(idUsuario:String):Observable<MensajeModel[]>{
+    return this.http.get <MensajeModel[]>(`${ServiceConfig.BESE_URL_MENSAJE}?filter[where][idRemitente]=${idUsuario}`, {
+      headers:new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    });
   }
 
   getPublicacion2(recordIdMensaje:String):Observable<MensajeModel>{

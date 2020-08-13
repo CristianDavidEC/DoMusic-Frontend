@@ -1,7 +1,6 @@
-<br />
 <!-- <a class="btn btn-success" routerLink="/publicaciones/crear-publicaciones" role="button">Nueva Publicacion</a> -->
 <br />
-<br />
+<h3>Recibidos</h3>
 <table class="table">
     <thead class="table-dark"> 
         <tr>
@@ -20,7 +19,48 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let r of recordList | paginate: { itemsPerPage: publiPorPagina, currentPage: pagina}">
+        <tr *ngFor="let r of recibidos | paginate: { itemsPerPage: publiPorPagina, currentPage: pagina}">
+            <td>
+                {{r.contenido}}
+            </td>
+            <td>
+                {{r.fecha}}
+            </td>
+            <td>
+                {{r.idRemitente}}
+            </td>
+            <td>
+                <button type="button" class = "btn btn-danger" (click) = "ConfirmarEliminacion(r.idMensaje)">
+                    Eliminar
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- <pagination-controls (pageChange)="pagina = $event" nextLabel="Siguiente" previousLabel="Anterior"></pagination-controls>
+<ngx-spinner></ngx-spinner>
+ -->
+<br />
+<h3>Enviados</h3>
+<table class="table">
+    <thead class="table-dark"> 
+        <tr>
+            <td>
+                Contenido
+            </td>
+            <td>
+                Fecha
+            </td>
+            <td>
+                Receptor
+            </td>
+            <td >
+                Eliminar
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let r of enviados | paginate: { itemsPerPage: publiPorPagina, currentPage: pagina}">
             <td>
                 {{r.contenido}}
             </td>
