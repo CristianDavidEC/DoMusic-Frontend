@@ -62,7 +62,7 @@ export class CrearEncuestaComponent implements OnInit {
   getPubliDatos(): EncuestaModel{
     let model = new EncuestaModel();
     model.pregunta = this.fgv.pregunta.value;
-    model.respuestas = [this.fgv.respuestas.value];
+    model.respuestas = [this.fgv.respuestas.value,];
 
     
     return model;

@@ -11,7 +11,6 @@ import { FooterComponent } from './public/master-page/footer/footer.component';
 import { CrearGrupoComponent } from './modulos/grupos/crear-grupo/crear-grupo.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { CrerDenunciaComponent } from './modulos/denunciasP/crer-denuncia/crer-denuncia.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,7 @@ import { CrerDenunciaComponent } from './modulos/denunciasP/crer-denuncia/crer-d
     SideMenuComponent,
     HeroComponent,
     FooterComponent,
-    CrearGrupoComponent,
-    CrerDenunciaComponent,
+    CrearGrupoComponent
     
   ],
   imports: [

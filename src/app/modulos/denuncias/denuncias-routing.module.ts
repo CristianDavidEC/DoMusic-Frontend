@@ -11,7 +11,7 @@ import { AutAdminGuard} from '../../guardianes/aut-admin.guard'
 
 const routes: Routes = [
   {
-    path: 'denuncias',
+    path: 'denuncias/:idMusicoProfesional',
     component: CrearDenunciaComponent
   },
   {
