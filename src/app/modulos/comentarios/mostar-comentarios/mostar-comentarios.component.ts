@@ -56,10 +56,7 @@ export class MostarComentariosComponent implements OnInit {
 
   getRecordsList(){
     this.service.getComentarioOb(this.idPublicacion).subscribe(records => {
-      console.log("id       "+this.idPublicacion)
-      console.log(records)
       this.recordList = records;
-      console.log(this.recordList)
 
       setTimeout(() => {
         this.spinner.hide();

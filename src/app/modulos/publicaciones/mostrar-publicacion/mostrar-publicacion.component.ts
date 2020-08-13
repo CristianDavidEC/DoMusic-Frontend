@@ -78,7 +78,6 @@ export class MostrarPublicacionComponent implements OnInit {
   }
 
   ConfirmarEliminacion(idPublicacion) {
-    console.log(this.service.getPubli(idPublicacion))
     this.eliminarPubliId = idPublicacion;
     this.verifPublicacion(this.eliminarPubliId);
 

@@ -47,7 +47,6 @@ export class MostrarDenunciaComponent implements OnInit {
   getRecordsList(){
     this.service.getAllRecords().subscribe(records => {
       this.recordListDenuncia = records;
-      // console.log(records.publicacionId)
       setTimeout(() => {
         this.spinner.hide();
       },1000)
@@ -57,7 +56,6 @@ export class MostrarDenunciaComponent implements OnInit {
 
   ConfirmarEliminacion(idDenuncia){
     this.eliminarDenId = idDenuncia;
-    // this.verifPublicacion(this.eliminarDenId);
 
     ShowRemoveConfimationPublic();
   }

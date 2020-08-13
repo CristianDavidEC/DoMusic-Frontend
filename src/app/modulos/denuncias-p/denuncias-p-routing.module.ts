@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CrerDenunciaComponent} from './crer-denuncia/crer-denuncia.component'
 import { MostrarDenunciaComponent} from './mostrar-denuncia/mostrar-denuncia.component'
+import { AutAdminGuard } from 'src/app/guardianes/aut-admin.guard';
 
 const routes: Routes = [
   {
@@ -10,8 +11,8 @@ const routes: Routes = [
   },
   {
     path: 'listar-denuncias',
-    component: MostrarDenunciaComponent
-  
+    component: MostrarDenunciaComponent,
+    canActivate: [AutAdminGuard]
   },
 ];
 

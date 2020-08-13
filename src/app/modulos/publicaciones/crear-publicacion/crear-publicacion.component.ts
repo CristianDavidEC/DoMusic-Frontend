@@ -94,7 +94,6 @@ export class CrearPublicacionComponent implements OnInit {
     formData.append('file', this.fgArchivo.file.value);
     this.servicioPublicacion.CargaArchivo(formData).subscribe(
       data => {
-        console.log("Filename. " + data);
         this.fgv.image.setValue(data.filename);
         ShowNotificationMessage("El archivo cargó con éxito.");
       },
