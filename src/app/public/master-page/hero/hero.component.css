@@ -1,0 +1,23 @@
+.btn-primary{
+
+    background: #2d4d69!important;
+	border-color: #034d8d;
+}
+
+.btn-primary:hover{
+
+    background-color: #255885 !important;
+    border-color: #4901a7
+}
+
+.btn-secondary{
+
+    background: #881906!important;
+	border-color: #000000;
+}
+
+.btn-secondary:hover{
+
+    background: #be0c0cb7!important;
+	border-color: #000000;
+}

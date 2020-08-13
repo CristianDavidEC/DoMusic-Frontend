@@ -95,3 +95,11 @@
   .color-txt:hover{
     color: #1B252E !important;
   }
+  
+  .bg-primary{
+	background-color: #d6e0e9 !important;
+	height: 7%;
+	color:#1B252E;
+	border-color: #1B252E;
+}
+
