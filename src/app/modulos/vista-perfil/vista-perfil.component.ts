@@ -6,8 +6,13 @@ import { PerfilService } from 'src/app/servicios/perfil.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { PublicacionModel } from 'src/app/modelos/parametros/publicacion.model';
 import { PublicacionesService } from 'src/app/servicios/parametros/publicaciones.service';
+import { Router } from '@angular/router';
 
 declare const ShowNotificationMessage: any;
+declare const CloseModal: any;
+declare const ShowRemoveConfimationPublic: any;
+
+
 
 @Component({
   selector: 'app-vista-perfil',
@@ -23,12 +28,21 @@ export class VistaPerfilComponent implements OnInit {
   perfilUsuario: PerfilModel;
   publicacionesUsuario: PublicacionModel;
   idMusicoProfesional: String ="";
+  eliminarPubliId: String = '';
+
+
+  private idUsuarioP: any;
+  private ret: any;
+
 
   constructor(
     private service: SeguridadService,
     private publicacionService: PublicacionesService,
     private servicePefil: PerfilService,
     private spinner: NgxSpinnerService,
+    private router: Router,
+
+
   ) {     this.idMusicoProfesional = (this.service.getUsuarioId()).toString();
   }
 
@@ -64,6 +78,62 @@ export class VistaPerfilComponent implements OnInit {
       },1000)
     },
     error => {ShowNotificationMessage ("Hubo un problema con la comunicación en el Backend")})
+  }
+
+  ConfirmarEliminacion(idPublicacion) {
+    this.eliminarPubliId = idPublicacion;
+    this.verifPublicacion(this.eliminarPubliId);
+
+    ShowRemoveConfimationPublic();
+  }
+
+  verifPublicacion(eliminarPubliId: String): Boolean {
+    this.publicacionService.getPublicacion2(eliminarPubliId).subscribe(
+      data => {
+        this.idUsuarioP = (data.idUsuario);
+      },
+      error => {
+        ShowNotificationMessage('Hubo un error');
+        this.router.navigate(["/parametros/publicaciones"])
+      }
+    )
+
+    let c;
+    this.service.getUserData().subscribe(data=>{
+      c = data.rol;
+    })
+
+    console.log(this.idUsuarioP)
+    console.log(this.service.getUsuarioId())
+
+    if (this.idUsuarioP == this.service.getUsuarioId()) {
+      this.ret = true;
+    }else if(c == "Administrador"){
+      this.ret = true;
+    }else {
+      this.ret = false;
+    }
+    return this.ret;
+
+    console.log(this.ret)
+  }
+
+
+  EliminarPubli() {
+    if (this.verifPublicacion(this.eliminarPubliId)) {
+      this.publicacionService.eliminarRegistro(this.eliminarPubliId).subscribe(
+        data => {
+          CloseModal('confirmarEliminacion');
+          ShowNotificationMessage('Se ha eliminado exitosamente');
+        },
+        error => {
+          ShowNotificationMessage('Error!');
+        }
+      );
+    } else {
+      CloseModal('confirmarEliminacion');
+      ShowNotificationMessage('Error, esta publicacion no es tuya');
+    }
   }
 
 }
