@@ -8,12 +8,8 @@ import { ServiceConfig } from '../config/service.config'
 import { CargarArchivosModel } from '../modelos/cargarArchivos/cargaArchivos.model'
 import { SeguridadService } from '../servicios/seguridad.service';
 import { PerfilesModule } from '../modulos/perfiles/perfiles.module';
-<<<<<<< HEAD
 import { UsuarioModel } from '../modelos/usuario.model';
-=======
 import { AdministradorModel } from '../modelos/administrador.model';
->>>>>>> 6a0fec722f65fd83b0db53d02ce70fea38144268
-
 
 @Injectable({
   providedIn: 'root'
