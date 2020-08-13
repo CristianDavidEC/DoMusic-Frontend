@@ -8,7 +8,7 @@ import { MostrarMensajeComponent} from './mostrar-mensaje/mostrar-mensaje.compon
 
 const routes: Routes = [
   {
-    path: 'crear-mensajes/:idReceptor',
+    path: 'crear-mensajes/:idMusicoProfesional',
     component: CrearMensajeComponent
   },
   {

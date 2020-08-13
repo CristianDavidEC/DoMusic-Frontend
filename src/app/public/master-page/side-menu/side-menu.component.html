@@ -4,7 +4,7 @@
       <a class="side-link h5 font-weight-light" routerLink="/notificaciones/listar-notificaciones"><i class="fas fa-bell icon"></i>Notificaciones</a>
     </li>
     <li class="side-item" *ngIf="estaLogueado">
-      <a class="side-link h5  font-weight-light" routerLink="#"><i class="fas fa-comment-dots icon"></i>Mensajes</a>
+      <a class="side-link h5  font-weight-light" routerLink="/mensajes/mostrar-mensajes"><i class="fas fa-comment-dots icon"></i>Mensajes</a>
     </li>
     <li class="side-item" *ngIf="estaLogueado">
       <a class="side-link h5  font-weight-light" routerLink="/publicaciones/listar-publicaciones"><i
@@ -17,8 +17,11 @@
     </li>
     <li class="side-item" *ngIf="esAdmin">
       <a class="side-link h5  font-weight-light" routerLink="/denuncias/listar-denuncias"><i
-          class="fas fa-archive icon"></i>Denuncias</a>
-    
+          class="fas fa-archive icon"></i>Denuncias a perfiles</a>
+    </li>
+    <li class="side-item" *ngIf="esAdmin">
+      <a class="side-link h5  font-weight-light" routerLink="/denuncias-p/listar-denuncias"><i
+          class="fas fa-archive icon"></i>Denuncias a publicaciones </a>  
     </li>
     <!-- <li class="side-item" *ngIf="estaLogueado">
       <a class="side-link h5  font-weight-light" routerLink="/parametros/comentarios"><i

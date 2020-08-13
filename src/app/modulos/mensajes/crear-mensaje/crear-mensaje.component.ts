@@ -31,7 +31,7 @@ export class CrearMensajeComponent implements OnInit {
   ngOnInit(): void {
     this.FormBuilding();
     this.sub = this.route.params.subscribe(params => {
-      this.idReceptor = params['idReceptor'];
+      this.idReceptor = params['idMusicoProfesional'];
    });
   }
 

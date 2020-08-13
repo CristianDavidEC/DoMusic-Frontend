@@ -8,7 +8,6 @@ import { NavbarComponent } from './public/master-page/navbar/navbar.component';
 import { SideMenuComponent } from './public/master-page/side-menu/side-menu.component';
 import { HeroComponent } from './public/master-page/hero/hero.component';
 import { FooterComponent } from './public/master-page/footer/footer.component';
-//import { CrearComentariosComponent } from './modulos/parametros/comentarios/crear-comentarios/crear-comentarios.component';
 import { CrearGrupoComponent } from './modulos/grupos/crear-grupo/crear-grupo.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,7 +21,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SideMenuComponent,
     HeroComponent,
     FooterComponent,
-    //CrearComentariosComponent,
     CrearGrupoComponent,
     
   ],

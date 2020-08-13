@@ -70,12 +70,12 @@ export class MostrarPublicacionComponent implements OnInit {
         }) 
       )
       console.log()
-      this.serPerfil.getMusicoP(usaurios.musicoProfesionalId).subscribe( records=>{
+      /* this.serPerfil.getMusicoP(usaurios.musicoProfesionalId).subscribe( records=>{
         console.log(records)
         //let id = records.usuario.idUsuario
         //this.perfiles.push(records)
         //console.log("id Usuario Usuario:"+id)
-      })
+      }) */
       //console.log(this.perfiles)
       setTimeout(() => {
         this.spinner.hide();

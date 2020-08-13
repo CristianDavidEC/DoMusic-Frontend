@@ -1,0 +1,103 @@
+<div class="container signup-form">
+    <div class="row">
+        <div class="col-md-4 ">
+            <img src="https://image.freepik.com/vector-gratis/vector-clave-sol_23-2147492522.jpg"
+                class="img-fluid rounded tamaño" alt="Eniun">
+        </div>
+
+        <div class="col-md-8">
+            <form [formGroup]="fgValidator" action="/examples/actions/confirmation.php" method="post">
+                <h2 class="text-center">Regístrate como administrador en <i class="fas fa-compact-disc"></i> <strong>DoMusic</strong> </h2>
+                <p class="text-center">Por favor llena el formulario para crear tu perfil de administración</p>
+                <hr>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <span class="fa fa-user"></span>
+                            </span>
+                        </div>
+                        <input formControlName="nombre" type="text" class="form-control" name="nombre"
+                            placeholder="Nombre" required="required">
+                        <div class="warning-validator container" *ngIf="fgv.nombre.errors && (fgv.nombre.dirty || fgv.nombre.touched)">
+                            <strong *ngIf= "fgv.nombre.errors.required">
+                                Este campo es requerido! 
+                            </strong>
+                            <strong *ngIf= "fgv.nombre.errors.minlength">
+                                Este campo debe tener al menos 2 caracteres.
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+                <label>Número de Celular:</label>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                    </div>
+                    <select formControlName="codigoPais" class="custom-select" style="max-width: 120px;">
+                        <option value="+57">+57</option>
+                        <option value="+34">+34</option>
+                        <option value="+54">+54</option>
+                        <option value="+41">+41</option>
+                    </select>
+                    <div class="warning-validator container" *ngIf="fgv.codigoPais.errors && (fgv.codigoPais.dirty || fgv.codigoPais.touched)">
+                        <strong *ngIf= "fgv.codigoPais.errors.required">
+                            Este campo es requerido! 
+                        </strong>
+                    </div>
+                    <input formControlName="celular" name="" class="form-control" placeholder="Número de Teléfono"
+                        type="text">
+                    <div class="warning-validator container" *ngIf="fgv.celular.errors && (fgv.celular.dirty || fgv.celular.touched)">
+                        <strong *ngIf= "fgv.celular.errors.required">
+                            Este campo es requerido! 
+                        </strong>
+                        <strong *ngIf= "fgv.celular.errors.minlength">
+                            Este campo debe tener al menos 8 caracteres. 
+                        </strong>
+                    </div>
+                </div> 
+                <label>Tipo de administrador: </label>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                    </div>
+                    <select formControlName="tipo" class="custom-select" style="max-width: 120px;">
+                        <option value="+57">1</option>
+                        <option value="+34">2</option>
+                        <option value="+54">3</option>
+                    </select>
+                    <div class="warning-validator container" *ngIf="fgv.tipo.errors && (fgv.tipo.dirty || fgv.tipo.touched)">
+                        <strong *ngIf= "fgv.tipo.errors.required">
+                            Este campo es requerido! 
+                        </strong>
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </div>
+                        <input formControlName="correo" type="email" class="form-control" name="email"
+                            placeholder="Correo Electrónico" required="required">
+                        <div class="warning-validator container" *ngIf="fgv.correo.errors && (fgv.correo.dirty || fgv.correo.touched)">
+                            <strong *ngIf= "fgv.correo.errors.required">
+                                Este campo es requerido! 
+                            </strong>
+                            <strong *ngIf= "fgv.correo.errors.email">
+                                Correo inválido. 
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="button" (click)="crearPerfil()" class="btn btn-primary btn-lg align-middle"><i class="far fa-plus-square"></i> Registrarte</button>
+                </div>
+            </form> 
+            <div class="text-center">¿Ya tienes una cuenta?<a routerLink="/seguridad/login"
+                class="text-primary color-txt">Ingresa aquí</a>
+            </div>
+        </div>
+    </div>
+</div>

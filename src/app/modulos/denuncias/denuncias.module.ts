@@ -8,12 +8,11 @@ import { MostrarDenunciasComponent } from './mostrar-denuncias/mostrar-denuncias
 import { FormsModule, ReactiveFormsModule} from '@angular/forms'
 import {NgxSpinnerModule } from 'ngx-spinner';
 import { NgxPaginationModule} from 'ngx-pagination';
-import { ListarDenunciasComponent } from './listar-denuncias/listar-denuncias.component';
 
 
 
 @NgModule({
-  declarations: [EliminarDenunciaComponent, CrearDenunciaComponent, MostrarDenunciasComponent, ListarDenunciasComponent],
+  declarations: [EliminarDenunciaComponent, CrearDenunciaComponent, MostrarDenunciasComponent],
   imports: [
     CommonModule,
     DenunciasRoutingModule,
