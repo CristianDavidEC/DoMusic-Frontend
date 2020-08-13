@@ -15,3 +15,15 @@
     background-color:#1B252E;
 }
 
+.bg-primary{
+	background-color: #d6e0e9 !important;
+	height: 7%;
+	color:#1B252E;
+	border-color: #1B252E;
+}
+
+img {
+    padding:1px;
+    border:1px solid #021a40;
+    background-color:#ff0;
+ }
