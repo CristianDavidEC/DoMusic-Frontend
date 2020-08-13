@@ -7,15 +7,18 @@
 
         <div class="col-md-8">
             <form [formGroup]="fgValidator" action="/examples/actions/confirmation.php" method="post">
-                <h2 class="text-center">Crear publicidad en <i class="fas fa-compact-disc"></i> <strong>DoMusic</strong> </h2>
+                <input type="hidden" formControlName="image">
+                <h2 class="text-center">Crear publicidad en <i class="fas fa-compact-disc"></i> <strong>DoMusic</strong>
+                </h2>
                 <hr>
                 <div class="form-group">
                     <div class="input-group">
                         <input formControlName="titulo" type="text" class="form-control" name="titulo"
                             placeholder="Título" required="required">
-                        <div class="warning-validator container" *ngIf="fgv.titulo.errors && (fgv.titulo.dirty || fgv.titulo.touched)">
-                            <strong *ngIf= "fgv.titulo.errors.required">
-                                Este campo es requerido! 
+                        <div class="warning-validator container"
+                            *ngIf="fgv.titulo.errors && (fgv.titulo.dirty || fgv.titulo.touched)">
+                            <strong *ngIf="fgv.titulo.errors.required">
+                                Este campo es requerido!
                             </strong>
                         </div>
                     </div>
@@ -24,22 +27,35 @@
                     <div class="input-group">
                         <input formControlName="contenido" type="text" class="form-control" name="contenido"
                             placeholder="Contenido" required="required">
-                        <div class="warning-validator container" *ngIf="fgv.contenido.errors && (fgv.contenido.dirty || fgv.contenido.touched)">
-                            <strong *ngIf= "fgv.contenido.errors.required">
-                                Este campo es requerido! 
+                        <div class="warning-validator container"
+                            *ngIf="fgv.contenido.errors && (fgv.contenido.dirty || fgv.contenido.touched)">
+                            <strong *ngIf="fgv.contenido.errors.required">
+                                Este campo es requerido!
                             </strong>
                         </div>
                     </div>
                 </div>
+
+                <form [formGroup]="cargarArchivoForm" >
+                    <div class="container form-group input-group">
+                        <input formControlName="file" (change)="onFileSelect($event)" name="image" class="form-control-file bg-primary"
+                        type="file">
+                        <button type="button"  class="btn btn-primary"  value="Cargar" (click)="cargarArchivo()">
+                            <i class="fas fa-angle-double-up "></i> Subir</button>
+                    </div>
+                </form>
+
                 <div class="form-group">
-                    <button type="button" (click)="crearPublicidad()" class="btn btn-primary justify-content-end btn-lg d-inline">Publicar</button>
-                
-                    <a type="button" class="btn btn-danger justify-content-end btn-lg d-inline" routerLink="/parametros/publicidad">Cancelar</a>
+                    <button type="button" (click)="crearPublicidad()"
+                        class="btn btn-primary justify-content-end btn-lg d-inline">Publicar</button>
+
+                    <a type="button" class="btn btn-danger justify-content-end btn-lg d-inline"
+                        routerLink="/parametros/publicidad">Cancelar</a>
                 </div>
                 <!-- ------------------------------------------------------------------------------------------------------------ -->
 
             </form>
-            
+
         </div>
 
     </div>

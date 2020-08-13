@@ -50,7 +50,7 @@ export class CrearPublicacionComponent implements OnInit {
         this.servicioPublicacion.guardarNuevoRegistro(model).subscribe(data => {
           if(data){
             ShowNotificationMessage('Registro exitoso');
-            this.router.navigate(['/parametros/publicaciones']);
+            this.router.navigate(['/publicidades/listar-publicidades']);
           }
           else{
             ShowNotificationMessage('Error!');

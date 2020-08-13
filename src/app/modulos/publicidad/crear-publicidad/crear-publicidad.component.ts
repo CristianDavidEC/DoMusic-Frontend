@@ -16,6 +16,7 @@ declare const ShowNotificationMessage: any;
 export class CrearPublicidadComponent implements OnInit {
 
   fgValidator: FormGroup;
+  cargarArchivoForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -27,12 +28,14 @@ export class CrearPublicidadComponent implements OnInit {
 
   ngOnInit(): void {
     this.FormBuilding();
+    this.formCargaArchivo();
   }
 
   FormBuilding(){ 
     this.fgValidator = this.fb.group({
       titulo: ['', [Validators.required, Validators.minLength(2)]],
       contenido: ['', [Validators.required, Validators.minLength(2)]],
+      image:['',[Validators.required]],
     });
   }
 
@@ -62,9 +65,41 @@ export class CrearPublicidadComponent implements OnInit {
     let model = new PublicidadModel();
     model.titulo = this.fgv.titulo.value;
     model.contenido = this.fgv.contenido.value;
+    model.image = this.fgv.image.value;
     
     return model;
   }
 
+  formCargaArchivo(){
+    this.cargarArchivoForm = this.fb.group({  
+      file: ['', [Validators.required]],
+    })
+  }
+
+  get fgArchivo(){
+    return this.cargarArchivoForm.controls;
+  }
+
+  cargarArchivo(){
+    const formData = new FormData();
+    formData.append('file', this.fgArchivo.file.value);
+    this.servicio.cargaArchivo(formData).subscribe(
+      data => {
+        console.log("Filename. " + data);
+        this.fgv.image.setValue(data.filename);
+        ShowNotificationMessage("El archivo cargó con éxito.");
+      },
+      err => {
+        ShowNotificationMessage("Error al cargar el archivo.");
+      }
+    );
+  }
+
+  onFileSelect(event) { 
+    if (event.target.files.length > 0) {
+      const f = event.target.files[0];
+      this.fgArchivo.file.setValue(f);
+    }
+  }
 
 }
