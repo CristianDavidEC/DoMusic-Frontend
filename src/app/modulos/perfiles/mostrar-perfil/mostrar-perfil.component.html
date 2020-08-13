@@ -1,6 +1,6 @@
 <br />
 <br />
-<table class="table">
+<!-- <table class="table">
     <thead class="table-dark">
         <tr>
             <td>
@@ -51,12 +51,12 @@
             </td>
         </tr>
     </tbody>
-</table>
+</table> -->
 
 <div class="container">
 
     <div class="card-columns d-inline" *ngFor="let p of recordList">
-        <div class="card mb-4" style="width: 18rem;">
+        <div class="card mb-4 marginld" style="width: 18rem;">
             <div class="view overlay">
                 <img class="card-img-top" src="http://localhost:3000/files/1/{{p.idMusicoProfesional}}"
                     alt="Card image cap">
@@ -75,10 +75,10 @@
 
 
             <div class="d-flex justify-content-between">
-                <button type="button" (click)="reaccionar(p.idPublicacion)" class="btn btn-outline-primary mx-2 my-2"><i
-                        class="far fa-star"></i>
+                <button type="button" routerLink="/denuncias/denuncias/{{p.idMusicoProfesional}}" class="btn btn-outline-primary mx-2 my-2"><i
+                        class="fas fa-exclamation-triangle"></i>
                     Denunciar</button>
-                <button type="button" routerLink="/comentarios/crear-comentarios/{{p.idPublicacion}}"
+                <button type="button" routerLink="/mensajes/crear-mensajes/{{p.idMusicoProfesional}}"
                     class="btn btn-outline-primary mx-2 my-2"><i class="fas fa-comment-medical"></i>
                     Enviar Mesaje</button>
             </div>
