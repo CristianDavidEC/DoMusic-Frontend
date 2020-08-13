@@ -54,34 +54,33 @@
 </table>
 
 <div class="container">
-    <div *ngFor="let p of recordList">
-        <div class="card-columns">
-            <div class="card mb-4" style="width: 18rem;">
-                <div class="view overlay">
-                    <img class="card-img-top" src="http://localhost:3000/files/1/{{p.idMusicoProfesional}}"
-                        alt="Card image cap">
+
+    <div class="card-columns d-inline" *ngFor="let p of recordList">
+        <div class="card mb-4" style="width: 18rem;">
+            <div class="view overlay">
+                <img class="card-img-top" src="http://localhost:3000/files/1/{{p.idMusicoProfesional}}"
+                    alt="Card image cap">
+            </div>
+            <div class="card-body">
+                <div>
+                    <h4 class="card-title font-weight-bold text-center">{{p.nombre}} {{p.apellido}}</h4>
                 </div>
-                <div class="card-body">
-                    <div>
-                        <h4 class="card-title font-weight-bold text-center">{{p.nombre}} {{p.apellido}}</h4>
-                    </div>
-                    <h6 class="card-text color text-center">{{p.generoMusica}}</h6>
-                    <h6 class="card-text color text-center">{{p.ciudad}}</h6>
-                    <h6 class="card-text color text-center">{{p.celular}}</h6>
-                    <h6 class="card-text color text-center">{{p.correo}}</h6>
-                    <h6 class="card-text color text-center">{{p.fechaNacimiento}}</h6>
-                    <h6 class="card-text color text-center">{{p.genero}}</h6>
-                </div>
+                <h6 class="card-text color text-center">{{p.generoMusica}}</h6>
+                <h6 class="card-text color text-center">{{p.ciudad}}</h6>
+                <h6 class="card-text color text-center">{{p.celular}}</h6>
+                <h6 class="card-text color text-center">{{p.correo}}</h6>
+                <h6 class="card-text color text-center">{{p.fechaNacimiento}}</h6>
+                <h6 class="card-text color text-center">{{p.genero}}</h6>
+            </div>
 
 
-                <div class="d-flex justify-content-between">
-                    <button type="button" (click)="reaccionar(p.idPublicacion)"
-                        class="btn btn-outline-primary mx-2 my-2"><i class="far fa-star"></i>
-                        Denunciar</button>
-                    <button type="button" routerLink="/comentarios/crear-comentarios/{{p.idPublicacion}}"
-                        class="btn btn-outline-primary mx-2 my-2"><i class="fas fa-comment-medical"></i>
-                        Enviar Mesaje</button>
-                </div>
+            <div class="d-flex justify-content-between">
+                <button type="button" (click)="reaccionar(p.idPublicacion)" class="btn btn-outline-primary mx-2 my-2"><i
+                        class="far fa-star"></i>
+                    Denunciar</button>
+                <button type="button" routerLink="/comentarios/crear-comentarios/{{p.idPublicacion}}"
+                    class="btn btn-outline-primary mx-2 my-2"><i class="fas fa-comment-medical"></i>
+                    Enviar Mesaje</button>
             </div>
         </div>
     </div>
