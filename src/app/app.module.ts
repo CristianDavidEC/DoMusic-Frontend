@@ -27,10 +27,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CommonModule,
     FormsModule,
     ReactiveFormsModule
   ],

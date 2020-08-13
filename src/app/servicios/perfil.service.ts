@@ -8,6 +8,7 @@ import { ServiceConfig } from '../config/service.config'
 import { CargarArchivosModel } from '../modelos/cargarArchivos/cargaArchivos.model'
 import { SeguridadService } from '../servicios/seguridad.service';
 import { PerfilesModule } from '../modulos/perfiles/perfiles.module';
+import { UsuarioModel } from '../modelos/usuario.model';
 
 
 @Injectable({
@@ -84,6 +85,10 @@ export class PerfilService {
 
   getMusico(recordIdMusico:String){
     return this.http.get <PerfilModel>(`${ServiceConfig.BASE_URL_MUSICO}?filter[where][idMusicoProfesional]=${recordIdMusico}`);
+  }
+
+  getUsuario(recordIdUsuario:string){
+    return this.http.get <UsuarioModel>(`${ServiceConfig.BASE_URL_USUARIO}/${recordIdUsuario}`);
   }
   
   getMusicoP(idMusicoProfesional:String):Observable<PerfilModel>{

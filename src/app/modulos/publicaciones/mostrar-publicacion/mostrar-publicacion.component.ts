@@ -10,6 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
 import { PerfilModel } from 'src/app/modelos/perfil.model';
 import { PerfilService } from 'src/app/servicios/perfil.service';
+import { UsuarioModel } from 'src/app/modelos/usuario.model';
 
 declare const ShowNotificationMessage: any;
 declare const ShowRemoveConfimationPublic: any;
@@ -24,6 +25,8 @@ declare const CloseModal: any;
 export class MostrarPublicacionComponent implements OnInit {
 
   pagina: number = 1;
+  perfiles = [];
+  usuarios = [];
   recordList : PublicacionModel[];
   reacciones : PerfilModel[];
   eliminarPubliId: String ='';
@@ -52,6 +55,7 @@ export class MostrarPublicacionComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.perfiles = [new PerfilModel()];
     this.spinner.show();
     this.getRecordsList()
   }
@@ -59,6 +63,20 @@ export class MostrarPublicacionComponent implements OnInit {
   getRecordsList(){
     this.service.getAllRecords().subscribe(records => {
       this.recordList = records;
+      this.recordList.forEach( publicacion =>
+        this.serPerfil.getUsuario(publicacion.idUsuario).subscribe(records =>{
+          console.log("id Usuario Publicacion:"+ publicacion.idUsuario)
+          this.usuarios.push(records)
+        }) 
+      )
+      console.log()
+      this.serPerfil.getMusicoP(usaurios.musicoProfesionalId).subscribe( records=>{
+        console.log(records)
+        //let id = records.usuario.idUsuario
+        //this.perfiles.push(records)
+        //console.log("id Usuario Usuario:"+id)
+      })
+      //console.log(this.perfiles)
       setTimeout(() => {
         this.spinner.hide();
       },1000)
