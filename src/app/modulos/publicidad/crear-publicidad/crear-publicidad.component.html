@@ -40,16 +40,16 @@
                     <div class="container form-group input-group">
                         <input formControlName="file" (change)="onFileSelect($event)" name="image" class="form-control-file bg-primary"
                         type="file">
-                        <button type="button"  class="btn btn-primary"  value="Cargar" (click)="cargarArchivo()">
+                        <button type="button"  class="btn btn-primary mt-2"  value="Cargar" (click)="cargarArchivo()">
                             <i class="fas fa-angle-double-up"></i>Subir</button>
                     </div>
                 </form>
 
                 <div class="form-group">
                     <button type="button" (click)="crearPublicidad()"
-                        class="btn btn-primary justify-content-end btn-lg d-inline"><i class="far fa-arrow-alt-circle-up"></i> Publicar</button>
+                        class="btn btn-primary justify-content-end btn-lg d-inline mt-2"><i class="far fa-arrow-alt-circle-up"></i> Publicar</button>
 
-                    <a type="button" class="btn btn-danger justify-content-end btn-lg d-inline"
+                    <a type="button" class="btn btn-danger justify-content-end btn-lg d-inline mt-2"
                         routerLink="/publicidades/listar-publicidades"><i class="far fa-times-circle"></i> Cancelar</a>
                 </div>
                 <!-- ------------------------------------------------------------------------------------------------------------ -->

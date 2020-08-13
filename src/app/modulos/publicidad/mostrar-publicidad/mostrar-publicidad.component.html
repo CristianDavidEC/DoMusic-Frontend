@@ -1,7 +1,8 @@
 <br />
-<a class="btn btn-success" *ngIf="esAdmin" routerLink="/publicidades/crear-publicidades" role="button">Nueva Publicidad</a>
+<a class="btn btn-primary" *ngIf="esAdmin" routerLink="/publicidades/crear-publicidades" role="button">Nueva Publicidad</a>
 <br />
 <br />
+<div class="conteiner">
 <table class="table">
     <thead class="table-dark"> 
         <tr>
@@ -33,6 +34,8 @@
         </tr>
     </tbody>
 </table>
+
+</div>
 
 <pagination-controls (pageChange)="pagina = $event" nextLabel="Siguiente" previousLabel="Anterior"></pagination-controls>
 <ngx-spinner></ngx-spinner>
