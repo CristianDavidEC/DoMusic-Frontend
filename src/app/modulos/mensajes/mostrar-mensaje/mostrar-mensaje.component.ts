@@ -20,9 +20,13 @@ declare const CloseModal: any;
 export class MostrarMensajeComponent implements OnInit {
 
   pagina: number = 1;
-  recordList : MensajeModel[];
+  recibidos : MensajeModel[];
+  enviados : MensajeModel[];
+
   eliminarMensajeiId: String ='';
-  publiPorPagina: number = FormsConfig.ELEMENTOS_PAGINA;
+  publiPorPagina: number = 2;
+
+  //publiPorPagina: number = FormsConfig.ELEMENTOS_PAGINA;
   recordIdMusico: string = '';
   idUsuarioPubli: String = "";
 
@@ -52,8 +56,17 @@ export class MostrarMensajeComponent implements OnInit {
   }
 
   getRecordsList(){
-    this.service.getAllRecords().subscribe(records => {
-      this.recordList = records;
+    let names;
+    this.service.getMsg(this.SeguridadService.getIdPerfil()).subscribe(records => {
+      this.recibidos = records;
+      setTimeout(() => {
+        this.spinner.hide();
+      },1000)
+    },
+    error => {ShowNotificationMessage ("Hubo un problema con la comunicación en el Backend")})
+    
+    this.service.getMsgEnv(this.SeguridadService.getUsuarioId()).subscribe(records => {
+      this.enviados = records;
       setTimeout(() => {
         this.spinner.hide();
       },1000)

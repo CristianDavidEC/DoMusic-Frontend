@@ -15,7 +15,7 @@
       </li>
 
       <li class="nav-item esp" *ngIf="estaLogueado && !admin">
-        <a class="nav-link h5 d-inline text-mayus font-weight-light" routerLink="perfiles/vista-perfil"> 
+        <a class="nav-link h5 d-inline text-mayus font-weight-light" routerLink="vista-perfil/vista"> 
         <img src="http://localhost:3000/files/1/{{perfilUsuario.idMusicoProfesional}}" class="foto-perfil d-inline img-fluid">
           {{perfilUsuario.nombre}} {{perfilUsuario.apellido}}
        </a>
@@ -33,6 +33,7 @@
           aria-haspopup="true" aria-expanded="false">
           Más información
         </a>
+        
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Quiénes somos</a>
           <a class="dropdown-item" href="#">Historias</a>

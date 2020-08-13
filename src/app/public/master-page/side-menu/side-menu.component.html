@@ -15,20 +15,32 @@
           class="fas fa-ad icon"></i>Publicidades</a>
     
     </li>
-    <li class="side-item" *ngIf="esAdmin">
-      <a class="side-link h5  font-weight-light" routerLink="/denuncias/listar-denuncias"><i
-          class="fas fa-archive icon"></i>Denuncias</a>
-    
-    </li>
     <!-- <li class="side-item" *ngIf="estaLogueado">
       <a class="side-link h5  font-weight-light" routerLink="/parametros/comentarios"><i
           class="far fa-images icon"></i>Comentarios</a>
     </li> -->
+    <li class="side-item dropdown" *ngIf="esAdmin">
+      <a class="side-link dropdown-toggle h5 font-weight-light" id="sideDropdown" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-archive icon"></i>Denuncias
+      </a>
+      <div class="dropdown-menu colorDoMusic1 font-weight-light" aria-labelledby="sideDropdown">
+        <li class="side-item" *ngIf="esAdmin">
+          <a class="side-link h5  font-weight-light" routerLink="/denuncias/listar-denuncias"><i
+              class="fas fa-archive icon"></i>Denuncias a perfiles</a>
+        </li>
+        <li class="side-item" *ngIf="esAdmin">
+          <a class="side-link h5  font-weight-light" routerLink="/denuncias-p/listar-denuncias"><i
+              class="fas fa-archive icon"></i>Denuncias a publicaciones </a>  
+        </li>
+    
+      </div>
+    </li>
 
     <li class="side-item dropdown" *ngIf="estaLogueado">
       <a class="side-link dropdown-toggle h5 font-weight-light" id="sideDropdown" role="button" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-users"></i>Perfiles
+        <i class="fas fa-users icon"></i>Perfiles
       </a>
       <div class="dropdown-menu colorDoMusic1 font-weight-light" aria-labelledby="sideDropdown">
     

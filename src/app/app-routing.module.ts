@@ -48,6 +48,22 @@ const routes: Routes = [
     loadChildren: () => import ('./modulos/comentarios/comentarios.module').then(m => m.ComentariosModule)
   },
   {
+    path: 'vista-perfil',
+    loadChildren: () => import ('./modulos/vista-perfil/vista-perfil.module').then(m => m.VistaPerfilModule)
+  },
+  {
+    path: 'administradores',
+    loadChildren: () => import ('./modulos/administrador/administrador.module').then(m => m.AdministradorModule)
+  },
+  {
+    path: 'encuestas',
+    loadChildren: () => import ('./modulos/encuestas/encuestas.module').then(m => m.EncuestasModule)
+  },
+  {
+    path: 'denuncias-p',
+    loadChildren: () => import ('./modulos/denuncias-p/denuncias-p.module').then(m => m.DenunciasPModule)
+  },
+  {
     path: '**',
     redirectTo: '/home'
   }

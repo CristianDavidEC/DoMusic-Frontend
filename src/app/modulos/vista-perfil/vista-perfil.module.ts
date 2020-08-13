@@ -6,7 +6,9 @@ import { VistaPerfilComponent } from './vista-perfil.component';
 
 
 @NgModule({
-  declarations: [VistaPerfilComponent],
+  declarations: [
+    VistaPerfilComponent
+  ],
   imports: [
     CommonModule,
     VistaPerfilRoutingModule

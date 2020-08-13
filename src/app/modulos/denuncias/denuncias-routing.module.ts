@@ -4,7 +4,6 @@ import { CommonModule } from "@angular/common";
 import { CrearDenunciaComponent} from './crear-denuncia/crear-denuncia.component';
 import { EliminarDenunciaComponent} from './eliminar-denuncia/eliminar-denuncia.component';
 import { MostrarDenunciasComponent} from './mostrar-denuncias/mostrar-denuncias.component';
-import { ListarDenunciasComponent} from './listar-denuncias/listar-denuncias.component';
 
 import { AutAdminGuard} from '../../guardianes/aut-admin.guard'
 
@@ -12,7 +11,7 @@ import { AutAdminGuard} from '../../guardianes/aut-admin.guard'
 
 const routes: Routes = [
   {
-    path: 'denuncias',
+    path: 'denuncias/:idMusicoProfesional',
     component: CrearDenunciaComponent
   },
   {

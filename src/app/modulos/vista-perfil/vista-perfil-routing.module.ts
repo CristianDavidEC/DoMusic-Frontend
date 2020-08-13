@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ModificarPerfilComponent } from '../modificar-perfil/modificar-perfil.component'
+import { ModificarPerfilComponent } from '../perfiles/modificar-perfil/modificar-perfil.component'
+import { VistaPerfilComponent } from '../vista-perfil/vista-perfil.component'
 
 const routes: Routes = [
   {
     path: 'modificar-perfil/:idMusicoProfesional',
     component: ModificarPerfilComponent
+  },
+  {
+    path:'vista',
+    component: VistaPerfilComponent
   }
-
 ];
 
 @NgModule({

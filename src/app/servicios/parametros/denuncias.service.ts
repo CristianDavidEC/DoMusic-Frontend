@@ -30,7 +30,11 @@ export class DenunciasService {
   }
 
   getDenuncia(recordIdDenuncia:String):Observable<DenunciasModel>{
-    return this.http.get <DenunciasModel>(`${ServiceConfig.BASE_URL_DENUNCIAS}/${recordIdDenuncia}`);
+    return this.http.get <DenunciasModel>(`${ServiceConfig.BASE_URL_DENUNCIAS}/${recordIdDenuncia}`,{
+      headers:new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    });
   }
   
 

@@ -3,6 +3,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { PublicidadModel } from 'src/app/modelos/parametros/publicidad.model';
 import { FormsConfig } from 'src/app/config/forms-config';
 import { PublicidadService } from 'src/app/servicios/parametros/publicidad.service';
+import { Subscription } from 'rxjs';
+import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
 declare const ShowNotificationMessage: any;
 declare const ShowRemoveConfimationPublic: any;
@@ -19,10 +21,16 @@ export class MostrarPublicidadComponent implements OnInit {
   recordList : PublicidadModel[];
   eliminarPubliId: String ='';
   publiPorPagina: number = FormsConfig.ELEMENTOS_PAGINA;
+  estaLogueado: Boolean= false;
+  esAdmin: Boolean= false;
+  subscription: Subscription;
+  role: String = "";
+  
 
   constructor(
     private service: PublicidadService,
     private spinner: NgxSpinnerService,
+    private serviceS: SeguridadService,
   ) { }
 
   ngOnInit(): void {
@@ -30,7 +38,16 @@ export class MostrarPublicidadComponent implements OnInit {
     this.spinner.show();
     
 
-    this.getRecordsList()
+    this.getRecordsList();
+
+    this.subscription= this.serviceS.getUserData().subscribe(data =>{
+      this.estaLogueado = data.estaLogueado;
+      this.role = data.rol;
+    });
+
+    if(this.role == "Administrador"){
+      this.esAdmin = true
+    }
 
 
   }

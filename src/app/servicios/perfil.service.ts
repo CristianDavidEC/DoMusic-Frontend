@@ -8,7 +8,8 @@ import { ServiceConfig } from '../config/service.config'
 import { CargarArchivosModel } from '../modelos/cargarArchivos/cargaArchivos.model'
 import { SeguridadService } from '../servicios/seguridad.service';
 import { PerfilesModule } from '../modulos/perfiles/perfiles.module';
-
+import { UsuarioModel } from '../modelos/usuario.model';
+import { AdministradorModel } from '../modelos/administrador.model';
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +45,13 @@ export class PerfilService {
 
   CrearBanda(model: BandaModel): Observable<BandaModel> {
     return this.http.post<BandaModel>(`${ServiceConfig.BASE_URL_BANDA}`, model, {
+      headers: new HttpHeaders({
+      })
+    })
+  }
+
+  CrearAdministrador(model: AdministradorModel): Observable<AdministradorModel> {
+    return this.http.post<AdministradorModel>(`${ServiceConfig.BASE_URL_ADMINSTRADOR}`, model, {
       headers: new HttpHeaders({
       })
     })
@@ -85,6 +93,19 @@ export class PerfilService {
   getMusico(recordIdMusico:String){
     return this.http.get <PerfilModel>(`${ServiceConfig.BASE_URL_MUSICO}?filter[where][idMusicoProfesional]=${recordIdMusico}`);
   }
+
+  getUsuario(recordIdUsuario:string){
+    return this.http.get <UsuarioModel>(`${ServiceConfig.BASE_URL_USUARIO}/${recordIdUsuario}`);
+  }
+
+  getUsuario2(recordIdUsuario:string):Observable<UsuarioModel>{
+    return this.http.get <UsuarioModel>(`${ServiceConfig.BASE_URL_USUARIO}/${recordIdUsuario}`);
+  }
+
+  getUsuarioFiltro(recordIdUsuario:string){
+    return this.http.get <UsuarioModel>(`${ServiceConfig.BASE_URL_USUARIO}?filter[where][idUsuario]=${recordIdUsuario}`);
+  }
+
   
   getMusicoP(idMusicoProfesional:String):Observable<PerfilModel>{
     return this.http.get <PerfilModel>(`${ServiceConfig.BASE_URL_MUSICO}/${idMusicoProfesional}`);

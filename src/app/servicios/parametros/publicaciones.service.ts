@@ -37,6 +37,10 @@ export class PublicacionesService {
     return this.http.get <PublicacionModel>(`${ServiceConfig.BESE_URL_PUBLICACION}/${recordIdPublicacion}`);
   }
 
+  getPublicacionUsuario(idUsuario:String):Observable<PublicacionModel>{
+    return this.http.get <PublicacionModel>(`${ServiceConfig.BESE_URL_PUBLICACION}/?filter[where][idUsuario]=${idUsuario}`);
+  }
+
   modificarRegistro(record:PublicacionModel):Observable<PublicacionModel>{
     return this.http.put<PublicacionModel>(`${ServiceConfig.BESE_URL_PUBLICACION}/${record.idPublicacion}`, record,{
       headers:new HttpHeaders({

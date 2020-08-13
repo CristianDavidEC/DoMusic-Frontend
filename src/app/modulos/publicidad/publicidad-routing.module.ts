@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MostrarPublicidadComponent } from './mostrar-publicidad/mostrar-publicidad.component';
 import { CrearPublicidadComponent } from './crear-publicidad/crear-publicidad.component';
+import { ModificarPublicidadComponent } from './modificar-publicidad/modificar-publicidad.component';
 
 const routes: Routes = [
 {
@@ -11,7 +12,13 @@ const routes: Routes = [
 {
   path: 'crear-publicidades',
   component: CrearPublicidadComponent
+},
+{
+  path: 'modificar-publicidades/:idPublicidad',
+  component: ModificarPublicidadComponent
 }
+
+
 ];
 
 @NgModule({
