@@ -63,32 +63,14 @@ export class MostrarPublicacionComponent implements OnInit {
     this.service.getAllRecords().subscribe(records => {
       this.recordList = records;
       let usuarios = []
-      console.log("list publis")
-      console.log(this.recordList)
-
 
       for (let publi of this.recordList) {
-        console.log(publi.idUsuario)
-
-        this.serPerfil.getUsuario2(publi.idUsuario).subscribe(r => {
-          console.log("public")
-          console.log(publi.idUsuario)
-
-          console.log("id´s")
-          console.log(r)
-
-          this.perfiles1.push(r)
+        this.serPerfil.getUsuario2(publi.idUsuario).subscribe(records => {
+          console.log(records)
+          this.perfiles1.push(records)
         })
       }
-      //console.log(this.perfiles1)
-      /* for (let p = 0; p < this.recordList.length; p++) {
-       console.log(this.perfiles1)
-       for(let user of this.perfiles1){
-        console.log(user)
-       }
-      
-      } */
-
+      console.log(this.perfiles1)
       setTimeout(() => {
         this.spinner.hide();
       }, 1000)
@@ -96,44 +78,6 @@ export class MostrarPublicacionComponent implements OnInit {
       error => { ShowNotificationMessage("Hubo un problema con la comunicación en el Backend") })
       
   }
-
-
-  getRecordsList1() {
-    this.service.getAllRecords().subscribe(records => {
-      this.recordList = records;
-      let ids = []
-      //console.log(this.recordList)
-      for (let user of this.recordList) {
-        if (ids.indexOf(user.idUsuario) < 0) {
-          ids.push(user.idUsuario)
-          this.serPerfil.getUsuario(user.idUsuario).subscribe(records => {
-            this.serPerfil.getMusicoP(records.musicoProfesionalId).subscribe(records => {
-              this.perfiles1.push(records)
-            })
-          })
-        }
-        //console.log(this.perfiles1)
-      }
-
-
-      for (let publi of this.recordList) {
-        let lis = this.perfiles1
-        for (let perfil of lis) {
-          console.log("entro 2")
-          if (publi.idUsuario == perfil.idUsuario) {
-            console.log("entro")
-            this.perfiles2.push(perfil)
-          }
-        }
-      }
-      setTimeout(() => {
-        this.spinner.hide();
-      }, 1000)
-    },
-      error => { ShowNotificationMessage("Hubo un problema con la comunicación en el Backend") })
-
-  }
-
 
   ConfirmarEliminacion(idPublicacion) {
     console.log(this.service.getPubli(idPublicacion))
