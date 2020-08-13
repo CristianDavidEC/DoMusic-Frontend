@@ -52,6 +52,7 @@ export class MostrarPerfilComponent implements OnInit {
   getRecordsList(){
     this.service.getAllRecords().subscribe(records => {
       this.recordList = records;
+      console.log(this.recordList)
       setTimeout(() => {
         this.spinner.hide();
       },1000)
