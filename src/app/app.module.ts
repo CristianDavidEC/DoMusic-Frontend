@@ -21,7 +21,6 @@ import { BrowserModule } from '@angular/platform-browser';
     HeroComponent,
     FooterComponent,
     CrearGrupoComponent
-    
   ],
   imports: [
     BrowserModule,
