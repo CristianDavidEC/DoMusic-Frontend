@@ -14,6 +14,7 @@ declare const ShowNotificationMessage:any;
 export class ModificarPublicidadComponent implements OnInit {
 
   fgValidator: FormGroup;
+  cargarArchivoForm: FormGroup;
   recordIdPublicidad: string = '';
 
   constructor(
@@ -28,6 +29,7 @@ export class ModificarPublicidadComponent implements OnInit {
   ngOnInit(): void {
     this.FormBuilding();
     this.getPublicidad();
+    this.formCargaArchivo();
   }
   
   getPublicidad(){
@@ -37,6 +39,7 @@ export class ModificarPublicidadComponent implements OnInit {
         this.fgv.idPublicidad.setValue(data.idPublicidad);
         this.fgv.titulo.setValue(data.titulo);
         this.fgv.contenido.setValue(data.contenido);
+        this.fgv.image.setValue(data.image)
       },
       error =>{
         ShowNotificationMessage('Hubo un error');
@@ -50,6 +53,7 @@ export class ModificarPublicidadComponent implements OnInit {
       idPublicidad: ['', [Validators.required]],
       titulo: ['', [Validators.required, Validators.minLength(2)]],
       contenido: ['', [Validators.required, Validators.minLength(2)]],
+      image:[''],
     });
   }
 
@@ -80,8 +84,40 @@ export class ModificarPublicidadComponent implements OnInit {
     model.idPublicidad = this.fgv.idPublicidad.value;
     model.titulo = this.fgv.titulo.value;
     model.contenido = this.fgv.contenido.value;
+    model.image = this.fgv.image.value;
     return model;
   }
 
+  formCargaArchivo(){
+    this.cargarArchivoForm = this.fb.group({  
+      file: ['', [Validators.required]],
+    })
+  }
+
+  get fgArchivo(){
+    return this.cargarArchivoForm.controls;
+  }
+
+  cargarArchivo(){
+    const formData = new FormData();
+    formData.append('file', this.fgArchivo.file.value);
+    this.servicio.cargaArchivo(formData).subscribe(
+      data => {
+        console.log("Filename. " + data);
+        this.fgv.image.setValue(data.filename);
+        ShowNotificationMessage("El archivo cargó con éxito.");
+      },
+      err => {
+        ShowNotificationMessage("Error al cargar el archivo.");
+      }
+    );
+  }
+
+  onFileSelect(event) { 
+    if (event.target.files.length > 0) {
+      const f = event.target.files[0];
+      this.fgArchivo.file.setValue(f);
+    }
+  }
 
 }

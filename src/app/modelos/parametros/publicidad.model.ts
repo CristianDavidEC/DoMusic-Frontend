@@ -2,5 +2,5 @@ export class PublicidadModel{
     idPublicidad?: string;
     titulo: string; 
     contenido: string; 
-    image: string;
+    image?: string;
 }
