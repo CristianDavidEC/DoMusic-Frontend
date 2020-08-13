@@ -142,13 +142,23 @@ export class MostrarPublicacionComponent implements OnInit {
     })
 
     if (this.idUsuarioP == this.SeguridadService.getUsuarioId()) {
+      console.log("oe 1")
       this.ret = true;
-    } if(c == "Administrador"){
+    } else if(c == "Administrador"){
+      console.log("oe 2")
+
       this.ret = true;
     }else {
+      console.log("oe 3")
+
       this.ret = false;
     }
+
+    console.log(this.ret)
+
     return this.ret;
+
+
   }
 
 
