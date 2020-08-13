@@ -73,7 +73,7 @@ export class MostrarPublicacionComponent implements OnInit {
       console.log(this.perfiles1)
       setTimeout(() => {
         this.spinner.hide();
-      }, 1000);
+      }, 1000)
     },
       error => { ShowNotificationMessage("Hubo un problema con la comunicación en el Backend") })
       
