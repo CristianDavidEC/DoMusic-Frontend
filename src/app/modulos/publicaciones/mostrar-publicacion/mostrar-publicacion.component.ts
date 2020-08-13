@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PublicacionesService} from '../../../servicios/parametros/publicaciones.service'
+import { PublicacionesService } from '../../../servicios/parametros/publicaciones.service'
 import { PublicacionModel } from 'src/app/modelos/parametros/publicacion.model';
 import { FormsConfig } from 'src/app/config/forms-config';
 
@@ -11,6 +11,7 @@ import { SeguridadService } from 'src/app/servicios/seguridad.service';
 import { PerfilModel } from 'src/app/modelos/perfil.model';
 import { PerfilService } from 'src/app/servicios/perfil.service';
 import { UsuarioModel } from 'src/app/modelos/usuario.model';
+import { async } from 'rxjs/internal/scheduler/async';
 
 declare const ShowNotificationMessage: any;
 declare const ShowRemoveConfimationPublic: any;
@@ -25,22 +26,19 @@ declare const CloseModal: any;
 export class MostrarPublicacionComponent implements OnInit {
 
   pagina: number = 1;
-  perfiles = [];
+  perfiles1 = [];
+  perfiles2 = [];
   usuarios = [];
-  recordList : PublicacionModel[];
-  reacciones : PerfilModel[];
-  eliminarPubliId: String ='';
+  recordList: PublicacionModel[];
+  reacciones: PerfilModel[];
+  eliminarPubliId: String = '';
   publiPorPagina: number = FormsConfig.ELEMENTOS_PAGINA;
   recordIdPublicacion: string = '';
   idUsuarioPubli: String = "";
 
-  private publicacion: any;
-  private sub: any;
-  private idPublicacionP: any;
   private idUsuarioP: any;
   private ret: any;
   cant: number;
-
 
   constructor(
     private SeguridadService: SeguridadService,
@@ -52,39 +50,82 @@ export class MostrarPublicacionComponent implements OnInit {
 
   ) {
     this.recordIdPublicacion = this.route.snapshot.params['idPublicacion']
-   }
+  }
 
   ngOnInit(): void {
-    this.perfiles = [new PerfilModel()];
+    this.perfiles1 = [];
     this.spinner.show();
+    //this.getRecordsList1()
     this.getRecordsList()
   }
 
-  getRecordsList(){
+  getRecordsList() {
     this.service.getAllRecords().subscribe(records => {
       this.recordList = records;
-      this.recordList.forEach( publicacion =>
-        this.serPerfil.getUsuario(publicacion.idUsuario).subscribe(records =>{
-          console.log("id Usuario Publicacion:"+ publicacion.idUsuario)
-          this.usuarios.push(records)
-        }) 
-      )
-      console.log()
-      /* this.serPerfil.getMusicoP(usaurios.musicoProfesionalId).subscribe( records=>{
-        console.log(records)
-        //let id = records.usuario.idUsuario
-        //this.perfiles.push(records)
-        //console.log("id Usuario Usuario:"+id)
-      }) */
-      //console.log(this.perfiles)
+      let usuarios = []
+      console.log(this.recordList)
+      for (let publi of this.recordList) {
+        console.log(publi)
+        this.serPerfil.getUsuario(publi.idUsuario).subscribe(records => {
+          this.perfiles1.push(records)
+        })
+      }
+      console.log(this.perfiles1)
+      //console.log(this.perfiles1)
+      /* for (let p = 0; p < this.recordList.length; p++) {
+       console.log(this.perfiles1)
+       for(let user of this.perfiles1){
+        console.log(user)
+       }
+      
+      } */
+
       setTimeout(() => {
         this.spinner.hide();
-      },1000)
+      }, 1000)
     },
-    error => {ShowNotificationMessage ("Hubo un problema con la comunicación en el Backend")})
+      error => { ShowNotificationMessage("Hubo un problema con la comunicación en el Backend") })
   }
 
-  ConfirmarEliminacion(idPublicacion){
+
+  getRecordsList1() {
+    this.service.getAllRecords().subscribe(records => {
+      this.recordList = records;
+      let ids = []
+      //console.log(this.recordList)
+      for (let user of this.recordList) {
+        if (ids.indexOf(user.idUsuario) < 0) {
+          ids.push(user.idUsuario)
+          this.serPerfil.getUsuario(user.idUsuario).subscribe(records => {
+            this.serPerfil.getMusicoP(records.musicoProfesionalId).subscribe(records => {
+              this.perfiles1.push(records)
+            })
+          })
+        }
+        //console.log(this.perfiles1)
+      }
+
+
+      for (let publi of this.recordList) {
+        let lis = this.perfiles1
+        for (let perfil of lis) {
+          console.log("entro 2")
+          if (publi.idUsuario == perfil.idUsuario) {
+            console.log("entro")
+            this.perfiles2.push(perfil)
+          }
+        }
+      }
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 1000)
+    },
+      error => { ShowNotificationMessage("Hubo un problema con la comunicación en el Backend") })
+
+  }
+
+
+  ConfirmarEliminacion(idPublicacion) {
     console.log(this.service.getPubli(idPublicacion))
     this.eliminarPubliId = idPublicacion;
     this.verifPublicacion(this.eliminarPubliId);
@@ -92,36 +133,34 @@ export class MostrarPublicacionComponent implements OnInit {
     ShowRemoveConfimationPublic();
   }
 
-  reaccionar(Id: String){
+  reaccionar(Id: String) {
     let usuarioId = this.SeguridadService.getUsuarioId();
     let model = new PublicacionModel();
-    let lista=[""];
-    let bandera= true;
-    console.log(usuarioId)
-    console.log(lista)
+    let lista = [""];
+    let bandera = true;
 
-    this.service.getPublicacion(Id).subscribe(data =>{
+    this.service.getPublicacion(Id).subscribe(data => {
       model.idPublicacion = data.idPublicacion;
       model.titulo = data.titulo;
       model.contenido = data.contenido;
       model.fecha = data.fecha;
       model.reacciones = (data.reacciones + 1);
       model.idUsuario = data.idUsuario;
-      lista=data.userReacciones;
-      console.log(lista)
-      
+      lista = data.userReacciones;
+
+
       lista.forEach(element => {
-        if (element == usuarioId){
-          bandera=false;
-        }else{
+        if (element == usuarioId) {
+          bandera = false;
+        } else {
           lista.push((usuarioId).toString());
           model.userReacciones = lista;
         }
       });
 
-      if(bandera == false){
+      if (bandera == false) {
         ShowNotificationMessage('Ya reaccionaste a esta publicacion');
-      }else{
+      } else {
         this.service.modificarRegistro(model).subscribe(
           data => {
             ShowNotificationMessage('Reaccionaste exitosamente');
@@ -129,32 +168,32 @@ export class MostrarPublicacionComponent implements OnInit {
           error => {
             ShowNotificationMessage('Error!');
           }
-        ); 
+        );
       }
     })
   }
 
-  verifPublicacion(eliminarPubliId: String): Boolean{
+  verifPublicacion(eliminarPubliId: String): Boolean {
     this.service.getPublicacion2(eliminarPubliId).subscribe(
-      data =>{
+      data => {
         this.idUsuarioP = (data.idUsuario);
       },
-      error =>{
+      error => {
         ShowNotificationMessage('Hubo un error');
         this.router.navigate(["/parametros/publicaciones"])
       }
     )
-    if (this.idUsuarioP == this.SeguridadService.getUsuarioId()){
+    if (this.idUsuarioP == this.SeguridadService.getUsuarioId()) {
       this.ret = true;
-    }else{
+    } else {
       this.ret = false;
     }
-      return this.ret;
-  } 
+    return this.ret;
+  }
 
 
-  EliminarPubli(){
-    if(this.verifPublicacion(this.eliminarPubliId)){
+  EliminarPubli() {
+    if (this.verifPublicacion(this.eliminarPubliId)) {
       this.service.eliminarRegistro(this.eliminarPubliId).subscribe(
         data => {
           CloseModal('confirmarEliminacion');
@@ -165,7 +204,7 @@ export class MostrarPublicacionComponent implements OnInit {
           ShowNotificationMessage('Error!');
         }
       );
-    }else{
+    } else {
       CloseModal('confirmarEliminacion');
       ShowNotificationMessage('Error, esta publicacion no es tuya');
     }

@@ -97,6 +97,11 @@ export class PerfilService {
   getUsuario(recordIdUsuario:string){
     return this.http.get <UsuarioModel>(`${ServiceConfig.BASE_URL_USUARIO}/${recordIdUsuario}`);
   }
+
+  getUsuarioFiltro(recordIdUsuario:string){
+    return this.http.get <UsuarioModel>(`${ServiceConfig.BASE_URL_USUARIO}?filter[where][idUsuario]=${recordIdUsuario}`);
+  }
+
   
   getMusicoP(idMusicoProfesional:String):Observable<PerfilModel>{
     return this.http.get <PerfilModel>(`${ServiceConfig.BASE_URL_MUSICO}/${idMusicoProfesional}`);
