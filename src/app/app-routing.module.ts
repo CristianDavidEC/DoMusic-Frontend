@@ -52,6 +52,10 @@ const routes: Routes = [
     loadChildren: () => import ('./modulos/administrador/administrador.module').then(m => m.AdministradorModule)
   },
   {
+    path: 'encuestas',
+    loadChildren: () => import ('./modulos/encuestas/encuestas.module').then(m => m.EncuestasModule)
+  },
+  {
     path: '**',
     redirectTo: '/home'
   }

@@ -1,0 +1,45 @@
+<div class="container signup-form">
+    <div class="row">
+        <div class="col-md-4 ">
+            <img src="https://image.freepik.com/foto-gratis/casilla-verificacion-marcada-plana-marcador-rojo_23-2148265509.jpg"
+                class="img-fluid rounded tamaño" alt="Eniun">
+        </div>
+
+        <div class="col-md-8">
+            <form [formGroup]="fgValidator" method="post">
+                <h2 class="text-center">Crea tu encuesta <i class="fas fa-compact-disc"></i>
+                </h2>
+                <hr>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input formControlName="pregunta" type="text" class="form-control" name="contenido"
+                            placeholder="Pregunta" required="required">
+                    </div>
+                    <div class="input-group">
+                        <input formControlName="respuesta" type="text" class="form-control" name="contenido"
+                            placeholder="Respuesta 1" required="required">
+                    </div>
+                    <div class="input-group">
+                        <input formControlName="respuesta" type="text" class="form-control" name="contenido"
+                        placeholder="Respuesta 2" required="required">
+                </div>
+                <div class="input-group">
+                    <input formControlName="respuesta" type="text" class="form-control" name="contenido"
+                    placeholder="Respuesta 3" required="required">
+                </div>
+                <div class="input-group">
+                    <input formControlName="respuesta" type="text" class="form-control" name="contenido"
+                    placeholder="Respuesta 4" required="required"></div>
+                </div>
+                <div class="form-group">
+                    <button type="button" (click)="crearEncuesta()"
+                        class="btn btn-primary justify-content-end btn-lg d-inline">Enviar mensaje</button>
+
+                    <a type="button" class="btn btn-danger justify-content-end btn-lg d-inline"
+                        routerLink="/publicaciones/listar-publicaciones">Cancelar</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
