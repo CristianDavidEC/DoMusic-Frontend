@@ -103,11 +103,10 @@
     </div>
 </div>
 
-<div class="container">
-    <div class="col-md-8 margen">
-        <div *ngFor="let p of recordList | paginate: { itemsPerPage: publiPorPagina, currentPage: pagina}">
-            <div class="card booking-card d-block mb-4">
-                <!--<div class="portada d-flex justify-content-between">
+<div class="container" *ngFor="let p of recordList | paginate: { itemsPerPage: publiPorPagina, currentPage: pagina}">
+    <div class="align-middle">
+        <div class="card booking-card d-block mb-4">
+            <!--<div class="portada d-flex justify-content-between">
                          <div>
                             <img src="http://localhost:3000/files/1/{{perfiles[i].idMusicoProfesional}}"
                             <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
@@ -119,48 +118,46 @@
                     </div>
                     <hr>
                     -->
-                <div class="view overlay">
-                    <img class="card-img-top" src="http://localhost:3000/files/2/{{p.idPublicacion}}"
-                        alt="Card image cap">
-                    <!-- <img class="card-img-top" src="https://thumbs.dreamstime.com/z/ilustraci%C3%B3n-art%C3%ADstica-de-la-m%C3%BAsica-23308702.jpg" alt="Card image cap"> -->
-                </div>
+            <div class="view overlay">
+                <img class="card-img-top" src="http://localhost:3000/files/2/{{p.idPublicacion}}" alt="Card image cap">
+                <!-- <img class="card-img-top" src="https://thumbs.dreamstime.com/z/ilustraci%C3%B3n-art%C3%ADstica-de-la-m%C3%BAsica-23308702.jpg" alt="Card image cap"> -->
+            </div>
 
 
 
-                <div class="card-body">
-
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <h4 class="card-title font-weight-bold">{{p.titulo}}</h4>
-                        </div>
-                        <a class="nav-link dropdown-toggle d-inline" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Eliminar Publicacion</a>
-                            <a class="dropdown-item" href="#">Editar Publicacion</a>
-                            <a class="dropdown-item" href="#">Denunciar</a>
-                        </div>
-                    </div>
-
-
-                    <p class="card-text color">{{p.contenido}}</p>
-                    <p class="mr-2 d-inline color p">{{p.fecha}}</p>
-                    <hr class="my-">
-                </div>
+            <div class="card-body">
 
                 <div class="d-flex justify-content-between">
-                    <button type="button" class="btn btn-outline-primary mx-2 my-2"><i class="far fa-star"></i>
-                        Reacciona</button>
-                    <button type="button" class="btn btn-outline-primary mx-2 my-2"><i
-                            class="fas fa-comment-medical"></i> Comenta</button>
-                    <button type="button" class="btn btn-outline-primary mx-2 my-2"><i class="far fa-comments"></i>
-                        Ver comentarios</button>
+                    <div>
+                        <h4 class="card-title font-weight-bold">{{p.titulo}}</h4>
+                    </div>
+                    <a class="nav-link dropdown-toggle d-inline" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Eliminar Publicacion</a>
+                        <a class="dropdown-item" href="#">Editar Publicacion</a>
+                        <a class="dropdown-item" href="#">Denunciar</a>
+                    </div>
                 </div>
+
+
+                <p class="card-text color">{{p.contenido}}</p>
+                <p class="mr-2 d-inline color p">{{p.fecha}}</p>
+                <hr class="my-">
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-outline-primary mx-2 my-2"><i class="far fa-star"></i>
+                    Reacciona</button>
+                <button type="button" class="btn btn-outline-primary mx-2 my-2"><i class="fas fa-comment-medical"></i>
+                    Comenta</button>
+                <button type="button" class="btn btn-outline-primary mx-2 my-2"><i class="far fa-comments"></i>
+                    Ver comentarios</button>
             </div>
         </div>
     </div>
 </div>
 
-<pagination-controls (pageChange)="pagina = $event" nextLabel="Siguiente" previousLabel="Anterior">
+<pagination-controls (pageChange)="pagina = $event" nextLabel="Siguiente" previousLabel="Anterior" class="pagination">
 </pagination-controls>
