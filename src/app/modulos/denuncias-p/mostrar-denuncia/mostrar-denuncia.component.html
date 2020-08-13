@@ -20,7 +20,7 @@
     <tbody>
         <tr *ngFor="let r of recordListDenuncia">
             <td>
-                {{r.idPublicacion}}
+                {{r.publicacionId}}
             </td>
             <td>
                 {{r.tipo}}
@@ -29,7 +29,7 @@
                 {{r.fecha}}
             </td>
             <td>
-                <button type="button" class = "btn btn-danger" (click) = "ConfirmarEliminacion(r.idPublicacion)">
+                <button type="button" class = "btn btn-danger" (click) = "ConfirmarEliminacion(r.idDenunciaXPubli)">
                     Eliminar
                 </button>
             </td>
@@ -52,7 +52,7 @@
           ¿Estás seguro de eliminar esta publicación?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" >Confirmar</button>
+          <button (click)="EliminarPubli()" type="button" class="btn btn-success" >Confirmar</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 
         </div>
