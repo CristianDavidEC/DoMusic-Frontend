@@ -1,62 +1,98 @@
 <br />
-<a class="btn btn-primary" *ngIf="esAdmin" routerLink="/publicidades/crear-publicidades" role="button">Nueva Publicidad</a>
+<a class="btn btn-primary" *ngIf="esAdmin" routerLink="/publicidades/crear-publicidades" role="button">Nueva
+    Publicidad</a>
 <br />
 <br />
-<div class="conteiner">
-<table class="table">
-    <thead class="table-dark"> 
-        <tr>
-            <td>
-                Título
-            </td>
-            <td>
-                Contenido
-            </td>
-            
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let r of recordList | paginate: { itemsPerPage: publiPorPagina, currentPage: pagina}">
-            <td>
-                {{r.titulo}}
-            </td>
-            <td>
-                {{r.contenido}}
-            </td>
-            <td>
-                <a class="btn btn-warning" *ngIf="esAdmin" routerLink= "/publicidades/modificar-publicidades/{{r.idPublicidad}}" role= "button">Modificar</a>
-            </td>
-            <td>
-                <button type="button" *ngIf="esAdmin" class = "btn btn-danger" (click) = "ConfirmarEliminacion(r.idPublicidad)">
+<!-- <div class="conteiner">
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <td>
+                    Título
+                </td>
+                <td>
+                    Contenido
+                </td>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let r of recordList | paginate: { itemsPerPage: publiPorPagina, currentPage: pagina}">
+                <td>
+                    {{r.titulo}}
+                </td>
+                <td>
+                    {{r.contenido}}
+                </td>
+                <td>
+                    <a class="btn btn-warning" *ngIf="esAdmin"
+                        routerLink="/publicidades/modificar-publicidades/{{r.idPublicidad}}" role="button">Modificar</a>
+                </td>
+                <td>
+                    <button type="button" *ngIf="esAdmin" class="btn btn-danger"
+                        (click)="ConfirmarEliminacion(r.idPublicidad)">
+                        Eliminar
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div> -->
+
+<div class="container" *ngFor="let p of recordList | paginate: { itemsPerPage: publiPorPagina, currentPage: pagina}">
+    <div class="align-middle">
+        <div class="card booking-card d-block mb-4">
+
+            <div class="view overlay">
+                <img class="card-img-top" src="http://localhost:3000/files/3/{{p.idPublicidad}}" alt="Card image cap">
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title font-weight-bold">{{p.titulo}}</h4>
+                    </div>
+                </div>
+                <p class="card-text color">{{p.contenido}}</p>
+                <hr class="my-2">
+            </div>
+
+
+            <div class="d-flex ">
+                <a class="btn btn-primary mr-2" *ngIf="esAdmin"
+                    routerLink="/publicidades/modificar-publicidades/{{p.idPublicidad}}" role="button">Modificar</a>
+                <button type="button" *ngIf="esAdmin" class="btn btn-danger mr-2"
+                    (click)="ConfirmarEliminacion(p.idPublicidad)">
                     Eliminar
                 </button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+            </div>
+        </div>
 
+
+
+    </div>
 </div>
 
-<pagination-controls (pageChange)="pagina = $event" nextLabel="Siguiente" previousLabel="Anterior"></pagination-controls>
+<pagination-controls (pageChange)="pagina = $event" nextLabel="Siguiente" previousLabel="Anterior">
+</pagination-controls>
 <ngx-spinner></ngx-spinner>
-<div class="modal" id= "confirmarEliminacion" tabindex="-1" role="dialog">
+<div class="modal" id="confirmarEliminacion" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Confirmación de Eliminación</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ¿Estás seguro de eliminar esta publicidad?
-        </div>
-        <div class="modal-footer">
-          <button (click)="EliminarPubli()" type="button" class="btn btn-success" >Confirmar</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmación de Eliminación</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de eliminar esta publicidad?
+            </div>
+            <div class="modal-footer">
+                <button (click)="EliminarPubli()" type="button" class="btn btn-success">Confirmar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-
+</div>

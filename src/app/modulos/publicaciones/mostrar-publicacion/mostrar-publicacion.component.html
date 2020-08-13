@@ -86,27 +86,11 @@
 <div class="container" *ngFor="let p of recordList | paginate: { itemsPerPage: publiPorPagina, currentPage: pagina}">
     <div class="align-middle">
         <div class="card booking-card d-block mb-4">
-            <!--<div class="portada d-flex justify-content-between">
-                         <div>
-                            <img src="http://localhost:3000/files/1/{{perfiles[i].idMusicoProfesional}}"
-                            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
-                                class="foto-perfil d-inline img-fluid mr-2">
-                            <h6 class="d-inline" >
-                                {{perfiles[i].nombre}} {{perfiles[i].apellido}}
-                            </h6>
-                        </div> 
-                    </div>
-                    <hr>
-                    -->
+            
             <div class="view overlay">
                 <img class="card-img-top" src="http://localhost:3000/files/2/{{p.idPublicacion}}" alt="Card image cap">
-                <!-- <img class="card-img-top" src="https://thumbs.dreamstime.com/z/ilustraci%C3%B3n-art%C3%ADstica-de-la-m%C3%BAsica-23308702.jpg" alt="Card image cap"> -->
             </div>
-
-
-
             <div class="card-body">
-
                 <div class="d-flex justify-content-between">
                     <div>
                         <h4 class="card-title font-weight-bold">{{p.titulo}}</h4>
@@ -122,13 +106,10 @@
                         <a routerLink="/denuncias-p/denuncias/{{p.idPublicacion}}" class="dropdown-item"
                             >Denunciar</a>
                     </div>
-
                 </div>
-
                 <p class="card-text color">{{p.contenido}}</p>
                 <p class="mr-2 d-inline color p">{{p.fecha}}</p>
                 <hr class="my-2">
-
             </div>
 
 
