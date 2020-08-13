@@ -1,5 +1,6 @@
 <br />
 <br />
+<h3>Denuncias Publicaciones</h3>
 <table class="table">
     <thead class="table-dark"> 
         <tr>
@@ -8,6 +9,9 @@
             </td>
             <td>
                 Tipo
+            </td>
+            <td>
+                Archivo
             </td>
             <td>
                 Fecha
@@ -24,6 +28,9 @@
             </td>
             <td>
                 {{r.tipo}}
+            </td>
+            <td>
+                <a href="http://localhost:3000/files/4/{{r.idDenunciaXPubli}}" class="btn btn-outline-danger">Archivo de Denuncia</a>
             </td>
             <td>
                 {{r.fecha}}
